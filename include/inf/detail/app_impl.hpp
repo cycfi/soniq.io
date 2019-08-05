@@ -11,19 +11,23 @@
 namespace cycfi { namespace infinity
 {
    ////////////////////////////////////////////////////////////////////////////
-   // Generic LED indicator (used for signaling errors)
+   // Generic LED indicator (used as a general indicator)
    // (Port and Pin is board/application specific)
    ////////////////////////////////////////////////////////////////////////////
 
 #if defined(NUCLEO_H743ZI)
 
+   // NUCLEO-H743ZI
    using main_led_type = output_pin<port::portb + 0>;
+   using main_button_type = input_pin<port::portc + 13>;
+
    using led1_type = output_pin<port::portb + 0>;
    using led2_type = output_pin<port::portb + 7>;
    using led3_type = output_pin<port::portb + 14>;
 
 #elif defined(STM32F429I_DISCO)
-    // STM32F429I-Discovery dev board.
+
+   // STM32F429I-Discovery dev board.
    using main_led_type = output_pin<port::portg + 13>;
    using main_test_pin_type = output_pin<port::porta + 15>;
 

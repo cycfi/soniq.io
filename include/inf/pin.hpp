@@ -330,7 +330,7 @@ namespace cycfi { namespace infinity
          return detail::get_port<port>();
       }
 
-      auto& ref() const
+      volatile auto& ref() const
       {
          return gpio().IDR;
       }

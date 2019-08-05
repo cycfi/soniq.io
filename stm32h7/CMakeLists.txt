@@ -91,6 +91,10 @@ if (DEFINED TIMER_INTERRUPT_TEST)
 set(MAIN_FILE ../tests/timer_interrupt.cpp)
 endif()
 
+if (DEFINED BUTTON_TEST)
+set(MAIN_FILE ../tests/button_test.cpp)
+endif()
+
 ###############################################################################
 # executable
 
