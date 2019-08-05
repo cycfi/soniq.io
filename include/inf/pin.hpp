@@ -287,7 +287,7 @@ namespace cycfi { namespace infinity
       auto setup(F task, std::size_t priority = 0)
       {
          init();
-         enable_interrupt();
+         enable_interrupt(priority);
 
          return [task](auto base)
          {
@@ -299,7 +299,7 @@ namespace cycfi { namespace infinity
       void enable_interrupt(std::size_t priority = 0)
       {
          // Connect External Line to the GPIO
-         LL_APB2_GRP1_EnableClock(PERIPH_SYSCFG);
+         detail::enable_exti_clock();
          LL_SYSCFG_SetEXTISource(detail::exti_port<port>(), detail::exti_id<bit>());
 
          // Configure NVIC to handle external interrupt

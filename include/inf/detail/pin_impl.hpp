@@ -189,11 +189,21 @@ namespace cycfi { namespace infinity { namespace detail
 #if defined(STM32H743xx)
 # define EnableClock(x) LL_AHB4_GRP1_EnableClock(x)
 # define PERIPH_GPIO(x) LL_AHB4_GRP1_PERIPH_GPIO##x
-# define PERIPH_SYSCFG LL_APB4_GRP1_PERIPH_SYSCFG
 #elif defined(STM32F446xx)
 # define EnableClock(x) LL_AHB1_GRP1_EnableClock(x)
 # define PERIPH_GPIO(x) LL_AHB1_GRP1_PERIPH_GPIO##x
-# define PERIPH_SYSCFG LL_APB2_GRP1_PERIPH_SYSCFG
+#endif
+
+#if defined(STM32H743xx)
+   inline void enable_exti_clock()
+   {
+      LL_APB4_GRP1_EnableClock(LL_APB4_GRP1_PERIPH_SYSCFG);
+   }
+#elif defined(STM32F446xx)
+   inline void enable_exti_clock()
+   {
+      LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
+   }
 #endif
 
 #define INFINITY_IOPORT(N, PORT_NAME)                                          \
