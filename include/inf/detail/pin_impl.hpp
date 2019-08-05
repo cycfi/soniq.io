@@ -9,13 +9,13 @@
 #include <cstddef>
 #include <cstdint>
 
-#if defined(STM32H743xx)
+#if defined(STM32H7)
 # include <stm32h7xx.h>
 # include <stm32h7xx_ll_gpio.h>
 # include <stm32h7xx_ll_bus.h>
 # include <stm32h7xx_ll_system.h>
 # include <stm32h7xx_ll_exti.h>
-#elif defined(STM32F446xx)
+#elif defined(STM32F4)
 # include <stm32f4xx.h>
 # include <stm32f4xx_ll_gpio.h>
 # include <stm32f4xx_ll_bus.h>
@@ -94,7 +94,7 @@ namespace cycfi { namespace infinity { namespace detail
          case 24: return LL_EXTI_LINE_24;
          case 25: return LL_EXTI_LINE_25;
          case 26: return LL_EXTI_LINE_26;
-         case 26: return LL_EXTI_LINE_27;
+         case 27: return LL_EXTI_LINE_27;
          case 28: return LL_EXTI_LINE_28;
          case 29: return LL_EXTI_LINE_29;
          case 30: return LL_EXTI_LINE_30;
@@ -130,7 +130,6 @@ namespace cycfi { namespace infinity { namespace detail
          case 58: return LL_EXTI_LINE_58;
          case 59: return LL_EXTI_LINE_59;
          case 60: return LL_EXTI_LINE_60;
-         case 50: return LL_EXTI_LINE_50;
          case 61: return LL_EXTI_LINE_61;
          case 62: return LL_EXTI_LINE_62;
          case 63: return LL_EXTI_LINE_63;

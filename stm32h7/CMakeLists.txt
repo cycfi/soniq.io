@@ -46,6 +46,7 @@ add_definitions(
    -D__packed=__attribute__\(\(__packed__\)\)
    -DUSE_HAL_DRIVER
    -DSTM32H743xx
+   -DSTM32H7
 )
 
 ###############################################################################
@@ -84,6 +85,10 @@ include_directories(
 
 if (DEFINED BLINKY_TEST)
 set(MAIN_FILE ../tests/blinky.cpp)
+endif()
+
+if (DEFINED TIMER_INTERRUPT_TEST)
+set(MAIN_FILE ../tests/timer_interrupt.cpp)
 endif()
 
 ###############################################################################

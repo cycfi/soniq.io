@@ -8,14 +8,15 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DBLINKY_TEST=1" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DTIMER_INTERRUPT_TEST=1" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="778ab6a6-eab1-401e-9cb6-80421550dfe0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Inc/stm32h7xx_hal_conf.h" beforeDir="false" afterPath="$PROJECT_DIR$/Inc/stm32h7xx_hal_conf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inc/stm32h7xx_nucleo_144.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/stm32h7xx_nucleo_144.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/blinky.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/blinky.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,21 +32,11 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" column="16" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_utils.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="247">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
               <folding>
-                <element signature="e#833#864#0" expanded="true" />
                 <element signature="e#952#977#0" expanded="true" />
               </folding>
             </state>
@@ -53,59 +44,53 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h">
+        <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_utils.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Inc/stm32h7xx_hal_conf.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="424" column="31" lean-forward="true" selection-start-line="424" selection-start-column="31" selection-end-line="424" selection-end-column="31" />
+            <state relative-caret-position="271">
+              <caret line="335" column="6" selection-start-line="335" selection-start-column="6" selection-end-line="335" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c">
+        <entry file="file://$PROJECT_DIR$/../include/inf/timer.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="207" column="21" selection-start-line="207" selection-start-column="21" selection-end-line="207" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../tests/blinky.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+            <state relative-caret-position="135">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
-                <element signature="e#303#329#0" expanded="true" />
+                <element signature="e#632#662#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../q/q_lib/CMakeLists.txt">
+        <entry file="file://$PROJECT_DIR$/../include/inf/detail/app_impl.hpp">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="864">
+              <caret line="168" column="9" selection-start-line="168" selection-start-column="9" selection-end-line="168" selection-end-column="9" />
+              <folding>
+                <element signature="e#626#648#0" expanded="true" />
+                <element signature="e#835#930#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-94">
-              <caret line="151" selection-start-line="151" selection-end-line="151" />
+            <state relative-caret-position="186">
+              <caret line="132" selection-start-line="132" selection-end-line="132" />
               <folding>
                 <element signature="e#415#433#0" expanded="true" />
-                <element signature="e#479#502#0" expanded="true" />
+                <element signature="e#475#498#0" expanded="true" />
                 <element signature="e#659#811#0" expanded="true" />
-                <element signature="e#4044#4203#0" expanded="true" />
                 <element signature="e#9120#9141#0" expanded="true" />
                 <element signature="e#9164#9186#0" expanded="true" />
               </folding>
@@ -113,18 +98,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../tests/timer_interrupt.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-53" />
+            <state relative-caret-position="137">
+              <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../include/inf/pin.hpp">
+        <entry file="file://$PROJECT_DIR$/../include/inf/detail/timer_impl.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="302" column="37" selection-start-line="302" selection-start-column="37" selection-end-line="302" selection-end-column="37" />
+            <state relative-caret-position="288">
+              <caret line="63" column="14" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="16" />
+              <folding>
+                <element signature="e#4730#4821#0" expanded="true" />
+                <element signature="e#4850#4941#0" expanded="true" />
+                <element signature="e#4970#5061#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inc/stm32h7xx_hal_conf.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="424" column="31" selection-start-line="424" selection-start-column="31" selection-end-line="424" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -147,13 +148,15 @@
         <option value="$PROJECT_DIR$/Src/stm32h7xx_hal_msp.c" />
         <option value="$PROJECT_DIR$/Src/stm32h7xx_it.c" />
         <option value="$PROJECT_DIR$/../include/inf/support.hpp" />
-        <option value="$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp" />
         <option value="$PROJECT_DIR$/../include/inf/pin.hpp" />
         <option value="$PROJECT_DIR$/../include/inf/app.hpp" />
         <option value="$PROJECT_DIR$/../include/inf/device.hpp" />
         <option value="$PROJECT_DIR$/Src/init.c" />
         <option value="$PROJECT_DIR$/../tests/blinky_h7.cpp" />
         <option value="$PROJECT_DIR$/Inc/stm32h7xx_hal_conf.h" />
+        <option value="$PROJECT_DIR$/../include/inf/timer.hpp" />
+        <option value="$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp" />
+        <option value="$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp" />
       </list>
     </option>
   </component>
@@ -283,18 +286,18 @@
       <updated>1564922845249</updated>
       <workItem from="1564922847803" duration="4064000" />
       <workItem from="1564957023008" duration="521000" />
-      <workItem from="1564958499384" duration="10091000" />
+      <workItem from="1564958499384" duration="12069000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14676000" />
+    <option name="totallyTimeSpent" value="16654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="86" y="47" width="1474" height="929" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25698325" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25698325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -305,7 +308,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.3297491" />
+      <window_info anchor="bottom" id="Messages" order="8" visible="true" weight="0.3297491" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -436,25 +439,10 @@
         <state relative-caret-position="-53" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-94">
-          <caret line="151" selection-start-line="151" selection-end-line="151" />
-          <folding>
-            <element signature="e#415#433#0" expanded="true" />
-            <element signature="e#479#502#0" expanded="true" />
-            <element signature="e#659#811#0" expanded="true" />
-            <element signature="e#4044#4203#0" expanded="true" />
-            <element signature="e#9120#9141#0" expanded="true" />
-            <element signature="e#9164#9186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../tests/blinky.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        <state relative-caret-position="240">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
           <folding>
             <element signature="e#303#329#0" expanded="true" />
           </folding>
@@ -467,7 +455,7 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
-          <caret line="47" column="16" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="16" />
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -475,17 +463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_utils.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="e#833#864#0" expanded="true" />
-            <element signature="e#952#977#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -499,7 +476,88 @@
     <entry file="file://$PROJECT_DIR$/Inc/stm32h7xx_hal_conf.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
-          <caret line="424" column="31" lean-forward="true" selection-start-line="424" selection-start-column="31" selection-end-line="424" selection-end-column="31" />
+          <caret line="424" column="31" selection-start-line="424" selection-start-column="31" selection-end-line="424" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_utils.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <folding>
+            <element signature="e#952#977#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="335" column="6" selection-start-line="335" selection-start-column="6" selection-end-line="335" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/timer.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#632#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/app_impl.hpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="168" column="9" selection-start-line="168" selection-start-column="9" selection-end-line="168" selection-end-column="9" />
+          <folding>
+            <element signature="e#626#648#0" expanded="true" />
+            <element signature="e#835#930#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="132" selection-start-line="132" selection-end-line="132" />
+          <folding>
+            <element signature="e#415#433#0" expanded="true" />
+            <element signature="e#475#498#0" expanded="true" />
+            <element signature="e#659#811#0" expanded="true" />
+            <element signature="e#9120#9141#0" expanded="true" />
+            <element signature="e#9164#9186#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="2384" column="12" selection-start-line="2384" selection-start-column="8" selection-end-line="2384" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/timer_impl.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="63" column="14" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="16" />
+          <folding>
+            <element signature="e#4730#4821#0" expanded="true" />
+            <element signature="e#4850#4941#0" expanded="true" />
+            <element signature="e#4970#5061#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tests/timer_interrupt.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
         </state>
       </provider>
     </entry>
