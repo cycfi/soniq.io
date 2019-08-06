@@ -8,17 +8,11 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DBLINKY_TEST=1" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DSSD1306_TEST=1" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9b6e609-f4b2-4f5e-a683-2dce058a1fbc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../include/inf/config.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/config.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/inf/timer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/timer.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32h7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32h7/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32h7/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32h7/CMakeLists.txt" afterDir="false" />
-    </list>
+    <list default="true" id="f9b6e609-f4b2-4f5e-a683-2dce058a1fbc" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
+            <state relative-caret-position="139">
               <caret line="228" selection-start-line="228" selection-end-line="228" />
               <folding>
                 <element signature="e#651#674#0" expanded="true" />
@@ -90,11 +84,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../include/inf/detail/app_impl.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="172">
+              <caret line="35" column="29" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="29" />
               <folding>
                 <element signature="e#1408#1531#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="41" column="65" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="85" column="36" lean-forward="true" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../include/inf/canvas.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="112" column="73" selection-start-line="112" selection-start-column="73" selection-end-line="112" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -117,6 +138,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp" />
+        <option value="$PROJECT_DIR$/../include/inf/canvas.hpp" />
       </list>
     </option>
   </component>
@@ -169,6 +191,12 @@
               <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
               <item name="infinity_f446" type="47feb1d3:ProjectViewModuleNode" />
               <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="stm32f446" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
+              <item name="infinity_f446" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -178,6 +206,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -234,18 +263,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565072099973</updated>
-      <workItem from="1565072101482" duration="1705000" />
+      <workItem from="1565072101482" duration="3136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1705000" />
+    <option name="totallyTimeSpent" value="3136000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="27" y="34" width="1474" height="929" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
@@ -255,8 +285,8 @@
       <window_info anchor="bottom" id="CMake" weight="0.3297491" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3297491" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39904422" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3297491" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39904422" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -314,16 +344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/detail/app_impl.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#1408#1531#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../tests/blinky.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -343,7 +363,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
+        <state relative-caret-position="139">
           <caret line="228" selection-start-line="228" selection-end-line="228" />
           <folding>
             <element signature="e#651#674#0" expanded="true" />
@@ -361,6 +381,37 @@
             <element signature="e#9169#9190#0" expanded="true" />
             <element signature="e#9224#9312#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/app_impl.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="35" column="29" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="29" />
+          <folding>
+            <element signature="e#1408#1531#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="41" column="65" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/canvas.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="112" column="73" selection-start-line="112" selection-start-column="73" selection-end-line="112" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="85" column="36" lean-forward="true" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
         </state>
       </provider>
     </entry>

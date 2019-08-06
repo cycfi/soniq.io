@@ -104,6 +104,10 @@ if (DEFINED BUTTON_INTERRUPT_TEST)
 set(MAIN_FILE ../tests/button_interrupt_test.cpp)
 endif()
 
+if (DEFINED SSD1306_TEST)
+set(MAIN_FILE ../tests/ssd1306_test.cpp)
+endif()
+
 ###############################################################################
 # executable
 
