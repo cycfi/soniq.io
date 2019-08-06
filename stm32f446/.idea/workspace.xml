@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="stm32f446" targetName="stm32f446.elf" />
+      <config projectName="stm32f446" targetName="UPLOAD" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DBLINKY_TEST=1" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f9b6e609-f4b2-4f5e-a683-2dce058a1fbc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../include/inf/config.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/config.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/timer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/timer.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../stm32h7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32h7/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../stm32h7/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32h7/CMakeLists.txt" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../include/inf/support.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="228" selection-start-line="228" selection-end-line="228" />
+              <folding>
+                <element signature="e#651#674#0" expanded="true" />
+                <element signature="e#3336#5972#0" expanded="true" />
+                <element signature="e#6821#6924#0" expanded="true" />
+                <element signature="e#7092#7193#0" expanded="true" />
+                <element signature="e#8817#8838#0" expanded="true" />
+                <element signature="e#8861#8882#0" expanded="true" />
+                <element signature="e#8905#8926#0" expanded="true" />
+                <element signature="e#8949#8970#0" expanded="true" />
+                <element signature="e#8993#9014#0" expanded="true" />
+                <element signature="e#9037#9058#0" expanded="true" />
+                <element signature="e#9081#9102#0" expanded="true" />
+                <element signature="e#9125#9146#0" expanded="true" />
+                <element signature="e#9169#9190#0" expanded="true" />
+                <element signature="e#9224#9312#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../tests/blinky.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="e#302#328#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../include/inf/pin.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="167" selection-start-line="167" selection-end-line="167" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../include/inf/detail/app_impl.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <element signature="e#1408#1531#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../include/inf/app.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="16" selection-start-line="10" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="27" />
+    <option name="y" value="34" />
+    <option name="width" value="1474" />
+    <option name="height" value="929" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
+              <item name="infinity_f446" type="47feb1d3:ProjectViewModuleNode" />
+            </path>
+            <path>
+              <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
+              <item name="infinity_f446" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
+              <item name="infinity_f446" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
+              <item name="infinity_f446" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="inf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
+              <item name="infinity_f446" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="inf" type="462c0819:PsiDirectoryNode" />
+              <item name="detail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
+              <item name="infinity_f446" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="OpenOCD Download &amp; Run.OCD stm32f446">
+    <configuration name="UPLOAD" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32f446" TARGET_NAME="UPLOAD" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="infinity_f446.elf" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32f446" TARGET_NAME="infinity_f446.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stm32f446" RUN_TARGET_NAME="infinity_f446.elf">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="stm32f446.elf" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32f446" TARGET_NAME="stm32f446.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stm32f446" RUN_TARGET_NAME="stm32f446.elf">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.infinity_f446.elf" />
+      <item itemvalue="CMake Application.stm32f446.elf" />
+      <item itemvalue="CMake Application.UPLOAD" />
+      <item itemvalue="OpenOCD Download &amp; Run.OCD stm32f446" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f9b6e609-f4b2-4f5e-a683-2dce058a1fbc" name="Default Changelist" comment="" />
+      <created>1565072099973</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565072099973</updated>
+      <workItem from="1565072101482" duration="1705000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1705000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="27" y="34" width="1474" height="929" extended-state="0" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Messages" weight="0.3297491" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="CMake" weight="0.3297491" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3297491" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39904422" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/../tests/blinky.cpp</url>
+          <line>38</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/../tests/blinky.cpp</url>
+          <line>25</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="172" selection-start-line="172" selection-end-line="172" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/support.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/app.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="16" selection-start-line="10" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/app_impl.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#1408#1531#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tests/blinky.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#302#328#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/pin.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="167" selection-start-line="167" selection-end-line="167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="228" selection-start-line="228" selection-end-line="228" />
+          <folding>
+            <element signature="e#651#674#0" expanded="true" />
+            <element signature="e#3336#5972#0" expanded="true" />
+            <element signature="e#6821#6924#0" expanded="true" />
+            <element signature="e#7092#7193#0" expanded="true" />
+            <element signature="e#8817#8838#0" expanded="true" />
+            <element signature="e#8861#8882#0" expanded="true" />
+            <element signature="e#8905#8926#0" expanded="true" />
+            <element signature="e#8949#8970#0" expanded="true" />
+            <element signature="e#8993#9014#0" expanded="true" />
+            <element signature="e#9037#9058#0" expanded="true" />
+            <element signature="e#9081#9102#0" expanded="true" />
+            <element signature="e#9125#9146#0" expanded="true" />
+            <element signature="e#9169#9190#0" expanded="true" />
+            <element signature="e#9224#9312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
