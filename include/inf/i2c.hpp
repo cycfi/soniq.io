@@ -25,8 +25,6 @@ namespace cycfi { namespace infinity
       static constexpr std::size_t scl_pin = scl_pin_;
       static constexpr std::size_t sda_pin = sda_pin_;
       static constexpr std::size_t id = detail::scl_pin<scl_pin>::i2c_id;
-      static constexpr std::uint32_t scl_af = detail::scl_pin<scl_pin>::i2c_af;
-      static constexpr std::uint32_t sda_af = detail::sda_pin<sda_pin>::i2c_af;
       using scl_peripheral_id = io_pin_id<scl_pin>;
       using sda_peripheral_id = io_pin_id<sda_pin>;
 
@@ -87,9 +85,9 @@ namespace cycfi { namespace infinity
       detail::i2c_config(
          id,
          detail::get_port<scl_port>(),
-         1 << (scl_pin % 16), scl_af,
+         1 << (scl_pin % 16), LL_GPIO_AF_4,
          detail::get_port<sda_port>(),
-         1 << (sda_pin % 16), sda_af
+         1 << (sda_pin % 16), LL_GPIO_AF_4
       );
    }
 

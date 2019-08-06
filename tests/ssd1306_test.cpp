@@ -19,9 +19,17 @@
 namespace inf = cycfi::infinity;
 using namespace inf::port;
 
+#if defined(STM32H7)
+constexpr auto scl_pin = portb+6;
+constexpr auto sda_pin = portb+7;
+#elif defined(STM32F4)
+constexpr auto scl_pin = portb+10;
+constexpr auto sda_pin = portb+3;
+#endif
+
 using inf::delay_ms;
 using canvas_type = inf::mono_canvas<128, 32>;
-using i2c_type = inf::i2c_master<portb+10, portb+3>;
+using i2c_type = inf::i2c_master<scl_pin, sda_pin>;
 using oled_type = inf::ssd1306<i2c_type, canvas_type>;
 using namespace inf::monochrome;
 

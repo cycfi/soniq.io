@@ -17,9 +17,16 @@ namespace cycfi { namespace infinity { namespace detail
 {
    I2C_HandleTypeDef i2c_handles[3];
 
+#if defined(STM32H7)
+   // I2C TIMING Register define when I2C clock source is APB1 (SYSCLK/4)
+   // I2C TIMING is calculated in case of the I2C Clock source is the APB1CLK = 100 MHz
+   // Use TIMING to 0x00901954 to reach 400 kHz speed (Rise time = 100 ns, Fall time = 10 ns)
+   static auto constexpr i2c_timing = 0x00901954;
+#elif defined(STM32F4)
    // I2C SPEEDCLOCK define to max value: 400 KHz
    static auto constexpr i2c_clock_speed = 400000;
    static auto constexpr i2c_duty_cycle = I2C_DUTYCYCLE_2;
+#endif
 
    void setup_i2c_pin(GPIO_TypeDef& gpio, std::uint32_t pin_mask, std::uint32_t af)
    {
@@ -48,8 +55,12 @@ namespace cycfi { namespace infinity { namespace detail
            case 1: handle.Instance = I2C2; 	break;
            case 2: handle.Instance = I2C3; 	break;
       }
+#if defined(STM32H7)
+      handle.Init.Timing = i2c_timing;
+#elif defined(STM32F4)
       handle.Init.ClockSpeed = i2c_clock_speed;
       handle.Init.DutyCycle = i2c_duty_cycle;
+#endif
       handle.Init.OwnAddress1 = 0;
       handle.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
       handle.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
@@ -70,5 +81,10 @@ namespace cycfi { namespace infinity { namespace detail
       }
 
       HAL_I2C_Init(&handle);
+
+#if defined(STM32H7)
+      HAL_I2CEx_ConfigAnalogFilter(&handle, I2C_ANALOGFILTER_ENABLE);
+#endif
+
    }
 }}}
