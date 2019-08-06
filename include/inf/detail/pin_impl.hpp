@@ -90,6 +90,7 @@ namespace cycfi { namespace infinity { namespace detail
          case 20: return LL_EXTI_LINE_20;
          case 21: return LL_EXTI_LINE_21;
          case 22: return LL_EXTI_LINE_22;
+#if defined(STM32H743xx)
          case 23: return LL_EXTI_LINE_23;
          case 24: return LL_EXTI_LINE_24;
          case 25: return LL_EXTI_LINE_25;
@@ -99,8 +100,6 @@ namespace cycfi { namespace infinity { namespace detail
          case 29: return LL_EXTI_LINE_29;
          case 30: return LL_EXTI_LINE_30;
          case 31: return LL_EXTI_LINE_31;
-
-#if defined(STM32H743xx)
          case 32: return LL_EXTI_LINE_32;
          case 33: return LL_EXTI_LINE_33;
          case 34: return LL_EXTI_LINE_34;

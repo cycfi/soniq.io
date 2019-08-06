@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ###############################################################################
 # specify cross compilers and tools
+
 SET(CMAKE_C_COMPILER_WORKS 1)
 SET(CMAKE_C_COMPILER arm-none-eabi-gcc)
 SET(CMAKE_CXX_COMPILER_WORKS 1)
@@ -39,6 +40,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_INIT "-Wl,-gc-sections,--print-memory-usage -T ${LINK
 
 ###############################################################################
 # project
+
 PROJECT(stm32h7 C CXX ASM)
 
 add_definitions(
@@ -76,8 +78,10 @@ include_directories(
    ${Q_HEADER}
    ${INFRA_HEADER}
    Inc
-   Drivers/STM32H7xx_HAL_Driver/Inc Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
-   Drivers/CMSIS/Device/ST/STM32H7xx/Include Drivers/CMSIS/Include
+   Drivers/STM32H7xx_HAL_Driver/Inc
+   Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
+   Drivers/CMSIS/Device/ST/STM32H7xx/Include
+   Drivers/CMSIS/Include
 )
 
 ###############################################################################

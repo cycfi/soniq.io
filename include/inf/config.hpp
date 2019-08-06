@@ -3,8 +3,8 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
-#if !defined(CYCFI_INFINITY_CONFIG_HPP_SEPTEMBER_11_2017)
-#define CYCFI_INFINITY_CONFIG_HPP_SEPTEMBER_11_2017
+#if !defined(CYCFI_INFINITY_CONFIG_HPP_SEPTEMBER_11_2019)
+#define CYCFI_INFINITY_CONFIG_HPP_SEPTEMBER_11_2019
 
 #include <type_traits>
 #include <inf/support.hpp>
