@@ -4,8 +4,14 @@
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
 #include <inf/detail/i2c_impl.hpp>
-#include "stm32f4xx_ll_bus.h"
-#include "stm32f4xx_ll_gpio.h"
+
+#if defined(STM32H7)
+# include "stm32h7xx_ll_bus.h"
+# include "stm32h7xx_ll_gpio.h"
+#elif defined(STM32F4)
+# include "stm32f4xx_ll_bus.h"
+# include "stm32f4xx_ll_gpio.h"
+#endif
 
 namespace cycfi { namespace infinity { namespace detail
 {
@@ -15,14 +21,14 @@ namespace cycfi { namespace infinity { namespace detail
    static auto constexpr i2c_clock_speed = 400000;
    static auto constexpr i2c_duty_cycle = I2C_DUTYCYCLE_2;
 
-   void setup_i2c_pin(GPIO_TypeDef& gpio, std::uint32_t pin_mask)
+   void setup_i2c_pin(GPIO_TypeDef& gpio, std::uint32_t pin_mask, std::uint32_t af)
    {
       LL_GPIO_SetPinMode(&gpio, pin_mask, LL_GPIO_MODE_ALTERNATE);
 
       if (pin_mask > LL_GPIO_PIN_7)
-         LL_GPIO_SetAFPin_8_15(&gpio, pin_mask, LL_GPIO_AF_4);
+         LL_GPIO_SetAFPin_8_15(&gpio, pin_mask, af);
       else
-         LL_GPIO_SetAFPin_0_7(&gpio, pin_mask, LL_GPIO_AF_4);
+         LL_GPIO_SetAFPin_0_7(&gpio, pin_mask, af);
 
       LL_GPIO_SetPinSpeed(&gpio, pin_mask, LL_GPIO_SPEED_FREQ_HIGH);
       LL_GPIO_SetPinOutputType(&gpio, pin_mask, LL_GPIO_OUTPUT_OPENDRAIN);
@@ -31,8 +37,8 @@ namespace cycfi { namespace infinity { namespace detail
 
    void i2c_config(
       std::size_t id,
-      GPIO_TypeDef& scl_gpio, std::uint32_t scl_pin_mask,
-      GPIO_TypeDef& sda_gpio, std::uint32_t sda_pin_mask
+      GPIO_TypeDef& scl_gpio, std::uint32_t scl_pin_mask, std::uint32_t scl_af,
+      GPIO_TypeDef& sda_gpio, std::uint32_t sda_pin_mask, std::uint32_t sda_af
    )
    {
       auto& handle = i2c_handles[id-1];
@@ -52,8 +58,8 @@ namespace cycfi { namespace infinity { namespace detail
       handle.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
 
       // Configure SDA and SCL Pins
-      setup_i2c_pin(scl_gpio, scl_pin_mask);
-      setup_i2c_pin(sda_gpio, sda_pin_mask);
+      setup_i2c_pin(scl_gpio, scl_pin_mask, scl_af);
+      setup_i2c_pin(sda_gpio, sda_pin_mask, sda_af);
 
       // Peripheral clock enable
       switch (id-1)

@@ -6,7 +6,12 @@
 #if !defined(CYCFI_INFINITY_I2C_IMPL_HPP_AUGUST_16_2019)
 #define CYCFI_INFINITY_I2C_IMPL_HPP_AUGUST_16_2019
 
-#include <stm32f4xx_hal.h>
+#if defined(STM32H7)
+# include <stm32h7xx_hal.h>
+#elif defined(STM32F4)
+# include <stm32f4xx_hal.h>
+#endif
+
 #include <cstdint>
 #include <inf/pin.hpp>
 
@@ -15,28 +20,30 @@ namespace cycfi { namespace infinity { namespace detail
    template <std::size_t pin>
    struct scl_pin
    {
-      static const int i2c_id = -1;
+      static constexpr int i2c_id = -1;
    };
 
    template <std::size_t pin>
    struct sda_pin
    {
-      static const int i2c_id = -1;
+      static constexpr int i2c_id = -1;
    };
 
-#define INFINITY_SCL_PIN(pin, i2c_id_)                                         \
+#define INFINITY_SCL_PIN(pin, i2c_id_, alternate_function)                     \
    template <>                                                                 \
    struct scl_pin<pin>                                                         \
    {                                                                           \
-      static const int i2c_id = i2c_id_;                                       \
+      static constexpr int i2c_id = i2c_id_;                                   \
+      static constexpr std::uint32_t i2c_af = LL_GPIO_AF_##alternate_function; \
    };                                                                          \
    /***/
 
-   #define INFINITY_SDA_PIN(pin, i2c_id_)                                      \
+   #define INFINITY_SDA_PIN(pin, i2c_id_, alternate_function)                  \
    template <>                                                                 \
    struct sda_pin<pin>                                                         \
    {                                                                           \
-      static const int i2c_id = i2c_id_;                                       \
+      static constexpr int i2c_id = i2c_id_;                                   \
+      static constexpr std::uint32_t i2c_af = LL_GPIO_AF_##alternate_function; \
    };                                                                          \
    /***/
 
@@ -52,32 +59,62 @@ namespace cycfi { namespace infinity { namespace detail
       return sda_pin<pin>::i2c_id != -1;
    }
 
-   INFINITY_SCL_PIN(port::porta + 8 , 3);
-   INFINITY_SDA_PIN(port::portb + 3 , 2);
-   INFINITY_SDA_PIN(port::portb + 4 , 3);
-   INFINITY_SCL_PIN(port::portb + 6 , 1);
-   INFINITY_SDA_PIN(port::portb + 7 , 1);
-   INFINITY_SCL_PIN(port::portb + 8 , 1);
-   INFINITY_SDA_PIN(port::portb + 9 , 1);
-   INFINITY_SCL_PIN(port::portb + 10, 2);
-   INFINITY_SDA_PIN(port::portb + 11, 2);
-   INFINITY_SCL_PIN(port::portc + 6 , 1);
-   INFINITY_SDA_PIN(port::portc + 7 , 1);
-   INFINITY_SDA_PIN(port::portc + 9 , 3);
-   INFINITY_SDA_PIN(port::portc + 12, 2);
-   INFINITY_SCL_PIN(port::portd + 12, 1);
-   INFINITY_SDA_PIN(port::portd + 13, 1);
-   INFINITY_SCL_PIN(port::portd + 14, 1);
-   INFINITY_SDA_PIN(port::portd + 15, 1);
-   INFINITY_SDA_PIN(port::portf + 0 , 2);
-   INFINITY_SCL_PIN(port::portf + 1 , 2);
-   INFINITY_SCL_PIN(port::portf + 14, 1);
-   INFINITY_SDA_PIN(port::portf + 15, 1);
+#if defined(STM32H7)
+
+   INFINITY_SCL_PIN(port::portb + 6 , 1, 4);
+   INFINITY_SDA_PIN(port::portb + 7 , 1, 4);
+   INFINITY_SCL_PIN(port::portb + 8 , 1, 4);
+   INFINITY_SDA_PIN(port::portb + 9 , 1, 4);
+
+   INFINITY_SCL_PIN(port::portf + 1 , 2, 4);
+   INFINITY_SDA_PIN(port::portf + 0 , 2, 4);
+   INFINITY_SCL_PIN(port::portb + 10 , 2, 4);
+   INFINITY_SDA_PIN(port::portb + 11 , 2, 4);
+
+   INFINITY_SCL_PIN(port::porta + 8 , 3, 4);
+   INFINITY_SDA_PIN(port::porta + 9 , 3, 4);
+
+   INFINITY_SCL_PIN(port::portb + 6 , 4, 6);
+   INFINITY_SDA_PIN(port::portb + 7 , 4, 6);
+   INFINITY_SCL_PIN(port::portb + 8 , 4, 6);
+   INFINITY_SDA_PIN(port::portb + 9 , 4, 6);
+   INFINITY_SCL_PIN(port::portd + 12 , 4, 4);
+   INFINITY_SDA_PIN(port::portd + 13 , 4, 4);
+   INFINITY_SDA_PIN(port::portf + 15 , 4, 4);
+
+
+#elif defined(STM32F4)
+
+   INFINITY_SCL_PIN(port::portb + 6 , 1, 4);
+   INFINITY_SDA_PIN(port::portb + 7 , 1, 4);
+   INFINITY_SCL_PIN(port::portb + 8 , 1, 4);
+   INFINITY_SDA_PIN(port::portb + 9 , 1, 4);
+   INFINITY_SCL_PIN(port::portc + 6 , 1, 4);
+   INFINITY_SDA_PIN(port::portc + 7 , 1, 4);
+   INFINITY_SCL_PIN(port::portd + 12, 1, 4);
+   INFINITY_SDA_PIN(port::portd + 13, 1, 4);
+   INFINITY_SCL_PIN(port::portd + 14, 1, 4);
+   INFINITY_SDA_PIN(port::portd + 15, 1, 4);
+   INFINITY_SCL_PIN(port::portf + 14, 1, 4);
+   INFINITY_SDA_PIN(port::portf + 15, 1, 4);
+
+   INFINITY_SCL_PIN(port::portb + 10, 2, 4);
+   INFINITY_SDA_PIN(port::portb + 3 , 2, 4);
+   INFINITY_SDA_PIN(port::portb + 11, 2, 4);
+   INFINITY_SDA_PIN(port::portc + 12, 2, 4);
+   INFINITY_SCL_PIN(port::portf + 1 , 2, 4);
+   INFINITY_SDA_PIN(port::portf + 0 , 2, 4);
+
+   INFINITY_SCL_PIN(port::porta + 8 , 3, 4);
+   INFINITY_SDA_PIN(port::portb + 4 , 3, 4);
+   INFINITY_SDA_PIN(port::portc + 9 , 3, 4);
+
+#endif
 
    void i2c_config(
 	  std::size_t id,
-      GPIO_TypeDef& scl_gpio, std::uint32_t scl_pin_mask,
-      GPIO_TypeDef& sda_gpio, std::uint32_t sda_pin_mask
+      GPIO_TypeDef& scl_gpio, std::uint32_t scl_pin_mask, std::uint32_t scl_af,
+      GPIO_TypeDef& sda_gpio, std::uint32_t sda_pin_mask, std::uint32_t sda_af
    );
 
    extern I2C_HandleTypeDef i2c_handles[3];
