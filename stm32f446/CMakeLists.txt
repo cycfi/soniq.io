@@ -28,6 +28,7 @@ add_definitions(
    -DARM_MATH_ROUNDING
    -DNUCLEO_F446RE
    -DCYCFI_INFINITY_BOARD
+   -DQ_DONT_USE_THREADS
    -D__FPU_PRESENT=1
 )
 
@@ -79,6 +80,7 @@ include_directories(
    ${Q_HEADER}
    ${INFRA_HEADER}
    Inc
+   SYSTEM
    Drivers/STM32F4xx_HAL_Driver/Inc
    Drivers/STM32F4xx_HAL_Driver/Inc/Legacy
    Drivers/CMSIS/Device/ST/STM32F4xx/Include
@@ -106,6 +108,10 @@ endif()
 
 if (DEFINED SSD1306_TEST)
 set(MAIN_FILE ../tests/ssd1306_test.cpp)
+endif()
+
+if (DEFINED ADC_TEST1)
+  set(MAIN_FILE ../tests/adc_test1.cpp)
 endif()
 
 ###############################################################################

@@ -78,6 +78,7 @@ include_directories(
    ${Q_HEADER}
    ${INFRA_HEADER}
    Inc
+   SYSTEM
    Drivers/STM32H7xx_HAL_Driver/Inc
    Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
    Drivers/CMSIS/Device/ST/STM32H7xx/Include

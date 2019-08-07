@@ -109,65 +109,65 @@ extern "C"
  TIMER_INTERRUPT_HANDLER(8, TIM8_UP_IRQHandler)
 #endif
 
-//#define HANDLE_ADC_INTERRUPT(ID, STREAM)                                       \
-//   {                                                                           \
-//      if (LL_DMA_IsActiveFlag_TC##STREAM(DMA2) == 1)                           \
-//      {                                                                        \
-//         LL_DMA_ClearFlag_TC##STREAM(DMA2);                                    \
-//         ::config(cycfi::infinity::adc_conversion_complete<ID>{});             \
-//      }                                                                        \
-//                                                                               \
-//      if (LL_DMA_IsActiveFlag_HT##STREAM(DMA2) == 1)                           \
-//      {                                                                        \
-//         LL_DMA_ClearFlag_HT##STREAM(DMA2);                                    \
-//         ::config(cycfi::infinity::adc_conversion_half_complete<ID>{});        \
-//      }                                                                        \
-//                                                                               \
-//      if (LL_DMA_IsActiveFlag_TE##STREAM(DMA2) == 1)                           \
-//      {                                                                        \
-//         LL_DMA_ClearFlag_TE##STREAM(DMA2);                                    \
-//         cycfi::infinity::error_handler();                                     \
-//      }                                                                        \
-//   }                                                                           \
-//   /***/
-//
-//   void DMA2_Stream0_IRQHandler(void)
-//   {
-//      HANDLE_ADC_INTERRUPT(1, 0);
-//   }
-//
-//   void DMA2_Stream1_IRQHandler(void)
-//   {
-//      HANDLE_ADC_INTERRUPT(3, 1);
-//   }
-//
-//   void DMA2_Stream2_IRQHandler(void)
-//   {
-//      HANDLE_ADC_INTERRUPT(2, 2);
-//   }
-//
-//   void ADC_IRQHandler(void)
-//   {
-//      // Check whether ADC group regular overrun caused the ADC interruption
-//
-//      if (LL_ADC_IsActiveFlag_OVR(ADC1) != 0)
-//      {
-//         LL_ADC_ClearFlag_OVR(ADC1);
-//         cycfi::infinity::error_handler();
-//      }
-//
-//      if (LL_ADC_IsActiveFlag_OVR(ADC2) != 0)
-//      {
-//         LL_ADC_ClearFlag_OVR(ADC2);
-//         cycfi::infinity::error_handler();
-//      }
-//
-//      if (LL_ADC_IsActiveFlag_OVR(ADC3) != 0)
-//      {
-//         LL_ADC_ClearFlag_OVR(ADC3);
-//         cycfi::infinity::error_handler();
-//      }
-//   }
+#define HANDLE_ADC_INTERRUPT(ID, STREAM)                                       \
+   {                                                                           \
+      if (LL_DMA_IsActiveFlag_TC##STREAM(DMA2) == 1)                           \
+      {                                                                        \
+         LL_DMA_ClearFlag_TC##STREAM(DMA2);                                    \
+         ::config(cycfi::infinity::adc_conversion_complete<ID>{});             \
+      }                                                                        \
+                                                                               \
+      if (LL_DMA_IsActiveFlag_HT##STREAM(DMA2) == 1)                           \
+      {                                                                        \
+         LL_DMA_ClearFlag_HT##STREAM(DMA2);                                    \
+         ::config(cycfi::infinity::adc_conversion_half_complete<ID>{});        \
+      }                                                                        \
+                                                                               \
+      if (LL_DMA_IsActiveFlag_TE##STREAM(DMA2) == 1)                           \
+      {                                                                        \
+         LL_DMA_ClearFlag_TE##STREAM(DMA2);                                    \
+         cycfi::infinity::error_handler();                                     \
+      }                                                                        \
+   }                                                                           \
+   /***/
+
+   void DMA2_Stream0_IRQHandler(void)
+   {
+      HANDLE_ADC_INTERRUPT(1, 0);
+   }
+
+   void DMA2_Stream1_IRQHandler(void)
+   {
+      HANDLE_ADC_INTERRUPT(3, 1);
+   }
+
+   void DMA2_Stream2_IRQHandler(void)
+   {
+      HANDLE_ADC_INTERRUPT(2, 2);
+   }
+
+   void ADC_IRQHandler(void)
+   {
+      // Check whether ADC group regular overrun caused the ADC interruption
+
+      if (LL_ADC_IsActiveFlag_OVR(ADC1) != 0)
+      {
+         LL_ADC_ClearFlag_OVR(ADC1);
+         cycfi::infinity::error_handler();
+      }
+
+      if (LL_ADC_IsActiveFlag_OVR(ADC2) != 0)
+      {
+         LL_ADC_ClearFlag_OVR(ADC2);
+         cycfi::infinity::error_handler();
+      }
+
+      if (LL_ADC_IsActiveFlag_OVR(ADC3) != 0)
+      {
+         LL_ADC_ClearFlag_OVR(ADC3);
+         cycfi::infinity::error_handler();
+      }
+   }
 
    void EXTI0_IRQHandler(void)
    {
