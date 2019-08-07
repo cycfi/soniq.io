@@ -13,106 +13,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="778ab6a6-eab1-401e-9cb6-80421550dfe0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../include/inf/adc.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/adc.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/detail/adc_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/inf/adc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../src/inf/adc_f4.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stm32f446/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_exti.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_exti.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_pwr.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_pwr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_rcc.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_rcc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_system.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_system.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_utils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_exti.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_exti.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_gpio.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_gpio.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/adc_test1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/adc_test1.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -128,28 +35,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../src/inf/i2c.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
-              <folding>
-                <element signature="e#359#389#0" expanded="true" />
-                <element signature="e#445#507#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../tests/blinky.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="11" selection-start-line="16" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../include/inf/config.hpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1365">
@@ -158,19 +43,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../stm32f446/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="81" column="9" lean-forward="true" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+            <state relative-caret-position="147">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../tests/adc_test1.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-426" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="-683">
               <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#870#938#0" expanded="true" />
@@ -203,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="80" column="9" selection-start-line="80" selection-start-column="3" selection-end-line="80" selection-end-column="9" />
+            <state relative-caret-position="1230">
+              <caret line="82" column="9" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -240,6 +132,7 @@
       <find>LL_GPIO_SetAFPin_0_7</find>
       <find>stm</find>
       <find>stm32f446</find>
+      <find>get_adc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -267,6 +160,7 @@
         <option value="$PROJECT_DIR$/../src/inf/i2c.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/../stm32f446/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/../src/inf/adc_f4.cpp" />
       </list>
     </option>
   </component>
@@ -283,6 +177,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -299,38 +194,24 @@
               <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
               <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
               <item name="infinity" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="infinity" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="inf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="infinity" type="462c0819:PsiDirectoryNode" />
-              <item name="stm32f446" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="infinity" type="462c0819:PsiDirectoryNode" />
-              <item name="stm32h7" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
@@ -395,17 +276,19 @@
       <workItem from="1565093235337" duration="3073000" />
       <workItem from="1565151006914" duration="8000" />
       <workItem from="1565151471801" duration="1245000" />
+      <workItem from="1565162124559" duration="2384000" />
+      <workItem from="1565165802157" duration="433000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33539000" />
+    <option name="totallyTimeSpent" value="36356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="969" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24114774" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24725275" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -416,7 +299,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.3295325" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3295325" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -700,6 +583,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../src/inf/i2c.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+          <folding>
+            <element signature="e#359#389#0" expanded="true" />
+            <element signature="e#445#507#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../tests/blinky.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -707,20 +601,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../src/inf/adc_f4.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="79" selection-start-line="10" selection-start-column="79" selection-end-line="10" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="137" column="34" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../include/inf/config.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1365">
           <caret line="91" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#870#938#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -741,6 +639,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="82" column="9" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../include/inf/pin.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2235">
@@ -755,28 +660,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/inf/i2c.cpp">
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
-          <folding>
-            <element signature="e#359#389#0" expanded="true" />
-            <element signature="e#445#507#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="80" column="9" selection-start-line="80" selection-start-column="3" selection-end-line="80" selection-end-column="9" />
+        <state relative-caret-position="166">
+          <caret line="248" lean-forward="true" selection-start-line="248" selection-end-line="248" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../stm32f446/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="81" column="9" lean-forward="true" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+        <state relative-caret-position="147">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tests/adc_test1.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-426" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-683">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#870#938#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

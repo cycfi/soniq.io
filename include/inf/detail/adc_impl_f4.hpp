@@ -16,8 +16,8 @@
 #include <stm32f4xx_ll_dma.h>
 #include <stm32f4xx_ll_gpio.h>
 
-#include <inf/device.hpp>
 #include <inf/pin.hpp>
+#include <inf/device.hpp>
 #include <type_traits>
 
 namespace cycfi { namespace infinity { namespace detail

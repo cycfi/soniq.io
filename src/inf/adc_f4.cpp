@@ -4,7 +4,11 @@
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
 #include <inf/support.hpp>
-#include <inf/detail/adc_impl.hpp>
+#include <inf/detail/adc_impl_f4.hpp>
+
+///////////////////////////////////////////////////////////////////////////////
+// This implementation is for the STM32F4 series.
+///////////////////////////////////////////////////////////////////////////////
 
 namespace cycfi { namespace infinity { namespace detail
 {

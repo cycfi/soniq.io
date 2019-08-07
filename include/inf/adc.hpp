@@ -11,8 +11,14 @@
 #include <inf/support.hpp>
 #include <inf/pin.hpp>
 #include <inf/config.hpp>
-#include <inf/detail/adc_impl.hpp>
 #include <inf/device.hpp>
+
+#if defined(STM32H7)
+# include <inf/detail/adc_impl_h7.hpp>
+#elif defined(STM32F4)
+# include <inf/detail/adc_impl_f4.hpp>
+#endif
+
 #include <algorithm>
 #include <array>
 #include <utility>
