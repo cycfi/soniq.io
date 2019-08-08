@@ -45,7 +45,7 @@ namespace cycfi { namespace infinity
       using adc_type = adc;
       using self_type = adc_type;
       using sample_group_type = std::array<uint16_t, channels_>;
-      using buffer_type = std::array<sample_group_type, buffer_size_> ;
+      using buffer_type = std::array<sample_group_type, buffer_size_>;
       using buffer_iterator_type = typename buffer_type::const_iterator;
 
       static constexpr std::size_t  id = id_;
@@ -82,10 +82,22 @@ namespace cycfi { namespace infinity
       auto setup(timer<tid> const& tmr, F1 half_complete_task, F2 complete_task)
       {
          init(tmr);
-         return [complete_task, half_complete_task](auto base)
+         return [this, complete_task, half_complete_task](auto base)
          {
-            auto cfg1 = make_task_config<complete_id>(base, complete_task);
-            return make_task_config<half_complete_id>(cfg1, half_complete_task);
+            auto half_complete_task_ = [this, half_complete_task]
+            {
+               invalidate_cache(&_data[0], buffer_size);
+               half_complete_task();
+            };
+
+            auto complete_task_ = [this, complete_task]
+            {
+               invalidate_cache(&_data[buffer_size / 2], buffer_size);
+               complete_task();
+            };
+
+            auto cfg1 = make_task_config<complete_id>(base, complete_task_);
+            return make_task_config<half_complete_id>(cfg1, half_complete_task_);
          };
       }
 
@@ -160,14 +172,14 @@ namespace cycfi { namespace infinity
 
          auto* gpio = &detail::get_port<port>();
 
-//         // Enable GPIO peripheral clock
-//         detail::enable_port_clock<port>();
-//
-//         // Configure GPIO in analog mode to be used as ADC input
-//         LL_GPIO_SetPinMode(gpio, mask, LL_GPIO_MODE_ANALOG);
-//
-//         // Enable the ADC channel on the selected sequence rank.
-//         detail::enable_adc_channel<id, channel, rank>();
+         // // Enable GPIO peripheral clock
+         // detail::enable_port_clock<port>();
+
+         // // Configure GPIO in analog mode to be used as ADC input
+         // LL_GPIO_SetPinMode(gpio, mask, LL_GPIO_MODE_ANALOG);
+
+         // // Enable the ADC channel on the selected sequence rank.
+         // detail::enable_adc_channel<id, channel, rank>();
       }
 
       template <std::size_t rank>
