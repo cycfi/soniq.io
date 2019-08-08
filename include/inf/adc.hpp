@@ -7,7 +7,6 @@
 #define CYCFI_INFINITY_ADC_HPP_DECEMBER_31_2015
 
 #include <inf/detail/pin_impl.hpp>
-#include <inf/timer.hpp>
 #include <inf/support.hpp>
 #include <inf/pin.hpp>
 #include <inf/config.hpp>
@@ -19,9 +18,7 @@
 # include <inf/detail/adc_impl_f4.hpp>
 #endif
 
-#include <algorithm>
 #include <array>
-#include <utility>
 
 namespace cycfi { namespace infinity
 {
@@ -51,10 +48,10 @@ namespace cycfi { namespace infinity
       using buffer_type = std::array<sample_group_type, buffer_size_> ;
       using buffer_iterator_type = typename buffer_type::const_iterator;
 
-      static constexpr std::size_t id = id_;
-      static constexpr std::size_t channels = channels_;
-      static constexpr std::size_t buffer_size = buffer_size_;
-      static constexpr std::size_t resolution = 4096;
+      static constexpr std::size_t  id = id_;
+      static constexpr std::size_t  channels = channels_;
+      static constexpr std::size_t  buffer_size = buffer_size_;
+      static constexpr auto         resolution = detail::adc_resolution;
 
       using half_complete_id = adc_conversion_half_complete<id>;
       using complete_id = adc_conversion_complete<id>;
@@ -65,29 +62,10 @@ namespace cycfi { namespace infinity
          static_assert(detail::valid_adc_timer(tid), "Invalid Timer for ADC");
 
          system_clock_config();
-
-         detail::adc_dma_config(
-            get_adc(),
-            detail::adc_info<id>::dma_stream,
-            detail::adc_info<id>::dma_channel,
-            detail::adc_info<id>::dma_irq_id,
+         detail::init_adc<id, tid, channels>(
             &_data[0][0], buffer_size * channels
          );
-
-         detail::adc_config(
-            get_adc(),
-            detail::adc_timer_trigger_id<tid>(),
-            detail::adc_info<id>::periph_id,
-            channels
-         );
-
-         detail::activate_adc(get_adc());
-
-         // Set timer the trigger output (TRGO)
-         LL_TIM_SetTriggerOutput(&detail::get_timer<tid>(), LL_TIM_TRGO_UPDATE);
-
-         // Clear the ADC buffer
-         clear();
+         clear(); // Clear the ADC buffer
       }
 
       template <std::size_t tid, typename F>
@@ -135,12 +113,12 @@ namespace cycfi { namespace infinity
 
       void start()
       {
-         detail::start_adc(get_adc());
+         detail::start_adc<id>();
       }
 
       void stop()
       {
-         detail::stop_adc(get_adc());
+         detail::stop_adc<id>();
       }
 
       constexpr std::size_t size() { return buffer_size; }
@@ -173,7 +151,7 @@ namespace cycfi { namespace infinity
       template <std::size_t channel, std::size_t rank>
       static void enable_one_channel()
       {
-         static_assert(detail::valid_adc_channel(channel), "Invalid ADC Channel");
+         static_assert(detail::valid_adc_channel(id, channel), "Invalid ADC Channel");
 
          static constexpr std::size_t pin = detail::get_adc_pin<channel>(id);
          static constexpr uint16_t bit = pin % 16;
@@ -189,8 +167,7 @@ namespace cycfi { namespace infinity
          LL_GPIO_SetPinMode(gpio, mask, LL_GPIO_MODE_ANALOG);
 
          // Enable the ADC channel on the selected sequence rank.
-         detail::enable_adc_channel(
-            get_adc(), detail::adc_channel<channel>(), detail::adc_rank<rank>());
+         detail::enable_adc_channel<id, channel, rank>();
       }
 
       template <std::size_t rank>
@@ -204,11 +181,6 @@ namespace cycfi { namespace infinity
       {
          enable_one_channel<channel, rank>();
          enable_all_channels<rank + 1>(std::index_sequence<rest...>{});
-      }
-
-      static ADC_TypeDef* get_adc()
-      {
-         return reinterpret_cast<ADC_TypeDef*>(detail::adc_info<id>::adc);
       }
 
       buffer_type _data;

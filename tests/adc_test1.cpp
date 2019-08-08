@@ -16,9 +16,20 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Test the adc.
 //
-// Setup: Connect a 3.3v voltage divider using a potentiometer to pin
-//        PA4. Connect the ssd1306 oled I2C SCL to PB10 and SDA to
-//        PB3 and see the ADC value change when you move the pot.
+// Setup: Connect a 3.3v voltage divider using a potentiometer to and ADC pin
+//        and the ssd1306 oled I2C SCL and SDA. The ADC value displayed in
+//        the OLED follows the movement of the pot.
+//
+//    STM32F4:
+//       ADC: PA4
+//       SCL: PB10
+//       SDA: PB3
+//
+//    STM32H7:
+//       ADC: XXX
+//       SCL: PB6
+//       SDA: PB7
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 namespace q = cycfi::q;
@@ -36,8 +47,6 @@ constexpr auto scl_pin = portb+10;
 constexpr auto sda_pin = portb+3;
 #endif
 
-
-
 using inf::delay_ms;
 using canvas_type = inf::mono_canvas<128, 32>;
 using i2c_type = inf::i2c_master<scl_pin, sda_pin>;
@@ -49,7 +58,7 @@ constexpr int sampling_rate = 16000;
 // Peripherals
 i2c_type i2c;
 inf::timer<2> master_clock;
-inf::adc<1, 1> adc;
+alignas(32) inf::adc<1, 1> adc; // stm32h7 requires this to be 32-bits aligned
 
 ///////////////////////////////////////////////////////////////////////////////
 // ADC conversion complete task

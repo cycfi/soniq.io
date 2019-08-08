@@ -18,64 +18,17 @@
 
 #include <inf/pin.hpp>
 #include <inf/device.hpp>
+#include <inf/timer.hpp>
 #include <type_traits>
 
 namespace cycfi { namespace infinity { namespace detail
 {
-   void adc_dma_config(
-      ADC_TypeDef* adc_n,
-      uint32_t dma_stream,
-      uint32_t dma_channel,
-      IRQn_Type dma_channel_irq,
-      uint16_t values[],
-      uint16_t size
-   );
-
-   void adc_config(
-      ADC_TypeDef* adc,
-      uint32_t timer_trigger_id,
-      uint32_t adc_periph_id,
-      uint32_t num_channels
-   );
-
-   inline void activate_adc(ADC_TypeDef* adc)
-   {
-      // ADC must be disabled at this point
-      if (LL_ADC_IsEnabled(adc) != 0)
-         error_handler();
-
-      // Enable ADC
-      LL_ADC_Enable(adc);
-   }
-
-   inline void enable_adc_channel(
-      ADC_TypeDef* adc, std::size_t channel, std::size_t rank)
-   {
-      // Set ADC group regular sequence: channel on the selected sequence rank.
-      LL_ADC_REG_SetSequencerRanks(adc, rank, channel);
-      LL_ADC_SetChannelSamplingTime(adc, channel, LL_ADC_SAMPLINGTIME_3CYCLES);
-   }
-
-   inline void start_adc(ADC_TypeDef* adc)
-   {
-      if (LL_ADC_IsEnabled(adc))
-      {
-         LL_ADC_REG_StartConversionExtTrig(adc, LL_ADC_REG_TRIG_EXT_RISING);
-      }
-   }
-
-   inline void stop_adc(ADC_TypeDef* adc)
-   {
-      if (LL_ADC_IsEnabled(adc))
-      {
-         LL_ADC_REG_StopConversionExtTrig(adc);
-      }
-   }
+   constexpr std::size_t adc_resolution = 4096;
 
    // Check if id is a valid adc.
    constexpr bool valid_adc(std::size_t id)
    {
-      return id >=1 && id <= 3;
+      return id >= 1 && id <= 3;
    }
 
    // Check if id is a valid timer for the adc.
@@ -85,8 +38,9 @@ namespace cycfi { namespace infinity { namespace detail
    }
 
    // Check if channel is a valid adc channel.
-   constexpr bool valid_adc_channel(std::size_t channel)
+   constexpr bool valid_adc_channel(std::size_t adc_id, std::size_t channel)
    {
+      // $$$ Update me $$$
       return channel >= 0 && channel <= 15;
    }
 
@@ -194,19 +148,7 @@ namespace cycfi { namespace infinity { namespace detail
    // adcs given a constant id. That way, we can use generic programming.
    ////////////////////////////////////////////////////////////////////////////
    template <std::size_t id>
-   ADC_TypeDef* get_adc();
-
-   template <std::size_t id>
    struct adc_info;
-
-   template <std::size_t id>
-   uint32_t adc_timer_trigger_id();
-
-   template <std::size_t id>
-   uint32_t adc_rank();
-
-   template <std::size_t id>
-   uint32_t adc_channel();
 
 #define INFINITY_ADC(id, stream, channel)                                      \
    template <>                                                                 \
@@ -219,6 +161,21 @@ namespace cycfi { namespace infinity { namespace detail
       static constexpr uint32_t dma_channel = LL_DMA_CHANNEL_##channel;        \
    };                                                                          \
    /***/
+
+   template <std::size_t id>
+   constexpr ADC_TypeDef* get_adc()
+   {
+      return reinterpret_cast<ADC_TypeDef*>(adc_info<id>::adc);
+   }
+
+   template <std::size_t id>
+   uint32_t adc_timer_trigger_id();
+
+   template <std::size_t id>
+   uint32_t adc_rank();
+
+   template <std::size_t id>
+   uint32_t adc_channel();
 
 #define INFINITY_ADC_TIMER_TRIGGER(id)                                         \
    template <>                                                                 \
@@ -288,6 +245,88 @@ namespace cycfi { namespace infinity { namespace detail
    INFINITY_ADC_CHANNEL(16)
    INFINITY_ADC_CHANNEL(17)
    INFINITY_ADC_CHANNEL(18)
+
+   void adc_dma_config(
+      ADC_TypeDef* adc_n,
+      uint32_t dma_stream,
+      uint32_t dma_channel,
+      IRQn_Type dma_channel_irq,
+      uint16_t values[],
+      uint16_t size
+   );
+
+   void adc_config(
+      ADC_TypeDef* adc,
+      uint32_t timer_trigger_id,
+      uint32_t adc_periph_id,
+      uint32_t num_channels
+   );
+
+   inline void activate_adc(ADC_TypeDef* adc)
+   {
+      // ADC must be disabled at this point
+      if (LL_ADC_IsEnabled(adc) != 0)
+         error_handler();
+
+      // Enable ADC
+      LL_ADC_Enable(adc);
+   }
+
+   template <std::size_t adc_id, std::size_t timer_id, std::size_t channels>
+   inline void init_adc(uint16_t values[], uint16_t size)
+   {
+      adc_dma_config(
+         get_adc<adc_id>(),
+         adc_info<adc_id>::dma_stream,
+         adc_info<adc_id>::dma_channel,
+         adc_info<adc_id>::dma_irq_id,
+         values, size
+      );
+
+      adc_config(
+         get_adc<adc_id>(),
+         adc_timer_trigger_id<timer_id>(),
+         adc_info<adc_id>::periph_id,
+         channels
+      );
+
+      activate_adc(get_adc<adc_id>());
+
+      // Set timer the trigger output (TRGO)
+      LL_TIM_SetTriggerOutput(&get_timer<timer_id>(), LL_TIM_TRGO_UPDATE);
+   }
+
+   template <std::size_t adc_id, std::size_t channel_, std::size_t rank_>
+   inline void enable_adc_channel()
+   {
+      auto adc = get_adc<adc_id>();
+      auto channel = adc_channel<channel_>();
+      auto rank = adc_rank<rank_>();
+
+      // Set ADC group regular sequence: channel on the selected sequence rank.
+      LL_ADC_REG_SetSequencerRanks(adc, rank, channel);
+      LL_ADC_SetChannelSamplingTime(adc, channel, LL_ADC_SAMPLINGTIME_3CYCLES);
+   }
+
+   template <std::size_t adc_id>
+   inline void start_adc()
+   {
+      auto adc = get_adc<adc_id>();
+      if (LL_ADC_IsEnabled(adc))
+      {
+         LL_ADC_REG_StartConversionExtTrig(adc, LL_ADC_REG_TRIG_EXT_RISING);
+      }
+   }
+
+   template <std::size_t adc_id>
+   inline void stop_adc()
+   {
+      auto adc = get_adc<adc_id>();
+      if (LL_ADC_IsEnabled(adc))
+      {
+         LL_ADC_REG_StopConversionExtTrig(adc);
+      }
+   }
 
 }}}
 
