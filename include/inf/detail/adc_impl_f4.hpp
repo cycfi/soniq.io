@@ -162,20 +162,19 @@ namespace cycfi { namespace infinity { namespace detail
    };                                                                          \
    /***/
 
+   INFINITY_ADC(1, 0, 0)
+   INFINITY_ADC(2, 2, 1)
+   INFINITY_ADC(3, 1, 2)
+
    template <std::size_t id>
    constexpr ADC_TypeDef* get_adc()
    {
       return reinterpret_cast<ADC_TypeDef*>(adc_info<id>::adc);
    }
 
+///////////////////////////////////////////////////////////////////////////////
    template <std::size_t id>
    uint32_t adc_timer_trigger_id();
-
-   template <std::size_t id>
-   uint32_t adc_rank();
-
-   template <std::size_t id>
-   uint32_t adc_channel();
 
 #define INFINITY_ADC_TIMER_TRIGGER(id)                                         \
    template <>                                                                 \
@@ -185,6 +184,14 @@ namespace cycfi { namespace infinity { namespace detail
    }                                                                           \
    /***/
 
+   INFINITY_ADC_TIMER_TRIGGER(2)
+   INFINITY_ADC_TIMER_TRIGGER(3)
+   INFINITY_ADC_TIMER_TRIGGER(8)
+
+///////////////////////////////////////////////////////////////////////////////
+   template <std::size_t id>
+   uint32_t adc_rank();
+
 #define INFINITY_ADC_RANK(id)                                                  \
    template <>                                                                 \
    inline uint32_t adc_rank<id>()                                              \
@@ -192,22 +199,6 @@ namespace cycfi { namespace infinity { namespace detail
       return LL_ADC_REG_RANK_##id;                                             \
    }                                                                           \
    /***/
-
-#define INFINITY_ADC_CHANNEL(id)                                               \
-   template <>                                                                 \
-   inline uint32_t adc_channel<id>()                                           \
-   {                                                                           \
-      return LL_ADC_CHANNEL_##id;                                              \
-   }                                                                           \
-   /***/
-
-   INFINITY_ADC(1, 0, 0)
-   INFINITY_ADC(2, 2, 1)
-   INFINITY_ADC(3, 1, 2)
-
-   INFINITY_ADC_TIMER_TRIGGER(2)
-   INFINITY_ADC_TIMER_TRIGGER(3)
-   INFINITY_ADC_TIMER_TRIGGER(8)
 
    INFINITY_ADC_RANK(1)
    INFINITY_ADC_RANK(2)
@@ -225,6 +216,18 @@ namespace cycfi { namespace infinity { namespace detail
    INFINITY_ADC_RANK(14)
    INFINITY_ADC_RANK(15)
    INFINITY_ADC_RANK(16)
+
+///////////////////////////////////////////////////////////////////////////////
+   template <std::size_t id>
+   uint32_t adc_channel();
+
+#define INFINITY_ADC_CHANNEL(id)                                               \
+   template <>                                                                 \
+   inline uint32_t adc_channel<id>()                                           \
+   {                                                                           \
+      return LL_ADC_CHANNEL_##id;                                              \
+   }                                                                           \
+   /***/
 
    INFINITY_ADC_CHANNEL(0)
    INFINITY_ADC_CHANNEL(1)
@@ -246,6 +249,7 @@ namespace cycfi { namespace infinity { namespace detail
    INFINITY_ADC_CHANNEL(17)
    INFINITY_ADC_CHANNEL(18)
 
+///////////////////////////////////////////////////////////////////////////////
    void adc_dma_config(
       ADC_TypeDef* adc_n,
       uint32_t dma_stream,

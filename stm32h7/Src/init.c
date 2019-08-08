@@ -50,6 +50,15 @@ void SystemClock_Config()
       Error_Handler();
 }
 
+void CPU_Cache_Enable()
+{
+   // Enable I-Cache
+   SCB_EnableICache();
+
+   // Enable D-Cache
+   SCB_EnableDCache();
+}
+
 void Error_Handler()
 {
 }

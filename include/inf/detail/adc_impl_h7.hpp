@@ -11,6 +11,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <inf/timer.hpp>
+#include "stm32h7xx_hal.h"
 
 namespace cycfi { namespace infinity { namespace detail
 {
@@ -212,6 +213,69 @@ namespace cycfi { namespace infinity { namespace detail
       return port::porta + 5;
    }
 
+///////////////////////////////////////////////////////////////////////////////
+   template <std::size_t id>
+   uint32_t adc_rank();
+
+#define INFINITY_ADC_RANK(id)                                                  \
+   template <>                                                                 \
+   inline uint32_t adc_rank<id>()                                              \
+   {                                                                           \
+      return ADC_REGULAR_RANK_##id;                                            \
+   }                                                                           \
+   /***/
+
+   INFINITY_ADC_RANK(1)
+   INFINITY_ADC_RANK(2)
+   INFINITY_ADC_RANK(3)
+   INFINITY_ADC_RANK(4)
+   INFINITY_ADC_RANK(5)
+   INFINITY_ADC_RANK(6)
+   INFINITY_ADC_RANK(7)
+   INFINITY_ADC_RANK(8)
+   INFINITY_ADC_RANK(9)
+   INFINITY_ADC_RANK(10)
+   INFINITY_ADC_RANK(11)
+   INFINITY_ADC_RANK(12)
+   INFINITY_ADC_RANK(13)
+   INFINITY_ADC_RANK(14)
+   INFINITY_ADC_RANK(15)
+   INFINITY_ADC_RANK(16)
+
+///////////////////////////////////////////////////////////////////////////////
+   template <std::size_t id>
+   uint32_t adc_channel();
+
+#define INFINITY_ADC_CHANNEL(id)                                               \
+   template <>                                                                 \
+   inline uint32_t adc_channel<id>()                                           \
+   {                                                                           \
+      return ADC_CHANNEL_##id;                                                 \
+   }                                                                           \
+   /***/
+
+   INFINITY_ADC_CHANNEL(0)
+   INFINITY_ADC_CHANNEL(1)
+   INFINITY_ADC_CHANNEL(2)
+   INFINITY_ADC_CHANNEL(3)
+   INFINITY_ADC_CHANNEL(4)
+   INFINITY_ADC_CHANNEL(5)
+   INFINITY_ADC_CHANNEL(6)
+   INFINITY_ADC_CHANNEL(7)
+   INFINITY_ADC_CHANNEL(8)
+   INFINITY_ADC_CHANNEL(9)
+   INFINITY_ADC_CHANNEL(10)
+   INFINITY_ADC_CHANNEL(11)
+   INFINITY_ADC_CHANNEL(12)
+   INFINITY_ADC_CHANNEL(13)
+   INFINITY_ADC_CHANNEL(14)
+   INFINITY_ADC_CHANNEL(15)
+   INFINITY_ADC_CHANNEL(16)
+   INFINITY_ADC_CHANNEL(17)
+   INFINITY_ADC_CHANNEL(18)
+   INFINITY_ADC_CHANNEL(19)
+
+   ///////////////////////////////////////////////////////////////////////////////
    template <std::size_t adc_id, std::size_t timer_id, std::size_t channels>
    inline void init_adc(uint16_t values[], uint16_t size)
    {

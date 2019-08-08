@@ -75,6 +75,8 @@ add_subdirectory(${Q_LIB_ROOT} "${CMAKE_CURRENT_BINARY_DIR}/q")
 file(GLOB_RECURSE INFINITY_SOURCES ../src/*.cpp)
 file(GLOB_RECURSE SOURCES "startup/*.*" "Drivers/*.*" "Src/*.*")
 
+list(FILTER INFINITY_SOURCES EXCLUDE REGEX ".*h7.cpp")
+
 include_directories(
    ../include
    ${Q_HEADER}
