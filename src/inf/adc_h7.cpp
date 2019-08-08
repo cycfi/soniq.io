@@ -163,25 +163,30 @@ extern "C"
    {
       if (LL_DMA_IsActiveFlag_TC1(DMA1) == 1)
       {
-         //LL_DMA_ClearFlag_TC##STREAM(DMA1);
-         static int xxx = 123;
+         LL_DMA_ClearFlag_TC1(DMA1);
+
+         // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
+         SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[ADC_CONVERTED_DATA_BUFFER_SIZE/2], ADC_CONVERTED_DATA_BUFFER_SIZE);
+
          foo();
       }
 
       if (LL_DMA_IsActiveFlag_HT1(DMA1) == 1)
       {
-         //LL_DMA_ClearFlag_TC##STREAM(DMA1);
-         static int xxx = 123;
+         LL_DMA_ClearFlag_TC1(DMA1);
+
+         // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
+         SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[0], ADC_CONVERTED_DATA_BUFFER_SIZE);
+
          foo();
       }
 
       if (LL_DMA_IsActiveFlag_TE1(DMA1) == 1)
       {
-         //LL_DMA_ClearFlag_TC##STREAM(DMA1);
-         static int xxx = 123;
+         LL_DMA_ClearFlag_TC1(DMA1);
          foo();
       }
 
-      HAL_DMA_IRQHandler(AdcHandle.DMA_Handle);
+      // HAL_DMA_IRQHandler(AdcHandle.DMA_Handle);
    }
 }
