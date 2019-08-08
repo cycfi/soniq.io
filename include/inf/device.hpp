@@ -27,11 +27,18 @@ namespace cycfi { namespace infinity
 {
    inline void system_clock_config()
    {
-      SystemClock_Config();
+      static bool init = false;
+      if (!init)
+      {
+         init = true;
+         SystemClock_Config();
+      }
    }
 
    inline void system_init()
    {
+      system_clock_config();
+
 #if defined(STM32H7)
       CPU_Cache_Enable();
 #endif
@@ -42,6 +49,13 @@ namespace cycfi { namespace infinity
    inline void error_handler()
    {
       Error_Handler();
+   }
+
+   inline void invalidate_cache(void* start, std::size_t size)
+   {
+#if defined(STM32H7)
+      SCB_InvalidateDCache_by_Addr((uint32_t*) start, size);
+#endif
    }
 }}
 
