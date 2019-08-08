@@ -17,6 +17,7 @@
 extern "C"
 {
    void init_adc();
+   void start();
 }
 
 namespace cycfi { namespace infinity { namespace detail
@@ -296,6 +297,7 @@ namespace cycfi { namespace infinity { namespace detail
    template <std::size_t adc_id>
    inline void start_adc()
    {
+      ::start();
    }
 
    template <std::size_t adc_id>

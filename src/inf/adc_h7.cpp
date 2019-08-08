@@ -86,7 +86,10 @@ extern "C"
       GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
       GPIO_InitStruct.Pull = GPIO_NOPULL;
       HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+   }
 
+   void start()
+   {
       // Start conversion in DMA mode
       if (HAL_ADC_Start_DMA(&AdcHandle,
                               (uint32_t *)aADCxConvertedData,
@@ -161,32 +164,32 @@ extern "C"
 
    void DMA1_Stream1_IRQHandler()
    {
-      if (LL_DMA_IsActiveFlag_TC1(DMA1) == 1)
-      {
-         LL_DMA_ClearFlag_TC1(DMA1);
+       if (LL_DMA_IsActiveFlag_TC1(DMA1) == 1)
+       {
+          LL_DMA_ClearFlag_TC1(DMA1);
 
-         // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
-         SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[ADC_CONVERTED_DATA_BUFFER_SIZE/2], ADC_CONVERTED_DATA_BUFFER_SIZE);
+          // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
+          SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[ADC_CONVERTED_DATA_BUFFER_SIZE/2], ADC_CONVERTED_DATA_BUFFER_SIZE);
 
-         foo();
-      }
+          foo();
+       }
 
-      if (LL_DMA_IsActiveFlag_HT1(DMA1) == 1)
-      {
-         LL_DMA_ClearFlag_TC1(DMA1);
+       if (LL_DMA_IsActiveFlag_HT1(DMA1) == 1)
+       {
+          LL_DMA_ClearFlag_HT1(DMA1);
 
-         // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
-         SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[0], ADC_CONVERTED_DATA_BUFFER_SIZE);
+          // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
+          SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[0], ADC_CONVERTED_DATA_BUFFER_SIZE);
 
-         foo();
-      }
+          foo();
+       }
 
-      if (LL_DMA_IsActiveFlag_TE1(DMA1) == 1)
-      {
-         LL_DMA_ClearFlag_TC1(DMA1);
-         foo();
-      }
+       if (LL_DMA_IsActiveFlag_TE1(DMA1) == 1)
+       {
+          LL_DMA_ClearFlag_TE1(DMA1);
+          foo();
+       }
 
-      // HAL_DMA_IRQHandler(AdcHandle.DMA_Handle);
+//      HAL_DMA_IRQHandler(AdcHandle.DMA_Handle);
    }
 }
