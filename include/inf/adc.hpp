@@ -160,14 +160,14 @@ namespace cycfi { namespace infinity
 
          auto* gpio = &detail::get_port<port>();
 
-         // Enable GPIO peripheral clock
-         detail::enable_port_clock<port>();
-
-         // Configure GPIO in analog mode to be used as ADC input
-         LL_GPIO_SetPinMode(gpio, mask, LL_GPIO_MODE_ANALOG);
-
-         // Enable the ADC channel on the selected sequence rank.
-         detail::enable_adc_channel<id, channel, rank>();
+//         // Enable GPIO peripheral clock
+//         detail::enable_port_clock<port>();
+//
+//         // Configure GPIO in analog mode to be used as ADC input
+//         LL_GPIO_SetPinMode(gpio, mask, LL_GPIO_MODE_ANALOG);
+//
+//         // Enable the ADC channel on the selected sequence rank.
+//         detail::enable_adc_channel<id, channel, rank>();
       }
 
       template <std::size_t rank>

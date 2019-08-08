@@ -13,6 +13,12 @@
 #include <inf/timer.hpp>
 #include "stm32h7xx_hal.h"
 
+// $$$ TEMP $$$
+extern "C"
+{
+   void init_adc();
+}
+
 namespace cycfi { namespace infinity { namespace detail
 {
    constexpr std::size_t adc_resolution = 65536;
@@ -279,6 +285,7 @@ namespace cycfi { namespace infinity { namespace detail
    template <std::size_t adc_id, std::size_t timer_id, std::size_t channels>
    inline void init_adc(uint16_t values[], uint16_t size)
    {
+      ::init_adc();
    }
 
    template <std::size_t adc_id, std::size_t channel_, std::size_t rank_>
