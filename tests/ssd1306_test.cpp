@@ -13,7 +13,16 @@
 ///////////////////////////////////////////////////////////////////////////////
 // OLED ssd1306 test.
 //
-// Setup: Connect the oled I2C SCL to PB10 and SDA to PB3.
+// Setup: Connect the OLED I2C SCL and SDA to:
+//
+//    STM32F4:
+//       SCL: PB10
+//       SDA: PB3
+//
+//    STM32H7:
+//       SCL: PB6
+//       SDA: PB7
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 namespace inf = cycfi::infinity;
