@@ -163,8 +163,8 @@ namespace cycfi { namespace infinity { namespace detail
    /***/
 
    INFINITY_ADC(1, 0, 0)
-   INFINITY_ADC(2, 2, 1)
-   INFINITY_ADC(3, 1, 2)
+   INFINITY_ADC(2, 2, 1)   // $$$ why not dma_stream == 1? $$$
+   INFINITY_ADC(3, 1, 2)   // $$$ why not dma_stream == 2? $$$
 
    template <std::size_t id>
    constexpr ADC_TypeDef* get_adc()

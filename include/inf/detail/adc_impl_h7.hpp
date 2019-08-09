@@ -14,13 +14,6 @@
 #include "stm32h7xx_hal.h"
 #include <stm32h7xx_ll_adc.h>
 
-// $$$ TEMP $$$
-extern "C"
-{
-   void init_adc(uint16_t values[], uint16_t size);
-   void start(uint16_t values[], uint16_t size);
-}
-
 namespace cycfi { namespace infinity { namespace detail
 {
    constexpr std::size_t adc_resolution = 65536;
@@ -32,7 +25,7 @@ namespace cycfi { namespace infinity { namespace detail
    }
 
    // Check if id is a valid timer for the adc.
-   constexpr bool valid_adc_timer(std::size_t id)
+   constexpr bool valid_adc_timer(std::size_t id) // $$$ fixme $$$
    {
       return
          id == 1 || id == 2 || id == 3 || id == 4 ||
@@ -284,43 +277,65 @@ namespace cycfi { namespace infinity { namespace detail
    INFINITY_ADC_CHANNEL(19)
 
    ///////////////////////////////////////////////////////////////////////////////
-   template <std::size_t adc_id>
-   inline void start_adc()
+   template <std::size_t id>
+   constexpr ADC_TypeDef* get_adc()
    {
-      // ::start(values, size);
-
-      if (LL_ADC_IsEnabled(ADC1))
+      switch (id)
       {
-         LL_ADC_REG_StartConversion(ADC1);
+         case 1: return ADC1;
+         case 2: return ADC2;
+         case 3: return ADC3;
       }
+      return nullptr;
+   }
+
+   ///////////////////////////////////////////////////////////////////////////////
+
+   // main channel enabler
+   void enable_adc_channel(std::size_t id, uint32_t channel_id, uint32_t rank);
+
+   template <std::size_t adc_id, std::size_t channel_, std::size_t rank_>
+   inline void enable_adc_channel()
+   {
+      auto adc = get_adc<adc_id>();
+      auto channel = adc_channel<channel_>();
+      auto rank = adc_rank<rank_>();
+
+      enable_adc_channel(adc_id, channel, rank);
+   }
+
+   void start_dma(std::size_t adc_id, uint16_t values[], uint16_t size);
+
+   template <std::size_t adc_id>
+   inline void start_adc(uint16_t values[], uint16_t size)
+   {
+      start_dma(adc_id, values, size);
+      auto adc = get_adc<adc_id>();
+      if (LL_ADC_IsEnabled(adc))
+         LL_ADC_REG_StartConversion(adc);
    }
 
    template <std::size_t adc_id>
    inline void stop_adc()
    {
-      if (LL_ADC_IsEnabled(ADC1))
-      {
-         LL_ADC_REG_StopConversion(ADC1);
-      }
+      auto adc = get_adc<adc_id>();
+      if (LL_ADC_IsEnabled(adc))
+         LL_ADC_REG_StopConversion(adc);
    }
 
+   // Main initialization
+   void init_adc(std::size_t id);
+
    template <std::size_t adc_id, std::size_t timer_id, std::size_t channels>
-   inline void init_adc(uint16_t values[], uint16_t size)
+   inline void init_adc()
    {
-      ::init_adc(values, size);
+      init_adc(adc_id);
 
       // Set timer the trigger output (TRGO)
       LL_TIM_SetTriggerOutput(&get_timer<timer_id>(), LL_TIM_TRGO_UPDATE);
 
       stop_adc<adc_id>();
    }
-
-   template <std::size_t adc_id, std::size_t channel_, std::size_t rank_>
-   inline void enable_adc_channel()
-   {
-   }
-
-
 }}}
 
 #endif

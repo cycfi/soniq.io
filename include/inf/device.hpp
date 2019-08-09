@@ -25,25 +25,20 @@
 
 namespace cycfi { namespace infinity
 {
-   inline void system_clock_config()
+   inline void system_init()
    {
       static bool init = false;
       if (!init)
       {
          init = true;
-         SystemClock_Config();
-      }
-   }
 
-   inline void system_init()
-   {
-      system_clock_config();
+         SystemClock_Config();
 
 #if defined(STM32H7)
-      CPU_Cache_Enable();
+         CPU_Cache_Enable();
 #endif
-
-      HAL_Init();
+         HAL_Init();
+      }
    }
 
    inline void error_handler()

@@ -36,7 +36,7 @@ namespace cycfi { namespace infinity
 
       void init(uint32_t clock_frequency, uint32_t frequency)
       {
-         system_clock_config();
+         system_init();
 
          // Enable the timer peripheral clock
          periph_enable();

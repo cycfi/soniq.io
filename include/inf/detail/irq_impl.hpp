@@ -131,50 +131,51 @@ extern "C"
    }                                                                           \
    /***/
 
-   void DMA2_Stream0_IRQHandler()
-   {
-      if (LL_DMA_IsActiveFlag_TC0(DMA2) == 1)
-      {
-         LL_DMA_ClearFlag_TC0(DMA2);
-
-         // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
-         // SCB_InvalidateDCache_by_Addr((uint32_t*) buff + (size/2), size);
-
-         ::config(cycfi::infinity::adc_conversion_complete<1>{});
-      }
-
-      if (LL_DMA_IsActiveFlag_HT0(DMA2) == 1)
-      {
-         LL_DMA_ClearFlag_HT0(DMA2);
-
-         ::config(cycfi::infinity::adc_conversion_half_complete<1>{});
-
-         // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
-         // SCB_InvalidateDCache_by_Addr((uint32_t*) buff, size);
-      }
-
-      if (LL_DMA_IsActiveFlag_TE0(DMA2) == 1)
-      {
-         LL_DMA_ClearFlag_TE0(DMA2);
-
-         cycfi::infinity::error_handler();
-      }
-   }
-
-
-   // void DMA2_Stream0_IRQHandler(void)
+   // $$$ Clean me up $$$
+   // void DMA2_Stream0_IRQHandler()
    // {
-   //    HANDLE_ADC_INTERRUPT(1, 0);
+   //    if (LL_DMA_IsActiveFlag_TC0(DMA2) == 1)
+   //    {
+   //       LL_DMA_ClearFlag_TC0(DMA2);
+
+   //       // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
+   //       // SCB_InvalidateDCache_by_Addr((uint32_t*) buff + (size/2), size);
+
+   //       ::config(cycfi::infinity::adc_conversion_complete<1>{});
+   //    }
+
+   //    if (LL_DMA_IsActiveFlag_HT0(DMA2) == 1)
+   //    {
+   //       LL_DMA_ClearFlag_HT0(DMA2);
+
+   //       ::config(cycfi::infinity::adc_conversion_half_complete<1>{});
+
+   //       // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
+   //       // SCB_InvalidateDCache_by_Addr((uint32_t*) buff, size);
+   //    }
+
+   //    if (LL_DMA_IsActiveFlag_TE0(DMA2) == 1)
+   //    {
+   //       LL_DMA_ClearFlag_TE0(DMA2);
+
+   //       cycfi::infinity::error_handler();
+   //    }
    // }
+
+
+   void DMA2_Stream0_IRQHandler(void)
+   {
+      HANDLE_ADC_INTERRUPT(1, 0);
+   }
 
    void DMA2_Stream1_IRQHandler(void)
    {
-      HANDLE_ADC_INTERRUPT(3, 1);
+      HANDLE_ADC_INTERRUPT(3, 1);   // $$$ why not dma-stream == 2? $$$
    }
 
    void DMA2_Stream2_IRQHandler(void)
    {
-      HANDLE_ADC_INTERRUPT(2, 2);
+      HANDLE_ADC_INTERRUPT(2, 2);   // $$$ why not dma-stream == 3? $$$
    }
 
    void ADC_IRQHandler(void)

@@ -61,10 +61,8 @@ namespace cycfi { namespace infinity
       {
          static_assert(detail::valid_adc_timer(tid), "Invalid Timer for ADC");
 
-         system_clock_config();
-         detail::init_adc<id, tid, channels>(
-            &_data[0][0], buffer_size * channels
-         );
+         system_init();
+         detail::init_adc<id, tid, channels>();
          clear(); // Clear the ADC buffer
       }
 
@@ -135,7 +133,7 @@ namespace cycfi { namespace infinity
 
       void start()
       {
-         detail::start_adc<id>();
+         detail::start_adc<id>(&_data[0][0], buffer_size * channels);
       }
 
       void stop()
@@ -182,14 +180,14 @@ namespace cycfi { namespace infinity
 
          auto* gpio = &detail::get_port<port>();
 
-         // // Enable GPIO peripheral clock
-         // detail::enable_port_clock<port>();
+         // Enable GPIO peripheral clock
+         detail::enable_port_clock<port>();
 
-         // // Configure GPIO in analog mode to be used as ADC input
-         // LL_GPIO_SetPinMode(gpio, mask, LL_GPIO_MODE_ANALOG);
+         // Configure GPIO in analog mode to be used as ADC input
+         LL_GPIO_SetPinMode(gpio, mask, LL_GPIO_MODE_ANALOG);
 
-         // // Enable the ADC channel on the selected sequence rank.
-         // detail::enable_adc_channel<id, channel, rank>();
+         // Enable the ADC channel on the selected sequence rank.
+         detail::enable_adc_channel<id, channel, rank>();
       }
 
       template <std::size_t rank>

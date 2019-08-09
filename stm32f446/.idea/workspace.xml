@@ -13,7 +13,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9b6e609-f4b2-4f5e-a683-2dce058a1fbc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../include/inf/adc.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/adc.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/device.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/device.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/timer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/timer.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/inf/adc_h7.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../src/inf/adc_h7.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stm32h7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32h7/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -34,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2445">
-              <caret line="183" selection-start-line="183" selection-end-line="183" />
+              <caret line="181" selection-start-line="181" selection-end-line="181" />
               <folding>
                 <element signature="e#1078#1169#0" expanded="true" />
                 <element signature="e#4144#4156#0" expanded="true" />
@@ -464,7 +471,7 @@
     <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2445">
-          <caret line="183" selection-start-line="183" selection-end-line="183" />
+          <caret line="181" selection-start-line="181" selection-end-line="181" />
           <folding>
             <element signature="e#1078#1169#0" expanded="true" />
             <element signature="e#4144#4156#0" expanded="true" />
