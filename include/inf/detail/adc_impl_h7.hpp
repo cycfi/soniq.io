@@ -284,20 +284,6 @@ namespace cycfi { namespace infinity { namespace detail
    INFINITY_ADC_CHANNEL(19)
 
    ///////////////////////////////////////////////////////////////////////////////
-   template <std::size_t adc_id, std::size_t timer_id, std::size_t channels>
-   inline void init_adc(uint16_t values[], uint16_t size)
-   {
-      ::init_adc(values, size);
-
-      // Set timer the trigger output (TRGO)
-      LL_TIM_SetTriggerOutput(&get_timer<timer_id>(), LL_TIM_TRGO_UPDATE);
-   }
-
-   template <std::size_t adc_id, std::size_t channel_, std::size_t rank_>
-   inline void enable_adc_channel()
-   {
-   }
-
    template <std::size_t adc_id>
    inline void start_adc()
    {
@@ -317,6 +303,24 @@ namespace cycfi { namespace infinity { namespace detail
          LL_ADC_REG_StopConversion(ADC1);
       }
    }
+
+   template <std::size_t adc_id, std::size_t timer_id, std::size_t channels>
+   inline void init_adc(uint16_t values[], uint16_t size)
+   {
+      ::init_adc(values, size);
+
+      // Set timer the trigger output (TRGO)
+      LL_TIM_SetTriggerOutput(&get_timer<timer_id>(), LL_TIM_TRGO_UPDATE);
+
+      stop_adc<adc_id>();
+   }
+
+   template <std::size_t adc_id, std::size_t channel_, std::size_t rank_>
+   inline void enable_adc_channel()
+   {
+   }
+
+
 }}}
 
 #endif
