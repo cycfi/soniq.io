@@ -135,7 +135,7 @@ namespace cycfi { namespace infinity
 
       void start()
       {
-         detail::start_adc<id>(&_data[0][0], buffer_size * channels);
+         detail::start_adc<id>();
       }
 
       void stop()

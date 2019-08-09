@@ -12,6 +12,7 @@
 
 #include <inf/timer.hpp>
 #include "stm32h7xx_hal.h"
+#include <stm32h7xx_ll_adc.h>
 
 // $$$ TEMP $$$
 extern "C"
@@ -287,6 +288,9 @@ namespace cycfi { namespace infinity { namespace detail
    inline void init_adc(uint16_t values[], uint16_t size)
    {
       ::init_adc(values, size);
+
+      // Set timer the trigger output (TRGO)
+      LL_TIM_SetTriggerOutput(&get_timer<timer_id>(), LL_TIM_TRGO_UPDATE);
    }
 
    template <std::size_t adc_id, std::size_t channel_, std::size_t rank_>
@@ -295,14 +299,23 @@ namespace cycfi { namespace infinity { namespace detail
    }
 
    template <std::size_t adc_id>
-   inline void start_adc(uint16_t values[], uint16_t size)
+   inline void start_adc()
    {
-      ::start(values, size);
+      // ::start(values, size);
+
+      if (LL_ADC_IsEnabled(ADC1))
+      {
+         LL_ADC_REG_StartConversion(ADC1);
+      }
    }
 
    template <std::size_t adc_id>
    inline void stop_adc()
    {
+      if (LL_ADC_IsEnabled(ADC1))
+      {
+         LL_ADC_REG_StopConversion(ADC1);
+      }
    }
 }}}
 

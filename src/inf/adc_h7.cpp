@@ -43,18 +43,18 @@ extern "C"
          Error_Handler();
       }
 
-      AdcHandle.Init.ClockPrescaler           = ADC_CLOCK_ASYNC_DIV2;            /* Asynchronous clock mode, input ADC clock divided by 2*/
+      AdcHandle.Init.ClockPrescaler           = ADC_CLOCK_ASYNC_DIV1;            /* Asynchronous clock mode, input ADC clock divided by 2*/
       AdcHandle.Init.Resolution               = ADC_RESOLUTION_16B;              /* 16-bit resolution for converted data */
-      AdcHandle.Init.ScanConvMode             = DISABLE;                         /* Sequencer disabled (ADC conversion on only 1 channel: channel set on rank 1) */
+      AdcHandle.Init.ScanConvMode             = ADC_SCAN_DISABLE;                         /* Sequencer disabled (ADC conversion on only 1 channel: channel set on rank 1) */
       AdcHandle.Init.EOCSelection             = ADC_EOC_SINGLE_CONV;             /* EOC flag picked-up to indicate conversion end */
       AdcHandle.Init.LowPowerAutoWait         = DISABLE;                         /* Auto-delayed conversion feature disabled */
-      AdcHandle.Init.ContinuousConvMode       = ENABLE;                          /* Continuous mode enabled (automatic conversion restart after each conversion) */
+      AdcHandle.Init.ContinuousConvMode       = DISABLE;                          /* Continuous mode enabled (automatic conversion restart after each conversion) */
       AdcHandle.Init.NbrOfConversion          = 1;                               /* Parameter discarded because sequencer is disabled */
       AdcHandle.Init.DiscontinuousConvMode    = DISABLE;                         /* Parameter discarded because sequencer is disabled */
-      AdcHandle.Init.NbrOfDiscConversion      = 1;                               /* Parameter discarded because sequencer is disabled */
-      AdcHandle.Init.ExternalTrigConv         = ADC_SOFTWARE_START;              /* Software start to trig the 1st conversion manually, without external event */
-      AdcHandle.Init.ExternalTrigConvEdge     = ADC_EXTERNALTRIGCONVEDGE_NONE;   /* Parameter discarded because software trigger chosen */
-      AdcHandle.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DMA_CIRCULAR; /* ADC DMA circular requested */
+      // AdcHandle.Init.NbrOfDiscConversion      = 1;                               /* Parameter discarded because sequencer is disabled */
+      AdcHandle.Init.ExternalTrigConv         = ADC_EXTERNALTRIG_T2_TRGO;              /* Software start to trig the 1st conversion manually, without external event */
+      AdcHandle.Init.ExternalTrigConvEdge     = ADC_EXTERNALTRIGCONVEDGE_RISING;   /* Parameter discarded because software trigger chosen */
+      AdcHandle.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DMA_CIRCULAR; /* $$$ hrmmm */ /* ADC DMA circular requested */
       AdcHandle.Init.Overrun                  = ADC_OVR_DATA_OVERWRITTEN;        /* DR register is overwritten with the last conversion result in case of overrun */
       AdcHandle.Init.OversamplingMode         = DISABLE;                         /* No oversampling */
 
@@ -76,7 +76,7 @@ extern "C"
 
       sConfig.Channel      = ADC_CHANNEL_3;              /* Sampled channel number */
       sConfig.Rank         = ADC_REGULAR_RANK_1;         /* Rank of sampled channel number ADC_CHANNEL_3 */
-      sConfig.SamplingTime = ADC_SAMPLETIME_810CYCLES_5;   /* Sampling time (number of clock cycles unit) */
+      sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5; // ADC_SAMPLETIME_810CYCLES_5;   /* Sampling time (number of clock cycles unit) */
       sConfig.SingleDiff   = ADC_SINGLE_ENDED;           /* Single-ended input channel */
       sConfig.OffsetNumber = ADC_OFFSET_NONE;            /* No offset subtraction */
       sConfig.Offset = 0;                                /* Parameter discarded because offset correction is disabled */
@@ -92,15 +92,28 @@ extern "C"
       GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
       GPIO_InitStruct.Pull = GPIO_NOPULL;
       HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+      if (HAL_ADC_Start_DMA(&AdcHandle, (uint32_t*)values_, size_) != HAL_OK)
+      {
+         Error_Handler();
+      }
    }
 
    void start(uint16_t values_[], uint16_t size_)
    {
       // Start conversion in DMA mode
-      if (HAL_ADC_Start_DMA(&AdcHandle, (uint32_t*)values_, size_) != HAL_OK)
-      {
-         Error_Handler();
-      }
+      // if (HAL_ADC_Start_DMA(&AdcHandle, (uint32_t*)values_, size_) != HAL_OK)
+      // {
+      //    Error_Handler();
+      // }
+
+      // LL_TIM_EnableIT_UPDATE(&cycfi::infinity::detail::get_timer<2>());
+
+
+      // (__HANDLE__)->Instance->DIER |= TIM_IT_UPDATE
+
+      // HAL_TIM_Base_Start_IT(&htim4);
+
    }
 
    void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)

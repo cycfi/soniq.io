@@ -52,7 +52,7 @@ using canvas_type = inf::mono_canvas<128, 32>;
 using i2c_type = inf::i2c_master<scl_pin, sda_pin>;
 using oled_type = inf::ssd1306<i2c_type, canvas_type>;
 
-constexpr int sampling_rate = 40715;
+constexpr int sampling_rate = 16000;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Peripherals
@@ -105,7 +105,7 @@ int main()
       cnv.draw_string(out, 15, 10, font::medium);
       cnv.refresh();
 
-      delay_ms(500);
+      delay_ms(250);
    }
 }
 
