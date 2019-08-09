@@ -16,8 +16,7 @@
 // $$$ TEMP $$$
 extern "C"
 {
-   void init_adc();
-   void start();
+   void init_adc(uint16_t values[], uint16_t size);
 }
 
 namespace cycfi { namespace infinity { namespace detail
@@ -286,7 +285,7 @@ namespace cycfi { namespace infinity { namespace detail
    template <std::size_t adc_id, std::size_t timer_id, std::size_t channels>
    inline void init_adc(uint16_t values[], uint16_t size)
    {
-      ::init_adc();
+      ::init_adc(values, size);
    }
 
    template <std::size_t adc_id, std::size_t channel_, std::size_t rank_>
@@ -297,7 +296,6 @@ namespace cycfi { namespace infinity { namespace detail
    template <std::size_t adc_id>
    inline void start_adc()
    {
-      ::start();
    }
 
    template <std::size_t adc_id>

@@ -24,11 +24,17 @@ extern "C"
 {
    ADC_HandleTypeDef AdcHandle;
 
-   #define ADC_CONVERTED_DATA_BUFFER_SIZE   ((uint32_t)  32)   /* Size of array aADCxConvertedData[] */
-   ALIGN_32BYTES (static uint16_t   aADCxConvertedData[ADC_CONVERTED_DATA_BUFFER_SIZE]);
+   // #define ADC_CONVERTED_DATA_BUFFER_SIZE   ((uint32_t)  32)   /* Size of array aADCxConvertedData[] */
+   // ALIGN_32BYTES (static uint16_t   aADCxConvertedData[ADC_CONVERTED_DATA_BUFFER_SIZE]);
 
-   void init_adc()
+   static uint16_t* buff = 0;
+   static uint16_t size = 0;
+
+   void init_adc(uint16_t values_[], uint16_t size_)
    {
+      buff = values_;
+      size = size_;
+
       // Initialize ADC peripheral
       AdcHandle.Instance = ADC1;
       if (HAL_ADC_DeInit(&AdcHandle) != HAL_OK)
@@ -86,15 +92,9 @@ extern "C"
       GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
       GPIO_InitStruct.Pull = GPIO_NOPULL;
       HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-   }
 
-   void start()
-   {
       // Start conversion in DMA mode
-      if (HAL_ADC_Start_DMA(&AdcHandle,
-                              (uint32_t *)aADCxConvertedData,
-                              ADC_CONVERTED_DATA_BUFFER_SIZE
-                           ) != HAL_OK)
+      if (HAL_ADC_Start_DMA(&AdcHandle, (uint32_t*)values_, size_) != HAL_OK)
       {
          Error_Handler();
       }
@@ -148,18 +148,6 @@ extern "C"
       __HAL_RCC_ADC12_CLK_DISABLE();
    }
 
-   void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
-   {
-      // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
-      SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[0], ADC_CONVERTED_DATA_BUFFER_SIZE);
-   }
-
-   void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
-   {
-      // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
-      SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[ADC_CONVERTED_DATA_BUFFER_SIZE/2], ADC_CONVERTED_DATA_BUFFER_SIZE);
-   }
-
    void foo() {}
 
    void DMA2_Stream0_IRQHandler()
@@ -169,7 +157,7 @@ extern "C"
          LL_DMA_ClearFlag_TC0(DMA2);
 
          // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
-         SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[ADC_CONVERTED_DATA_BUFFER_SIZE/2], ADC_CONVERTED_DATA_BUFFER_SIZE);
+         SCB_InvalidateDCache_by_Addr((uint32_t*) buff + (size/2), size);
 
          foo();
       }
@@ -179,7 +167,7 @@ extern "C"
          LL_DMA_ClearFlag_HT0(DMA2);
 
          // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
-         SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[0], ADC_CONVERTED_DATA_BUFFER_SIZE);
+         SCB_InvalidateDCache_by_Addr((uint32_t*) buff, size);
 
          foo();
       }

@@ -82,20 +82,21 @@ namespace cycfi { namespace infinity
       auto setup(timer<tid> const& tmr, F1 half_complete_task, F2 complete_task)
       {
          init(tmr);
-         return [this, complete_task, half_complete_task](auto base)
+
+         auto half_complete_task_ = [this, half_complete_task]
          {
-            auto half_complete_task_ = [this, half_complete_task]
-            {
-               invalidate_cache(&_data[0], buffer_size);
-               half_complete_task();
-            };
+            invalidate_cache(&_data[0], buffer_size);
+            half_complete_task();
+         };
 
-            auto complete_task_ = [this, complete_task]
-            {
-               invalidate_cache(&_data[buffer_size / 2], buffer_size);
-               complete_task();
-            };
+         auto complete_task_ = [this, complete_task]
+         {
+            invalidate_cache(&_data[buffer_size / 2], buffer_size);
+            complete_task();
+         };
 
+         return [complete_task_, half_complete_task_](auto base)
+         {
             auto cfg1 = make_task_config<complete_id>(base, complete_task_);
             return make_task_config<half_complete_id>(cfg1, half_complete_task_);
          };
