@@ -89,16 +89,21 @@ int main()
    adc.start();
    master_clock.start();
 
+   int v = 0;
+
    while (true)
    {
       char out[sizeof(int)*8+1];
-      inf::to_string(adc_val, out);
+      inf::to_string(v, out);
 
       cnv.clear();
       cnv.draw_string(out, 15, 10, font::medium);
       cnv.refresh();
 
-      delay_ms(10);
+      delay_ms(100);
+      v++;
+      if (v == 9999)
+         v = 0;
    }
 }
 
