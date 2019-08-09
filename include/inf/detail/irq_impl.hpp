@@ -131,20 +131,20 @@ extern "C"
    }                                                                           \
    /***/
 
-   void DMA2_Stream0_IRQHandler(void)
-   {
-      HANDLE_ADC_INTERRUPT(1, 0);
-   }
+   // void DMA2_Stream0_IRQHandler(void)
+   // {
+   //    HANDLE_ADC_INTERRUPT(1, 0);
+   // }
 
    // void DMA2_Stream1_IRQHandler(void)
    // {
    //    HANDLE_ADC_INTERRUPT(3, 1);
    // }
 
-   void DMA2_Stream2_IRQHandler(void)
-   {
-      HANDLE_ADC_INTERRUPT(2, 2);
-   }
+   // void DMA2_Stream2_IRQHandler(void)
+   // {
+   //    HANDLE_ADC_INTERRUPT(2, 2);
+   // }
 
    void ADC_IRQHandler(void)
    {

@@ -116,7 +116,7 @@ extern "C"
 
       // Configure DMA
       static DMA_HandleTypeDef dma;
-      dma.Instance = DMA2_Stream1;
+      dma.Instance = DMA2_Stream0;
       dma.Init.Request = DMA_REQUEST_ADC1;
       dma.Init.Direction = DMA_PERIPH_TO_MEMORY;
       dma.Init.PeriphInc = DMA_PINC_DISABLE;
@@ -133,8 +133,8 @@ extern "C"
       __HAL_LINKDMA(hadc, DMA_Handle, dma);
 
       // NVIC configuration for DMA Input data interrupt
-      HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 1, 0);
-      HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
+      HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 1, 0);
+      HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
    }
 
    void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
@@ -162,33 +162,33 @@ extern "C"
 
    void foo() {}
 
-   void DMA2_Stream1_IRQHandler()
+   void DMA2_Stream0_IRQHandler()
    {
-       if (LL_DMA_IsActiveFlag_TC1(DMA2) == 1)
-       {
-          LL_DMA_ClearFlag_TC1(DMA2);
+      if (LL_DMA_IsActiveFlag_TC0(DMA2) == 1)
+      {
+         LL_DMA_ClearFlag_TC0(DMA2);
 
-          // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
-          SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[ADC_CONVERTED_DATA_BUFFER_SIZE/2], ADC_CONVERTED_DATA_BUFFER_SIZE);
+         // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
+         SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[ADC_CONVERTED_DATA_BUFFER_SIZE/2], ADC_CONVERTED_DATA_BUFFER_SIZE);
 
-          foo();
-       }
+         foo();
+      }
 
-       if (LL_DMA_IsActiveFlag_HT1(DMA2) == 1)
-       {
-          LL_DMA_ClearFlag_HT1(DMA2);
+      if (LL_DMA_IsActiveFlag_HT0(DMA2) == 1)
+      {
+         LL_DMA_ClearFlag_HT0(DMA2);
 
-          // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
-          SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[0], ADC_CONVERTED_DATA_BUFFER_SIZE);
+         // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
+         SCB_InvalidateDCache_by_Addr((uint32_t *) &aADCxConvertedData[0], ADC_CONVERTED_DATA_BUFFER_SIZE);
 
-          foo();
-       }
+         foo();
+      }
 
-       if (LL_DMA_IsActiveFlag_TE1(DMA2) == 1)
-       {
-          LL_DMA_ClearFlag_TE1(DMA2);
-          foo();
-       }
+      if (LL_DMA_IsActiveFlag_TE0(DMA2) == 1)
+      {
+         LL_DMA_ClearFlag_TE0(DMA2);
+         foo();
+      }
 
 //      HAL_DMA_IRQHandler(AdcHandle.DMA_Handle);
    }
