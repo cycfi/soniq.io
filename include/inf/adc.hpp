@@ -72,9 +72,17 @@ namespace cycfi { namespace infinity
       auto setup(timer<tid> const& tmr, F complete_task)
       {
          init(tmr);
-         return [complete_task](auto base)
+         static constexpr auto len = buffer_size * channels;
+
+         auto complete_task_ = [this, complete_task]
          {
-            return make_task_config<complete_id>(base, complete_task);
+            invalidate_cache(&_data[0], len * sizeof(uint16_t));
+            complete_task();
+         };
+
+         return [complete_task_](auto base)
+         {
+            return make_task_config<complete_id>(base, complete_task_);
          };
       }
 
@@ -82,16 +90,17 @@ namespace cycfi { namespace infinity
       auto setup(timer<tid> const& tmr, F1 half_complete_task, F2 complete_task)
       {
          init(tmr);
+         static constexpr auto len = buffer_size * channels;
 
          auto half_complete_task_ = [this, half_complete_task]
          {
-            invalidate_cache(&_data[0], buffer_size);
+            invalidate_cache(&_data[0], len);
             half_complete_task();
          };
 
          auto complete_task_ = [this, complete_task]
          {
-            invalidate_cache(&_data[buffer_size / 2], buffer_size);
+            invalidate_cache(&_data[buffer_size / 2], len);
             complete_task();
          };
 
@@ -126,7 +135,7 @@ namespace cycfi { namespace infinity
 
       void start()
       {
-         detail::start_adc<id>();
+         detail::start_adc<id>(&_data[0][0], buffer_size * channels);
       }
 
       void stop()

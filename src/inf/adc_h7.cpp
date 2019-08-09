@@ -76,7 +76,7 @@ extern "C"
 
       sConfig.Channel      = ADC_CHANNEL_3;              /* Sampled channel number */
       sConfig.Rank         = ADC_REGULAR_RANK_1;         /* Rank of sampled channel number ADC_CHANNEL_3 */
-      sConfig.SamplingTime = ADC_SAMPLETIME_8CYCLES_5;   /* Sampling time (number of clock cycles unit) */
+      sConfig.SamplingTime = ADC_SAMPLETIME_810CYCLES_5;   /* Sampling time (number of clock cycles unit) */
       sConfig.SingleDiff   = ADC_SINGLE_ENDED;           /* Single-ended input channel */
       sConfig.OffsetNumber = ADC_OFFSET_NONE;            /* No offset subtraction */
       sConfig.Offset = 0;                                /* Parameter discarded because offset correction is disabled */
@@ -92,7 +92,10 @@ extern "C"
       GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
       GPIO_InitStruct.Pull = GPIO_NOPULL;
       HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+   }
 
+   void start(uint16_t values_[], uint16_t size_)
+   {
       // Start conversion in DMA mode
       if (HAL_ADC_Start_DMA(&AdcHandle, (uint32_t*)values_, size_) != HAL_OK)
       {
@@ -148,36 +151,36 @@ extern "C"
       __HAL_RCC_ADC12_CLK_DISABLE();
    }
 
-   void foo() {}
+//    void foo() {}
 
-   void DMA2_Stream0_IRQHandler()
-   {
-      if (LL_DMA_IsActiveFlag_TC0(DMA2) == 1)
-      {
-         LL_DMA_ClearFlag_TC0(DMA2);
+//    void DMA2_Stream0_IRQHandler()
+//    {
+//       if (LL_DMA_IsActiveFlag_TC0(DMA2) == 1)
+//       {
+//          LL_DMA_ClearFlag_TC0(DMA2);
 
-         // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
-         SCB_InvalidateDCache_by_Addr((uint32_t*) buff + (size/2), size);
+//          // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
+//          SCB_InvalidateDCache_by_Addr((uint32_t*) buff + (size/2), size);
 
-         foo();
-      }
+//          foo();
+//       }
 
-      if (LL_DMA_IsActiveFlag_HT0(DMA2) == 1)
-      {
-         LL_DMA_ClearFlag_HT0(DMA2);
+//       if (LL_DMA_IsActiveFlag_HT0(DMA2) == 1)
+//       {
+//          LL_DMA_ClearFlag_HT0(DMA2);
 
-         // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
-         SCB_InvalidateDCache_by_Addr((uint32_t*) buff, size);
+//          // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
+//          SCB_InvalidateDCache_by_Addr((uint32_t*) buff, size);
 
-         foo();
-      }
+//          foo();
+//       }
 
-      if (LL_DMA_IsActiveFlag_TE0(DMA2) == 1)
-      {
-         LL_DMA_ClearFlag_TE0(DMA2);
-         foo();
-      }
+//       if (LL_DMA_IsActiveFlag_TE0(DMA2) == 1)
+//       {
+//          LL_DMA_ClearFlag_TE0(DMA2);
+//          foo();
+//       }
 
-//      HAL_DMA_IRQHandler(AdcHandle.DMA_Handle);
-   }
+// //      HAL_DMA_IRQHandler(AdcHandle.DMA_Handle);
+//    }
 }

@@ -52,7 +52,7 @@ using canvas_type = inf::mono_canvas<128, 32>;
 using i2c_type = inf::i2c_master<scl_pin, sda_pin>;
 using oled_type = inf::ssd1306<i2c_type, canvas_type>;
 
-constexpr int sampling_rate = 16000;
+constexpr int sampling_rate = 40740;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Peripherals
@@ -62,7 +62,7 @@ alignas(32) inf::adc<1, 1> adc; // stm32h7 requires this to be 32-bits aligned
 
 ///////////////////////////////////////////////////////////////////////////////
 // ADC conversion complete task
-volatile int32_t adc_val = 0;
+float adc_val = 0;
 q::one_pole_lowpass lp{10_Hz, sampling_rate}; // 10Hz low pass filter
 
 inline void conversion_complete()
@@ -77,7 +77,7 @@ auto config = inf::config(
    i2c.setup(),
    master_clock.setup(2000000, sampling_rate),
    adc.setup(master_clock, conversion_complete),
-   adc.enable_channels<4>()
+   adc.enable_channels<3>()
 );
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -89,21 +89,16 @@ int main()
    adc.start();
    master_clock.start();
 
-   int v = 0;
-
    while (true)
    {
       char out[sizeof(int)*8+1];
-      inf::to_string(v, out);
+      inf::to_string(adc_val, out);
 
       cnv.clear();
       cnv.draw_string(out, 15, 10, font::medium);
       cnv.refresh();
 
-      delay_ms(100);
-      v++;
-      if (v == 9999)
-         v = 0;
+      delay_ms(50);
    }
 }
 

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="stm32f446" targetName="stm32f446.elf" />
       <config projectName="stm32f446" targetName="UPLOAD" />
+      <config projectName="stm32f446" targetName="stm32f446.elf" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -14,11 +14,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f9b6e609-f4b2-4f5e-a683-2dce058a1fbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../include/inf/adc.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/adc.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/inf/detail/adc_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/inf/adc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../src/inf/adc_f4.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/inf/adc_h7.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../src/inf/adc_h7.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../stm32h7/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32h7/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stm32h7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32h7/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32h7/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32h7/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tests/adc_test1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/adc_test1.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -36,19 +37,49 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../include/inf/timer.hpp">
+        <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="2445">
+              <caret line="183" selection-start-line="183" selection-end-line="183" />
+              <folding>
+                <element signature="e#1078#1169#0" expanded="true" />
+                <element signature="e#4144#4156#0" expanded="true" />
+                <element signature="e#4306#4360#0" expanded="true" />
+                <element signature="e#4691#4730#0" expanded="true" />
+                <element signature="e#5513#5531#0" expanded="true" />
+                <element signature="e#5651#5711#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
+        <entry file="file://$PROJECT_DIR$/../src/inf/adc_f4.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" selection-start-line="17" selection-end-line="23" selection-end-column="17" />
+              <folding>
+                <element signature="e#302#328#0" expanded="true" />
+                <element signature="e#779#846#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/Cellar/arm-none-eabi-gcc/8-2018-q4-major/gcc/arm-none-eabi/include/c++/8.2.1/array">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="810">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
             </state>
           </provider>
         </entry>
@@ -56,8 +87,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="4845">
+              <caret line="323" selection-start-line="323" selection-end-line="323" />
+              <folding>
+                <element signature="e#1467#1488#0" expanded="true" />
+                <element signature="e#1550#1552#0" expanded="true" />
+                <element signature="e#1666#1668#0" expanded="true" />
+                <element signature="e#1782#1784#0" expanded="true" />
+                <element signature="e#1898#1900#0" expanded="true" />
+                <element signature="e#2014#2016#0" expanded="true" />
+                <element signature="e#2163#2165#0" expanded="true" />
+                <element signature="e#2312#2314#0" expanded="true" />
+                <element signature="e#2461#2463#0" expanded="true" />
+                <element signature="e#2610#2612#0" expanded="true" />
+                <element signature="e#2760#2762#0" expanded="true" />
+                <element signature="e#2909#2911#0" expanded="true" />
+                <element signature="e#3026#3028#0" expanded="true" />
+                <element signature="e#3143#3145#0" expanded="true" />
+                <element signature="e#3260#3262#0" expanded="true" />
+                <element signature="e#3377#3379#0" expanded="true" />
+                <element signature="e#3527#3529#0" expanded="true" />
+                <element signature="e#3987#4003#0" expanded="true" />
+                <element signature="e#8297#8361#0" expanded="true" />
+                <element signature="e#8958#9019#0" expanded="true" />
+                <element signature="e#9415#9435#0" expanded="true" />
+                <element signature="e#9664#9684#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,11 +120,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../tests/adc_test1.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="135">
+              <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
               <folding>
                 <element signature="e#302#328#0" expanded="true" />
-                <element signature="e#981#1048#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,8 +141,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1320">
-              <caret line="88" selection-start-line="88" selection-end-line="88" />
+            <state relative-caret-position="930">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="e#2893#2936#0" expanded="true" />
               </folding>
@@ -127,9 +181,10 @@
         <option value="$PROJECT_DIR$/../include/inf/detail/i2c_impl.hpp" />
         <option value="$PROJECT_DIR$/../include/inf/i2c.hpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/../include/inf/adc.hpp" />
         <option value="$PROJECT_DIR$/../include/inf/detail/adc_impl.hpp" />
+        <option value="$PROJECT_DIR$/../include/inf/adc.hpp" />
         <option value="$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp" />
+        <option value="$PROJECT_DIR$/../tests/ssd1306_test.cpp" />
         <option value="$PROJECT_DIR$/../tests/adc_test1.cpp" />
       </list>
     </option>
@@ -145,7 +200,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -174,6 +228,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -241,18 +296,24 @@
       <workItem from="1565092979830" duration="226000" />
       <workItem from="1565151018377" duration="309000" />
       <workItem from="1565154579514" duration="3752000" />
-      <workItem from="1565166239673" duration="170000" />
+      <workItem from="1565166239673" duration="869000" />
+      <workItem from="1565213965190" duration="180000" />
+      <workItem from="1565244357154" duration="101000" />
+      <workItem from="1565248363559" duration="7000" />
+      <workItem from="1565248825976" duration="57000" />
+      <workItem from="1565271044764" duration="4566000" />
+      <workItem from="1565294849467" duration="539000" />
+      <workItem from="1565299636349" duration="629000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9299000" />
+    <option name="totallyTimeSpent" value="16077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="969" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23687424" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25763127" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -263,7 +324,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.3295325" />
+      <window_info anchor="bottom" id="Messages" order="8" visible="true" weight="0.3295325" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -289,11 +350,6 @@
           <url>file://$PROJECT_DIR$/../tests/blinky.cpp</url>
           <line>25</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/../tests/adc_test1.cpp</url>
-          <line>60</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -377,13 +433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../include/inf/app.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -419,8 +468,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        <state relative-caret-position="2445">
+          <caret line="183" selection-start-line="183" selection-end-line="183" />
+          <folding>
+            <element signature="e#1078#1169#0" expanded="true" />
+            <element signature="e#4144#4156#0" expanded="true" />
+            <element signature="e#4306#4360#0" expanded="true" />
+            <element signature="e#4691#4730#0" expanded="true" />
+            <element signature="e#5513#5531#0" expanded="true" />
+            <element signature="e#5651#5711#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/inf/adc_f4.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="23" selection-end-column="17" />
+          <folding>
+            <element signature="e#302#328#0" expanded="true" />
+            <element signature="e#779#846#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/arm-none-eabi-gcc/8-2018-q4-major/gcc/arm-none-eabi/include/c++/8.2.1/array">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4845">
+          <caret line="323" selection-start-line="323" selection-end-line="323" />
+          <folding>
+            <element signature="e#1467#1488#0" expanded="true" />
+            <element signature="e#1550#1552#0" expanded="true" />
+            <element signature="e#1666#1668#0" expanded="true" />
+            <element signature="e#1782#1784#0" expanded="true" />
+            <element signature="e#1898#1900#0" expanded="true" />
+            <element signature="e#2014#2016#0" expanded="true" />
+            <element signature="e#2163#2165#0" expanded="true" />
+            <element signature="e#2312#2314#0" expanded="true" />
+            <element signature="e#2461#2463#0" expanded="true" />
+            <element signature="e#2610#2612#0" expanded="true" />
+            <element signature="e#2760#2762#0" expanded="true" />
+            <element signature="e#2909#2911#0" expanded="true" />
+            <element signature="e#3026#3028#0" expanded="true" />
+            <element signature="e#3143#3145#0" expanded="true" />
+            <element signature="e#3260#3262#0" expanded="true" />
+            <element signature="e#3377#3379#0" expanded="true" />
+            <element signature="e#3527#3529#0" expanded="true" />
+            <element signature="e#3987#4003#0" expanded="true" />
+            <element signature="e#8297#8361#0" expanded="true" />
+            <element signature="e#8958#9019#0" expanded="true" />
+            <element signature="e#9415#9435#0" expanded="true" />
+            <element signature="e#9664#9684#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -433,8 +546,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
+        <state relative-caret-position="930">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
           <folding>
             <element signature="e#2893#2936#0" expanded="true" />
           </folding>
@@ -455,20 +568,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../tests/adc_test1.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="135">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
           <folding>
             <element signature="e#302#328#0" expanded="true" />
-            <element signature="e#981#1048#0" expanded="true" />
           </folding>
         </state>
       </provider>

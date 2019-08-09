@@ -17,6 +17,7 @@
 extern "C"
 {
    void init_adc(uint16_t values[], uint16_t size);
+   void start(uint16_t values[], uint16_t size);
 }
 
 namespace cycfi { namespace infinity { namespace detail
@@ -294,8 +295,9 @@ namespace cycfi { namespace infinity { namespace detail
    }
 
    template <std::size_t adc_id>
-   inline void start_adc()
+   inline void start_adc(uint16_t values[], uint16_t size)
    {
+      ::start(values, size);
    }
 
    template <std::size_t adc_id>

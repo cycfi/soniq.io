@@ -8,20 +8,22 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DSSD1306_TEST=1" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DADC_TEST1=1" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="778ab6a6-eab1-401e-9cb6-80421550dfe0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../include/inf/adc.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/adc.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/inf/detail/adc_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/inf/adc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../src/inf/adc_f4.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/inf/adc_h7.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../src/inf/adc_h7.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stm32f446/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tests/adc_test1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/adc_test1.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/cmake-build-release/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,86 +37,104 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../include/inf/config.hpp">
+        <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="91" selection-start-line="91" selection-end-line="91" />
+            <state relative-caret-position="159">
+              <caret line="78" selection-start-line="78" selection-end-line="78" />
+              <folding>
+                <element signature="e#3318#3343#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../stm32f446/CMakeLists.txt">
+        <entry file="file://$PROJECT_DIR$/../include/inf/device.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="70" selection-start-line="70" selection-end-line="70" />
+            <state relative-caret-position="267">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../tests/adc_test1.cpp">
+        <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_utils.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-426" />
+            <state relative-caret-position="244">
+              <caret line="240" selection-start-line="240" selection-end-line="240" />
+              <folding>
+                <element signature="e#833#864#0" expanded="true" />
+                <element signature="e#952#977#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../include/inf/support.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="76" selection-start-line="76" selection-end-line="76" />
+              <folding>
+                <element signature="e#619#710#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/startup/startup_stm32h743xx.s">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="96" selection-start-line="96" selection-end-line="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/inf/adc_h7.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="78" column="55" selection-start-line="78" selection-start-column="55" selection-end-line="78" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="576" column="34" selection-start-line="576" selection-start-column="8" selection-end-line="576" selection-end-column="34" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
+        <entry file="file://$PROJECT_DIR$/../tests/adc_test1.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-683">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="297">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
               <folding>
-                <element signature="e#870#938#0" expanded="true" />
+                <element signature="e#302#328#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp">
+        <entry file="file://$PROJECT_DIR$/../../q/q_lib/include/q/fx/lowpass.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="66" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="70" />
-              <folding>
-                <element signature="e#626#648#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="112">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../include/inf/i2c.hpp">
+        <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1230">
-              <caret line="82" column="9" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../include/inf/pin.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2235">
-              <caret line="149" column="20" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7905">
-              <caret line="527" column="59" selection-start-line="527" selection-start-column="39" selection-end-line="527" selection-end-column="59" />
+            <state relative-caret-position="6945">
+              <caret line="1944" column="18" selection-start-line="1944" selection-start-column="18" selection-end-line="1944" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -133,6 +153,8 @@
       <find>stm</find>
       <find>stm32f446</find>
       <find>get_adc</find>
+      <find>__HAL_RCC_ADC</find>
+      <find>adc_val</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -147,8 +169,6 @@
         <option value="$PROJECT_DIR$/Src/stm32h7xx_it.c" />
         <option value="$PROJECT_DIR$/../include/inf/support.hpp" />
         <option value="$PROJECT_DIR$/../include/inf/app.hpp" />
-        <option value="$PROJECT_DIR$/../include/inf/device.hpp" />
-        <option value="$PROJECT_DIR$/Src/init.c" />
         <option value="$PROJECT_DIR$/../tests/blinky_h7.cpp" />
         <option value="$PROJECT_DIR$/Inc/stm32h7xx_hal_conf.h" />
         <option value="$PROJECT_DIR$/../include/inf/timer.hpp" />
@@ -161,15 +181,21 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/../stm32f446/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/../src/inf/adc_f4.cpp" />
+        <option value="$PROJECT_DIR$/../include/inf/device.hpp" />
+        <option value="$PROJECT_DIR$/Src/init.c" />
+        <option value="$PROJECT_DIR$/../include/inf/adc.hpp" />
+        <option value="$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp" />
+        <option value="$PROJECT_DIR$/../src/inf/adc_h7.cpp" />
+        <option value="$PROJECT_DIR$/../tests/adc_test1.cpp" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="86" />
-    <option name="y" value="47" />
-    <option name="width" value="1474" />
-    <option name="height" value="929" />
+    <option name="x" value="3" />
+    <option name="y" value="24" />
+    <option name="width" value="1653" />
+    <option name="height" value="964" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -189,6 +215,53 @@
               <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
               <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
               <item name="infinity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="inf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="inf" type="462c0819:PsiDirectoryNode" />
+              <item name="detail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="inf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="stm32h7" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stm32h7" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="infinity" type="462c0819:PsiDirectoryNode" />
+              <item name="stm32h7" type="462c0819:PsiDirectoryNode" />
+              <item name="Src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="stm32h7" type="b2602c69:ProjectViewProjectNode" />
@@ -278,23 +351,28 @@
       <workItem from="1565151471801" duration="1245000" />
       <workItem from="1565162124559" duration="2384000" />
       <workItem from="1565165802157" duration="433000" />
+      <workItem from="1565238710641" duration="2974000" />
+      <workItem from="1565244461169" duration="2349000" />
+      <workItem from="1565248373670" duration="231000" />
+      <workItem from="1565248885610" duration="7980000" />
+      <workItem from="1565294849268" duration="4438000" />
+      <workItem from="1565299636066" duration="12977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36356000" />
+    <option name="totallyTimeSpent" value="67305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="969" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24725275" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26129428" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3295325" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39904422" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39794755" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -313,8 +391,63 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/../tests/adc_test1.cpp</url>
+          <line>100</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="com.jetbrains.cidr.embedded.openocd.conf.type">
+        <watch expression="adc_val" language="ObjectiveC" />
+        <watch expression="adc" language="ObjectiveC" />
+        <watch expression="lp" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>lp</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>adc</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>adc_val</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>adc[0][0]</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>adc[0]</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>aADCxConvertedData</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>EXTI</expression-string>
         <language-id>ObjectiveC</language-id>
@@ -330,96 +463,9 @@
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>gpio()</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Mode</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Pin</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>GPIOx</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/h7_blinky.ioc" />
-    <entry file="file://$PROJECT_DIR$/Inc/main.h" />
-    <entry file="file://$PROJECT_DIR$/startup/startup_stm32h743xx.s">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/main.c" />
-    <entry file="file://$PROJECT_DIR$/Src/syscalls.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/system_stm32h7xx.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/detail/device.hpp" />
-    <entry file="file://$PROJECT_DIR$/Src/stm32h7xx_hal_msp.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret column="24" selection-start-column="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/stm32h7xx_it.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/stm32h7xx_nucleo_144.c" />
-    <entry file="file://$PROJECT_DIR$/Inc/stm32h7xx_it.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/support.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inc/stm32h7xx_nucleo_144.h" />
-    <entry file="file://$PROJECT_DIR$/../include/inf/app.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/init.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/device.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../q/q_lib/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -430,27 +476,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="207" column="21" selection-start-line="207" selection-start-column="21" selection-end-line="207" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Inc/stm32h7xx_hal_conf.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
           <caret line="424" column="31" selection-start-line="424" selection-start-column="31" selection-end-line="424" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_utils.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-          <folding>
-            <element signature="e#952#977#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -468,13 +497,6 @@
           <folding>
             <element signature="e#632#662#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="2384" column="12" selection-start-line="2384" selection-start-column="8" selection-end-line="2384" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -504,26 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
           <caret line="1025" selection-start-line="1025" selection-end-line="1025" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2385">
-          <caret line="159" selection-start-line="159" selection-end-line="159" />
-          <folding>
-            <element signature="e#415#433#0" expanded="true" />
-            <element signature="e#475#498#0" expanded="true" />
-            <element signature="e#659#811#0" expanded="true" />
-            <element signature="e#1314#1332#0" expanded="true" />
-            <element signature="e#1375#1398#0" expanded="true" />
-            <element signature="e#2252#2275#0" expanded="true" />
-            <element signature="e#6007#6030#0" expanded="true" />
-            <element signature="e#6749#6767#0" expanded="true" />
-            <element signature="e#8786#8807#0" expanded="true" />
-            <element signature="e#9120#9141#0" expanded="true" />
-            <element signature="e#9164#9186#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -608,26 +610,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="137" column="34" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="34" />
+        <state relative-caret-position="166">
+          <caret line="248" lean-forward="true" selection-start-line="248" selection-end-line="248" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/config.hpp">
+    <entry file="file://$PROJECT_DIR$/../stm32f446/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="1050">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp">
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/pin_impl.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="66" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="70" />
+        <state relative-caret-position="525">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
-            <element signature="e#626#648#0" expanded="true" />
+            <element signature="e#415#433#0" expanded="true" />
+            <element signature="e#475#498#0" expanded="true" />
+            <element signature="e#1314#1332#0" expanded="true" />
+            <element signature="e#1375#1398#0" expanded="true" />
+            <element signature="e#2252#2275#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#870#938#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -641,8 +657,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="82" column="9" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="9" />
+        <state relative-caret-position="1245">
+          <caret line="83" column="9" selection-start-line="83" selection-start-column="3" selection-end-line="83" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -660,31 +676,195 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp">
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="248" lean-forward="true" selection-start-line="248" selection-end-line="248" />
+        <state relative-caret-position="169">
+          <caret line="4016" column="21" selection-start-line="4016" selection-start-column="8" selection-end-line="4016" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../stm32f446/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="714">
+          <caret line="287" column="2" selection-start-line="287" selection-start-column="2" selection-end-line="287" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="2275" column="8" selection-start-line="2275" selection-start-column="8" selection-end-line="2275" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/arm-none-eabi-gcc/8-2018-q4-major/gcc/arm-none-eabi/include/c++/8.2.1/bits/stl_algobase.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="788" selection-start-line="788" selection-end-line="788" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19845">
+          <caret line="1323" selection-start-line="1323" selection-end-line="1323" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/init.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/arm-none-eabi-gcc/8-2018-q4-major/gcc/arm-none-eabi/include/c++/8.2.1/array">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="53" column="27" lean-forward="true" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/canvas.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="146" selection-start-line="146" selection-end-line="146" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/stm32h7xx_it.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/CMSIS/Include/core_cm7.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="2463" column="21" selection-start-line="2463" selection-start-column="21" selection-end-line="2463" selection-end-column="21" />
+          <folding>
+            <element signature="e#139783#140136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="295" selection-start-line="295" selection-end-line="295" />
+          <folding>
+            <element signature="e#614#638#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/config.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="1940" selection-start-line="1940" selection-end-line="1940" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="145" selection-start-line="145" selection-end-line="145" />
+          <folding>
+            <element signature="e#626#648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../q/q_lib/include/q/fx/lowpass.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/inf/adc_h7.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="78" column="55" selection-start-line="78" selection-start-column="55" selection-end-line="78" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6945">
+          <caret line="1944" column="18" selection-start-line="1944" selection-start-column="18" selection-end-line="1944" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="576" column="34" selection-start-line="576" selection-start-column="8" selection-end-line="576" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+          <folding>
+            <element signature="e#3318#3343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/device.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/startup/startup_stm32h743xx.s">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_utils.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="240" selection-start-line="240" selection-end-line="240" />
+          <folding>
+            <element signature="e#833#864#0" expanded="true" />
+            <element signature="e#952#977#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/support.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+          <folding>
+            <element signature="e#619#710#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../tests/adc_test1.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-426" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tests/ssd1306_test.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-683">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="297">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
           <folding>
-            <element signature="e#870#938#0" expanded="true" />
+            <element signature="e#302#328#0" expanded="true" />
           </folding>
         </state>
       </provider>
