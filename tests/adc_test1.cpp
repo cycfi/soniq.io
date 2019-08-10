@@ -76,7 +76,7 @@ auto config = inf::config(
    i2c.setup(),
    master_clock.setup(2000000, sampling_rate),
    adc.setup(master_clock, conversion_complete),
-   adc.enable_channels<3>()
+   adc.enable_channels<4>()
 );
 
 void conversion_complete()
