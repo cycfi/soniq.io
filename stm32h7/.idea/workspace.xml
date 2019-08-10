@@ -14,12 +14,7 @@
   <component name="ChangeListManager">
     <list default="true" id="778ab6a6-eab1-401e-9cb6-80421550dfe0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../include/inf/adc.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/adc.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/detail/irq_impl.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/inf/device.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/device.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/inf/timer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/timer.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/inf/adc_h7.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../src/inf/adc_h7.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stm32f446/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -49,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="312" lean-forward="true" selection-start-line="312" selection-end-line="312" />
+            <state relative-caret-position="124">
+              <caret line="305" column="32" selection-start-line="305" selection-start-column="32" selection-end-line="305" selection-end-column="32" />
               <folding>
                 <element signature="e#614#638#0" expanded="true" />
                 <element signature="e#1791#1812#0" expanded="true" />
@@ -87,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../src/inf/adc_h7.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="101" column="34" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+            <state relative-caret-position="27">
+              <caret line="86" column="34" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -110,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="179">
-              <caret line="598" column="48" lean-forward="true" selection-start-line="598" selection-start-column="44" selection-end-line="598" selection-end-column="60" />
+              <caret line="598" column="48" selection-start-line="598" selection-start-column="44" selection-end-line="598" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -384,12 +379,12 @@
       <workItem from="1565248373670" duration="231000" />
       <workItem from="1565248885610" duration="7980000" />
       <workItem from="1565294849268" duration="4438000" />
-      <workItem from="1565299636066" duration="29842000" />
+      <workItem from="1565299636066" duration="31633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84170000" />
+    <option name="totallyTimeSpent" value="85961000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="969" extended-state="6" />
@@ -425,7 +420,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/../include/inf/adc.hpp</url>
-          <line>173</line>
+          <line>175</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
       </breakpoints>
@@ -864,7 +859,7 @@
     <entry file="file://$PROJECT_DIR$/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
-          <caret line="598" column="48" lean-forward="true" selection-start-line="598" selection-start-column="44" selection-end-line="598" selection-end-column="60" />
+          <caret line="598" column="48" selection-start-line="598" selection-start-column="44" selection-end-line="598" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -884,15 +879,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../src/inf/adc_h7.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="101" column="34" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+        <state relative-caret-position="27">
+          <caret line="86" column="34" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../include/inf/detail/adc_impl_h7.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="312" lean-forward="true" selection-start-line="312" selection-end-line="312" />
+        <state relative-caret-position="124">
+          <caret line="305" column="32" selection-start-line="305" selection-start-column="32" selection-end-line="305" selection-end-column="32" />
           <folding>
             <element signature="e#614#638#0" expanded="true" />
             <element signature="e#1791#1812#0" expanded="true" />

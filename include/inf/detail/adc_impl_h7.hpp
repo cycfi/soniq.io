@@ -290,14 +290,11 @@ namespace cycfi { namespace infinity { namespace detail
    }
 
    ///////////////////////////////////////////////////////////////////////////////
-
-   // main channel enabler
    void enable_adc_channel(std::size_t id, uint32_t channel_id, uint32_t rank);
 
    template <std::size_t adc_id, std::size_t channel_, std::size_t rank_>
    inline void enable_adc_channel()
    {
-      auto adc = get_adc<adc_id>();
       auto channel = adc_channel<channel_>();
       auto rank = adc_rank<rank_>();
 

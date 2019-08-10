@@ -62,7 +62,9 @@ namespace cycfi { namespace infinity
          static_assert(detail::valid_adc_timer(tid), "Invalid Timer for ADC");
 
          system_init();
-         detail::init_adc<id, tid, channels>();
+         detail::init_adc<id, tid, channels>(
+            &_data[0][0], buffer_size * channels
+         );
          clear(); // Clear the ADC buffer
       }
 

@@ -313,7 +313,7 @@ namespace cycfi { namespace infinity { namespace detail
    }
 
    template <std::size_t adc_id>
-   inline void start_adc()
+   inline void start_adc(uint16_t values[], uint16_t size)
    {
       auto adc = get_adc<adc_id>();
       if (LL_ADC_IsEnabled(adc))
