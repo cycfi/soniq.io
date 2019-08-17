@@ -324,7 +324,7 @@ namespace cycfi { namespace infinity { namespace detail
    void init_adc(std::size_t id);
 
    template <std::size_t adc_id, std::size_t timer_id, std::size_t channels>
-   inline void init_adc()
+   inline void init_adc(uint16_t values[], uint16_t size)
    {
       init_adc(adc_id);
 
