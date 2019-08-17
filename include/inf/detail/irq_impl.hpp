@@ -12,7 +12,7 @@
 
 #include <inf/pin.hpp>
 #include <inf/timer.hpp>
-//#include <inf/adc.hpp>
+#include <inf/adc.hpp>
 #include <type_traits>
 
 #if defined(STM32H7)
