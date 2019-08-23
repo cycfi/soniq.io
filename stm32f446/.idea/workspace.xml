@@ -13,8 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9b6e609-f4b2-4f5e-a683-2dce058a1fbc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stm32h7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32h7/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/adc_test1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/adc_test1.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -30,15 +30,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../src/inf/adc_f4.cpp">
           <provider selected="true" editor-type-id="text-editor">
@@ -103,14 +94,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../tests/adc_test1.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="96" column="24" lean-forward="true" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+            <state relative-caret-position="482">
+              <caret line="96" column="24" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
               <folding>
                 <element signature="e#302#328#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-201">
+              <caret line="85" column="35" lean-forward="true" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -166,12 +166,12 @@
         <option value="$PROJECT_DIR$/../include/inf/canvas.hpp" />
         <option value="$PROJECT_DIR$/../include/inf/detail/i2c_impl.hpp" />
         <option value="$PROJECT_DIR$/../include/inf/i2c.hpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/../include/inf/detail/adc_impl.hpp" />
         <option value="$PROJECT_DIR$/../include/inf/detail/adc_impl_f4.hpp" />
         <option value="$PROJECT_DIR$/../tests/ssd1306_test.cpp" />
         <option value="$PROJECT_DIR$/../include/inf/adc.hpp" />
         <option value="$PROJECT_DIR$/../tests/adc_test1.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -197,12 +197,6 @@
               <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
               <item name="infinity_f446" type="47feb1d3:ProjectViewModuleNode" />
               <item name="infinity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
-              <item name="infinity_f446" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="infinity" type="462c0819:PsiDirectoryNode" />
-              <item name="stm32f446" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="stm32f446" type="b2602c69:ProjectViewProjectNode" />
@@ -290,17 +284,17 @@
       <workItem from="1565271044764" duration="4566000" />
       <workItem from="1565294849467" duration="539000" />
       <workItem from="1565299636349" duration="1675000" />
+      <workItem from="1566287200417" duration="131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17123000" />
+    <option name="totallyTimeSpent" value="17254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="969" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25763127" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26068377" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -437,19 +431,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="112" column="21" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../src/inf/adc.cpp" />
     <entry file="file://$PROJECT_DIR$/../include/inf/detail/adc_impl.hpp" />
     <entry file="file://$PROJECT_DIR$/../include/inf/timer.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -540,20 +534,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../include/inf/adc.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../tests/adc_test1.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="96" column="24" lean-forward="true" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+        <state relative-caret-position="482">
+          <caret line="96" column="24" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
           <folding>
             <element signature="e#302#328#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-201">
+          <caret line="85" column="35" lean-forward="true" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
         </state>
       </provider>
     </entry>

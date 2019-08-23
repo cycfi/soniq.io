@@ -17,6 +17,10 @@
    void                 HAL_Delay(uint32_t Delay);
    uint32_t             HAL_GetTick();
 
+#if defined(STM32H7)
+   void                 MPU_Config();
+#endif
+
 #ifdef __cplusplus
 }
 #endif
@@ -35,6 +39,7 @@ namespace cycfi { namespace infinity
          SystemClock_Config();
 
 #if defined(STM32H7)
+         MPU_Config();
          CPU_Cache_Enable();
 #endif
          HAL_Init();

@@ -113,7 +113,7 @@ set(MAIN_FILE ../tests/ssd1306_test.cpp)
 endif()
 
 if (DEFINED ADC_TEST1)
-  set(MAIN_FILE ../tests/adc_test1.cpp)
+set(MAIN_FILE ../tests/adc_test1.cpp)
 endif()
 
 ###############################################################################
