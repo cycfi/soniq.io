@@ -72,7 +72,7 @@ add_subdirectory(${Q_LIB_ROOT} "${CMAKE_CURRENT_BINARY_DIR}/q")
 # sources
 
 file(GLOB_RECURSE INFINITY_SOURCES ../src/*.cpp)
-file(GLOB_RECURSE SOURCES "startup/*.*" "Drivers/*.*" "Src/*.*")
+file(GLOB_RECURSE SOURCES "startup/*.*" "Middlewares/*.*" "Drivers/*.*" "Src/*.*" "Inc/*.*")
 
 list(FILTER INFINITY_SOURCES EXCLUDE REGEX ".*f4.cpp")
 
@@ -82,6 +82,17 @@ include_directories(
    ${INFRA_HEADER}
    Inc
    SYSTEM
+   Middlewares/Third_Party/LwIP/src/include Middlewares/Third_Party/LwIP/system
+   Middlewares/Third_Party/LwIP/src/include/netif/ppp
+   Middlewares/Third_Party/LwIP/src/include/lwip
+   Middlewares/Third_Party/LwIP/src/include/lwip/apps
+   Middlewares/Third_Party/LwIP/src/include/lwip/priv
+   Middlewares/Third_Party/LwIP/src/include/lwip/prot
+   Middlewares/Third_Party/LwIP/src/include/netif
+   Middlewares/Third_Party/LwIP/src/include/posix
+   Middlewares/Third_Party/LwIP/src/include/posix/sys
+   Middlewares/Third_Party/LwIP/system/arch
+   Drivers/BSP/Components/lan8742
    Drivers/STM32H7xx_HAL_Driver/Inc
    Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
    Drivers/CMSIS/Device/ST/STM32H7xx/Include
