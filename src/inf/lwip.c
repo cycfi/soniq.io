@@ -48,7 +48,7 @@
   */
   
 /* Includes ------------------------------------------------------------------*/
-#include "lwip.h"
+#include "inf/detail/lwip.h"
 #include "lwip/init.h"
 #include "lwip/netif.h"
 #if defined ( __CC_ARM )  /* MDK ARM Compiler */

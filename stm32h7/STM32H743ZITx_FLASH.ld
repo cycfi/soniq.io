@@ -35,8 +35,8 @@ ENTRY(Reset_Handler)
 /* Highest address of the user mode stack */
 _estack = 0x24080000;    /* end of RAM */
 /* Generate a link error if heap and stack don't fit into RAM */
-_Min_Heap_Size = 0x200;      /* required amount of heap  */
-_Min_Stack_Size = 0x400; /* required amount of stack */
+_Min_Heap_Size = 0x2000;      /* required amount of heap  */
+_Min_Stack_Size = 0x4000; /* required amount of stack */
 
 /* Specify the memory areas */
 MEMORY
@@ -118,7 +118,7 @@ SECTIONS
   _sidata = LOADADDR(.data);
 
   /* Initialized data sections goes into RAM, load LMA copy after code */
-  .data : 
+  .data :
   {
     . = ALIGN(4);
     _sdata = .;        /* create a global symbol at data start */
@@ -129,7 +129,7 @@ SECTIONS
     _edata = .;        /* define a global symbol at data end */
   } >RAM_D1 AT> FLASH
 
-  
+
   /* Uninitialized data section */
   . = ALIGN(4);
   .bss :
@@ -157,7 +157,16 @@ SECTIONS
     . = ALIGN(8);
   } >RAM_D1
 
-  
+  .lwip_sec (NOLOAD) : {
+    . = ABSOLUTE(0x30040000);
+    *(.RxDecripSection)
+
+    . = ABSOLUTE(0x30040060);
+    *(.TxDecripSection)
+
+    . = ABSOLUTE(0x30040200);
+    *(.RxArraySection)
+  } >RAM_D2 AT> FLASH
 
   /* Remove information from the standard libraries */
   /DISCARD/ :

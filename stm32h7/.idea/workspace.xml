@@ -2,24 +2,21 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="stm32h7" targetName="stm32h7.elf" />
       <config projectName="stm32h7" targetName="UPLOAD" />
+      <config projectName="stm32h7" targetName="stm32h7.elf" />
     </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DADC_TEST1=1" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DUDP_ECHO_TEST=1" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="778ab6a6-eab1-401e-9cb6-80421550dfe0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../include/inf/device.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/device.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stm32f446/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../stm32f446/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/inf/lwip.c" beforeDir="false" afterPath="$PROJECT_DIR$/../src/inf/lwip.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inc/stm32h7xx_hal_conf.h" beforeDir="false" afterPath="$PROJECT_DIR$/Inc/stm32h7xx_hal_conf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/Src/init.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM32H743ZITx_FLASH.ld" beforeDir="false" afterPath="$PROJECT_DIR$/STM32H743ZITx_FLASH.ld" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,23 +28,6 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>LL_APB2_GRP1_PERIPH_SYSCFG</find>
-      <find>I2C_InitTypeDef</find>
-      <find>i2c</find>
-      <find>LL_GPIO_SetPinOutputType</find>
-      <find>LL_GPIO_AF_4</find>
-      <find>LL_GPIO_SetAFPin_8_15</find>
-      <find>LL_GPIO_SetAFPin_0_7</find>
-      <find>stm</find>
-      <find>stm32f446</find>
-      <find>get_adc</find>
-      <find>__HAL_RCC_ADC</find>
-      <find>adc_val</find>
-      <find>sampling_rate</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -67,7 +47,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -139,7 +119,10 @@
       <workItem from="1565299636066" duration="32184000" />
       <workItem from="1566032495899" duration="737000" />
       <workItem from="1566120446988" duration="2000" />
-      <workItem from="1566528052686" duration="5415000" />
+      <workItem from="1566528052686" duration="6706000" />
+      <workItem from="1566552694394" duration="1936000" />
+      <workItem from="1566562435718" duration="57000" />
+      <workItem from="1566562562083" duration="763000" />
     </task>
     <servers />
   </component>
@@ -151,7 +134,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -164,6 +149,11 @@
           <url>file://$PROJECT_DIR$/../include/inf/adc.hpp</url>
           <line>175</line>
           <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/../tests/udp_echo.cpp</url>
+          <line>104</line>
+          <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
