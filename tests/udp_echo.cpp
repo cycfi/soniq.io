@@ -7,6 +7,8 @@
 #include <inf/pin.hpp>
 #include <inf/app.hpp>
 
+#include "inf/ethernet.hpp"
+
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -85,11 +87,6 @@ static void Ethernet_GPIO_Init()
    __HAL_RCC_GPIOB_CLK_ENABLE();
    __HAL_RCC_GPIOG_CLK_ENABLE();
 }
-
-///////////////////////////////////////////////////////////////////////////////
-// Simplest toggle the led test. This test uses simple delay to toggle
-// the leds at a rate of 1 per second. No setup required.
-///////////////////////////////////////////////////////////////////////////////
 
 namespace inf = cycfi::infinity;
 
