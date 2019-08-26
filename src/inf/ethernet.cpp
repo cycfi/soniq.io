@@ -4,12 +4,25 @@
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
 #include <inf/ethernet.hpp>
-#include <inf/detail/lwip.h>
 #include <lwip/init.h>
 
+#include "lwip/err.h"
+#include "lwip/netif.h"
+#include "lwip/opt.h"
+#include "lwip/mem.h"
+#include "lwip/memp.h"
+#include "netif/etharp.h"
+#include "lwip/dhcp.h"
+#include "lwip/netif.h"
+#include "lwip/timeouts.h"
+#include "ethernetif.h"
+
 // Exported functions
-err_t ethernetif_init(netif* netif);
-void ethernetif_input(netif* netif);
+extern "C"
+{
+   err_t ethernetif_init(netif* netif);
+   void ethernetif_input(netif* netif);
+}
 
 namespace cycfi { namespace infinity
 {

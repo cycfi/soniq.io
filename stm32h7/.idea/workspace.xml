@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="stm32h7" targetName="UPLOAD" />
       <config projectName="stm32h7" targetName="stm32h7.elf" />
+      <config projectName="stm32h7" targetName="UPLOAD" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -14,9 +14,7 @@
   <component name="ChangeListManager">
     <list default="true" id="778ab6a6-eab1-401e-9cb6-80421550dfe0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../include/inf/ethernet.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/ethernet.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/inf/ethernet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../src/inf/ethernet.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/udp_echo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/udp_echo.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +122,7 @@
       <workItem from="1566562435718" duration="57000" />
       <workItem from="1566562562083" duration="2469000" />
       <workItem from="1566596344155" duration="4000" />
-      <workItem from="1566787594596" duration="12811000" />
+      <workItem from="1566787594596" duration="14448000" />
     </task>
     <servers />
   </component>
@@ -154,7 +152,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/../tests/udp_echo.cpp</url>
-          <line>89</line>
+          <line>19</line>
           <option name="timeStamp" value="85" />
         </line-breakpoint>
       </breakpoints>

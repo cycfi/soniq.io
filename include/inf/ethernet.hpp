@@ -20,7 +20,7 @@ namespace cycfi { namespace infinity
          IP4_ADDR(this, a0, a1, a2, a3);
       }
 
-       constexpr ip_address(ip4_addr_t other)
+      constexpr ip_address(ip4_addr_t other)
        : ip4_addr_t(other)
       {}
    };
@@ -32,17 +32,36 @@ namespace cycfi { namespace infinity
    {
    public:
 
-                  net_interface(ip_address ip, ip_address netmask, ip_address gateway);
-      void        process();
+                     net_interface(ip_address ip, ip_address netmask, ip_address gateway);
+      void           process();
 
    private:
 
-      netif       _netif;
+      netif          _netif;
    };
 
    ////////////////////////////////////////////////////////////////////////////
-   class net_buffer;
+   class net_buffer
+   {
+   public:
+                     net_buffer(net_buffer const& rhs);
+                     net_buffer(char* data, std::size_t len);
+                     ~net_buffer();
 
+      operator       bool() const { return _buff; }
+      char*          data() const { return reinterpret_cast<char*>(_buff->payload); }
+      std::size_t    size() const { return _buff->len; }
+
+   private:
+
+      friend class udp_server;
+
+                     net_buffer(pbuf* buff_);
+
+      pbuf*          _buff;
+   };
+
+   ////////////////////////////////////////////////////////////////////////////
    class udp_server : non_copyable
    {
    public:
@@ -61,27 +80,6 @@ namespace cycfi { namespace infinity
       static void    receive(void* arg, udp_pcb* upcb, pbuf* p, ip_addr_t const* addr, u16_t port);
 
       udp_pcb*       _upcb = nullptr;
-   };
-
-   ////////////////////////////////////////////////////////////////////////////
-   class net_buffer
-   {
-   public:
-                  net_buffer(net_buffer const& rhs);
-                  net_buffer(char* data, std::size_t len);
-                  ~net_buffer();
-
-      operator    bool() const { return _buff; }
-      char*       data() const { return reinterpret_cast<char*>(_buff->payload); }
-      std::size_t size() const { return _buff->len; }
-
-   private:
-
-      friend class udp_server;
-
-               net_buffer(pbuf* buff_);
-
-      pbuf*    _buff;
    };
 
    ////////////////////////////////////////////////////////////////////////////

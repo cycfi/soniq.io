@@ -71,7 +71,7 @@ add_subdirectory(${Q_LIB_ROOT} "${CMAKE_CURRENT_BINARY_DIR}/q")
 ###############################################################################
 # sources
 
-file(GLOB_RECURSE INFINITY_SOURCES ../src/*.cpp ../src/*.c)
+file(GLOB_RECURSE INFINITY_SOURCES ../src/*.cpp)
 file(GLOB_RECURSE SOURCES "startup/*.*" "Middlewares/*.*" "Drivers/*.*" "Src/*.*" "Inc/*.*")
 
 list(FILTER INFINITY_SOURCES EXCLUDE REGEX ".*f4.cpp")
