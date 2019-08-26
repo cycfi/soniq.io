@@ -72,6 +72,8 @@ namespace cycfi { namespace infinity
    void udp_server::receive(void* arg, udp_pcb* upcb, pbuf* p, ip_addr_t const* addr, u16_t port)
    {
       net_buffer buff{p};
+      auto* this_ = reinterpret_cast<udp_server*>(arg);
+      this_->on_receive(buff, *addr, port);
    }
 
    void udp_server::bind(ip_address addr, std::uint16_t port)

@@ -6,105 +6,47 @@
 #include <inf/support.hpp>
 #include <inf/pin.hpp>
 #include <inf/app.hpp>
-
-#include "inf/ethernet.hpp"
-
-
-///////////////////////////////////////////////////////////////////////////////
-
-#include "inf/detail/lwip.h"
-#include "lwip/pbuf.h"
-#include "lwip/udp.h"
-#include "lwip/tcp.h"
-#include <string.h>
-#include <stdio.h>
-
-#define UDP_SERVER_PORT    7
-/* UDP remote connection port */
-#define UDP_CLIENT_PORT    7
-
-void udp_echoserver_receive_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_addr_t *addr, u16_t port);
-
-void udp_echoserver_init()
-{
-   struct udp_pcb *upcb;
-   err_t err;
-
-   /* Create a new UDP control block  */
-   upcb = udp_new();
-
-   if (upcb)
-   {
-     /* Bind the upcb to the UDP_PORT port */
-     /* Using IP_ADDR_ANY allow the upcb to be used by any local interface */
-      err = udp_bind(upcb, IP_ADDR_ANY, UDP_SERVER_PORT);
-
-      if(err == ERR_OK)
-      {
-        /* Set a receive callback for the upcb */
-        udp_recv(upcb, udp_echoserver_receive_callback, NULL);
-      }
-      else
-      {
-        udp_remove(upcb);
-      }
-   }
-}
-
-void udp_echoserver_receive_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
-{
-  struct pbuf *p_tx;
-
-  /* allocate pbuf from RAM*/
-  p_tx = pbuf_alloc(PBUF_TRANSPORT,p->len, PBUF_RAM);
-
-  if(p_tx != NULL)
-  {
-    pbuf_take(p_tx, (char*)p->payload, p->len);
-    /* Connect to the remote client */
-    udp_connect(upcb, addr, UDP_CLIENT_PORT);
-
-    /* Tell the client that we have accepted it */
-    udp_send(upcb, p_tx);
-
-    /* free the UDP connection, so we can accept new clients */
-    udp_disconnect(upcb);
-
-    /* Free the p_tx buffer */
-    pbuf_free(p_tx);
-
-    /* Free the p buffer */
-    pbuf_free(p);
-  }
-}
-
-static void Ethernet_GPIO_Init()
-{
-   // GPIO Ports Clock Enable
-   __HAL_RCC_GPIOH_CLK_ENABLE();
-   __HAL_RCC_GPIOC_CLK_ENABLE();
-   __HAL_RCC_GPIOA_CLK_ENABLE();
-   __HAL_RCC_GPIOB_CLK_ENABLE();
-   __HAL_RCC_GPIOG_CLK_ENABLE();
-}
+#include <inf/ethernet.hpp>
 
 namespace inf = cycfi::infinity;
+
+///////////////////////////////////////////////////////////////////////////////
+class echo_server : public inf::udp_server
+{
+public:
+
+   virtual void on_receive(inf::net_buffer const& buff, inf::ip_address addr, std::uint16_t port)
+   {
+      inf::net_buffer tx_buff{buff};
+      if (tx_buff)
+      {
+         connect(addr, port);    // Connect to remote client same port
+         send(tx_buff);          // Tell the client that we have accepted it
+         disconnect();           // Free the UDP connection, so we can accept new clients
+      }
+   }
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
    inf::system_init();
 
-   Ethernet_GPIO_Init();
-   MX_LWIP_Init();
-   HAL_Delay(1000);
+   inf::net_interface net{
+      {192, 168, 254, 100} // ip
+    , {255, 255, 255, 0}   // netmask
+    , {192, 168, 254, 1}   // gateway
+   };
 
-   udp_echoserver_init();
+   echo_server server;
+   server.bind(inf::ip_add_any, 7); // bind to any address, port 7
+
+   inf::delay_ms(1000);
 
    while (true)
    {
-      MX_LWIP_Process();
-      HAL_Delay(1);
+      net.process();
+      inf::delay_ms(1);
    }
 }
 

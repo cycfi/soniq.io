@@ -15,9 +15,7 @@ namespace cycfi { namespace infinity
 {
    struct ip_address : ip4_addr_t
    {
-      constexpr ip_address(
-         std::int8_t a0, std::int8_t a1
-       , std::int8_t a2, std::int8_t a3)
+      constexpr ip_address(int a0, int a1, int a2, int a3)
       {
          IP4_ADDR(this, a0, a1, a2, a3);
       }
@@ -55,7 +53,7 @@ namespace cycfi { namespace infinity
       void           connect(ip_address addr, std::uint16_t port);
       void           disconnect();
 
-      void           send(net_buffer const& buff, ip_address addr, std::uint16_t port);
+      void           send(net_buffer const& buff);
       virtual void   on_receive(net_buffer const& buff, ip_address addr, std::uint16_t port) = 0;
 
    private:
@@ -69,10 +67,13 @@ namespace cycfi { namespace infinity
    class net_buffer
    {
    public:
-               net_buffer(char* data, std::size_t len);
-               ~net_buffer();
+                  net_buffer(net_buffer const& rhs);
+                  net_buffer(char* data, std::size_t len);
+                  ~net_buffer();
 
-      operator bool() const { return _buff; }
+      operator    bool() const { return _buff; }
+      char*       data() const { return reinterpret_cast<char*>(_buff->payload); }
+      std::size_t size() const { return _buff->len; }
 
    private:
 
@@ -95,9 +96,14 @@ namespace cycfi { namespace infinity
       udp_disconnect(_upcb);
    }
 
-   inline void udp_server::send(net_buffer const& buff, ip_address addr, std::uint16_t port)
+   inline void udp_server::send(net_buffer const& buff)
    {
       udp_send(_upcb, buff._buff);
+   }
+
+   inline net_buffer::net_buffer(net_buffer const& rhs)
+    : net_buffer(rhs.data(), rhs.size())
+   {
    }
 
    inline net_buffer::net_buffer(char* data, std::size_t len)
