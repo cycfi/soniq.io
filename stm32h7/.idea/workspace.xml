@@ -8,13 +8,13 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DUDP_ECHO_TEST=1" />
+      <configuration PROFILE_NAME="Release" CONFIG_NAME="Release" GENERATION_OPTIONS="-DUDP_ECHO_TEST=1" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="778ab6a6-eab1-401e-9cb6-80421550dfe0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../include/inf/ethernet.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../include/inf/ethernet.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/udp_echo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/udp_echo.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +25,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -45,7 +45,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -60,23 +60,23 @@
     </option>
   </component>
   <component name="RunManager" selected="OpenOCD Download &amp; Run.OCD stm32h7.elf">
-    <configuration name="UPLOAD" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32h7" TARGET_NAME="UPLOAD" CONFIG_NAME="Debug">
+    <configuration name="UPLOAD" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32h7" TARGET_NAME="UPLOAD" CONFIG_NAME="Release">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="stm32h7.elf" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32h7" TARGET_NAME="stm32h7.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stm32h7" RUN_TARGET_NAME="stm32h7.elf">
+    <configuration name="stm32h7.elf" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32h7" TARGET_NAME="stm32h7.elf" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="stm32h7" RUN_TARGET_NAME="stm32h7.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OCD stm32h7.elf" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32h7" TARGET_NAME="stm32h7.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stm32h7" RUN_TARGET_NAME="stm32h7.elf">
+    <configuration name="OCD stm32h7.elf" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32h7" TARGET_NAME="stm32h7.elf" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="stm32h7" RUN_TARGET_NAME="stm32h7.elf">
       <openocd gdb-port="3333" telnet-port="4444" board-config="board/st_nucleo_h743zi.cfg" reset-type="INIT" download-type="ALWAYS" />
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32h7" TARGET_NAME="stm32h7.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stm32h7" RUN_TARGET_NAME="stm32h7.elf">
+    <configuration default="true" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stm32h7" TARGET_NAME="stm32h7.elf" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="stm32h7" RUN_TARGET_NAME="stm32h7.elf">
       <openocd gdb-port="3333" telnet-port="4444" board-config="board/st_nucleo_h743zi.cfg" reset-type="INIT" download-type="ALWAYS" />
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -122,7 +122,9 @@
       <workItem from="1566562435718" duration="57000" />
       <workItem from="1566562562083" duration="2469000" />
       <workItem from="1566596344155" duration="4000" />
-      <workItem from="1566787594596" duration="14448000" />
+      <workItem from="1566787594596" duration="17062000" />
+      <workItem from="1566860679234" duration="536000" />
+      <workItem from="1574241922383" duration="317000" />
     </task>
     <servers />
   </component>

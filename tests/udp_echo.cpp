@@ -46,7 +46,7 @@ int main()
    while (true)
    {
       net.process();
-      inf::delay_ms(1);
+//      inf::delay_ms(1);
    }
 }
 
