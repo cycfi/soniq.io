@@ -17,27 +17,17 @@ using namespace inf::port;
 using inf::delay_ms;
 
 ///////////////////////////////////////////////////////////////////////////////
-// Peripherals
-inf::main_led_type led;
-
-///////////////////////////////////////////////////////////////////////////////
-// Configuration
-auto config = inf::config(
-   led.setup()
-);
-
-///////////////////////////////////////////////////////////////////////////////
 int main()
 {
    inf::system_init();
 
-   led = off;
+   auto led = out<portb + 0>();
 
-   // toggle LED
+   led = off;
    while (true)
    {
       delay_ms(1000);
-      led = !led;
+      led = !led;    // toggle LED
    }
 }
 

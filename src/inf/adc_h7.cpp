@@ -3,6 +3,9 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
+
+/*
+
 #include <inf/support.hpp>
 #include <inf/device.hpp>
 #include <inf/detail/adc_impl_h7.hpp>
@@ -187,3 +190,5 @@ extern "C"
       HAL_NVIC_EnableIRQ(irq_id);
    }
 }
+
+*/

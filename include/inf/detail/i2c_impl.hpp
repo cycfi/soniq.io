@@ -59,18 +59,18 @@ namespace cycfi { namespace infinity { namespace detail
 
 #if defined(STM32H7)
 
-   INFINITY_SCL_PIN(port::portb + 6, 1);
-   INFINITY_SDA_PIN(port::portb + 7, 1);
-   INFINITY_SCL_PIN(port::portb + 8, 1);
-   INFINITY_SDA_PIN(port::portb + 9, 1);
-
-   INFINITY_SCL_PIN(port::portf + 1, 2);
-   INFINITY_SDA_PIN(port::portf + 0, 2);
-   INFINITY_SCL_PIN(port::portb + 10, 2);
-   INFINITY_SDA_PIN(port::portb + 11, 2);
-
-   INFINITY_SCL_PIN(port::porta + 8, 3);
-   INFINITY_SDA_PIN(port::porta + 9, 3);
+//   INFINITY_SCL_PIN(port::portb + 6, 1);
+//   INFINITY_SDA_PIN(port::portb + 7, 1);
+//   INFINITY_SCL_PIN(port::portb + 8, 1);
+//   INFINITY_SDA_PIN(port::portb + 9, 1);
+//
+//   INFINITY_SCL_PIN(port::portf + 1, 2);
+//   INFINITY_SDA_PIN(port::portf + 0, 2);
+//   INFINITY_SCL_PIN(port::portb + 10, 2);
+//   INFINITY_SDA_PIN(port::portb + 11, 2);
+//
+//   INFINITY_SCL_PIN(port::porta + 8, 3);
+//   INFINITY_SDA_PIN(port::porta + 9, 3);
 
    // $$$ JDG Should we upposrt these? $$$
    // INFINITY_SCL_PIN(port::portb + 6, 4); // LL_GPIO_AF_6
@@ -78,9 +78,9 @@ namespace cycfi { namespace infinity { namespace detail
    // INFINITY_SCL_PIN(port::portb + 8, 4); // LL_GPIO_AF_6
    // INFINITY_SDA_PIN(port::portb + 9, 4); // LL_GPIO_AF_6
 
-   INFINITY_SCL_PIN(port::portd + 12, 4);
-   INFINITY_SDA_PIN(port::portd + 13, 4);
-   INFINITY_SDA_PIN(port::portf + 15, 4);
+//   INFINITY_SCL_PIN(port::portd + 12, 4);
+//   INFINITY_SDA_PIN(port::portd + 13, 4);
+//   INFINITY_SDA_PIN(port::portf + 15, 4);
 
 
 #elif defined(STM32F4)

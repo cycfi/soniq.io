@@ -6,9 +6,11 @@
 #if !defined(CYCFI_INFINITY_PIN_HPP_DECEMBER_20_2015)
 #define CYCFI_INFINITY_PIN_HPP_DECEMBER_20_2015
 
-#include <inf/detail/pin_impl.hpp>
-#include <inf/config.hpp>
 #include <inf/support.hpp>
+
+#if defined(STM32H7)
+# include <inf/detail/pin_impl_h7.hpp>
+#endif
 
 namespace cycfi { namespace infinity
 {
@@ -27,6 +29,8 @@ namespace cycfi { namespace infinity
       constexpr uint16_t portg = 6 * 16;
       constexpr uint16_t porth = 7 * 16;
       constexpr uint16_t porti = 8 * 16;
+      constexpr uint16_t portj = 9 * 16;
+      constexpr uint16_t portk = 10 * 16;
    }
 
    enum class port_output_speed
@@ -103,65 +107,27 @@ namespace cycfi { namespace infinity
       constexpr off_type off = {};
    }
 
-   // IO Pin IDs (io_pin_id) are used to ensure there are no IO port
-   // clashes (see config.hpp). The N template parameter is the same
-   // as the output or input pin's N parameter which uniquely identifies
-   // the port.
-   template <std::size_t N>
-   struct io_pin_id {};
+   ////////////////////////////////////////////////////////////////////////////
+   template <uint32_t ID>
+   struct pin_descr
+   {
+      constexpr static uint16_t  id = ID;
+      constexpr static uint16_t  bit = ID % 16;
+      constexpr static uint16_t  port = ID / 16;
+      constexpr static uint32_t  mask = 1 << bit;
+   };
 
    ////////////////////////////////////////////////////////////////////////////
-   // output_pin
-   ////////////////////////////////////////////////////////////////////////////
-   template <
-      std::size_t N,
-      port_output_speed speed = port::high_speed,
-      port_output_type type = port::push_pull
-   >
+   template <uint32_t ID>
    struct output_pin
    {
-      static constexpr size_t    n = N;
-      static constexpr uint16_t  bit = N % 16;
-      static constexpr uint16_t  port = N / 16;
-      static constexpr uint32_t  mask = 1 << bit;
-
-      // there are only 9 ports
-      static_assert(port < 9, "Invalid port");
+      constexpr static uint16_t  id = ID;
+      constexpr static uint16_t  bit = ID % 16;
+      constexpr static uint16_t  port = ID / 16;
+      constexpr static uint32_t  mask = 1 << bit;
 
       using self_type = output_pin;
       using inverse_type = inverse_pin<output_pin>;
-      using peripheral_id = io_pin_id<N>;
-
-      output_pin() = default;
-      output_pin(output_pin const&) = default;
-
-      void init()
-      {
-         // Enable GPIO peripheral clock
-         detail::enable_port_clock<port>();
-
-         // Configure output mode
-         LL_GPIO_SetPinMode(&gpio(), mask, LL_GPIO_MODE_OUTPUT);
-
-         // Configure output push pull or open drain
-         LL_GPIO_SetPinOutputType(&gpio(), mask, uint32_t(type));
-
-         // Configure output speed
-         LL_GPIO_SetPinSpeed(&gpio(), mask, uint32_t(speed));
-
-         // Configure pull-up/down resistor
-         LL_GPIO_SetPinPull(&gpio(), mask, LL_GPIO_PULL_NO);
-      }
-
-      auto setup()
-      {
-         init();
-         return [](auto base)
-            -> basic_config<peripheral_id, decltype(base)>
-         {
-            return {base};
-         };
-      }
 
       GPIO_TypeDef& gpio() const
       {
@@ -214,142 +180,37 @@ namespace cycfi { namespace infinity
    };
 
    ////////////////////////////////////////////////////////////////////////////
-   // input_pin
+   template <uint32_t ID>
+   struct input_pin : pin_descr<ID>
+   {
+   };
+
    ////////////////////////////////////////////////////////////////////////////
-   enum class port_input_type
-   {
-      normal = LL_GPIO_PULL_NO,
-      pull_up = LL_GPIO_PULL_UP,
-      pull_down = LL_GPIO_PULL_DOWN
-   };
-
-   enum class port_edge
-   {
-      rising,
-      falling
-   };
-
    namespace port
    {
-      auto constexpr pull_up = port_input_type::pull_up;
-      auto constexpr pull_down = port_input_type::pull_down;
-      auto constexpr rising_edge = port_edge::rising;
-      auto constexpr falling_edge = port_edge::falling;
+      template <
+         uint32_t ID
+       , port_output_speed speed
+       , port_output_type type = port::push_pull
+      >
+      inline auto out()
+      {
+         using descr = pin_descr<ID>;
+         detail::init_output_pin<
+            uint32_t(descr::port)
+          , uint32_t(descr::mask)
+          , uint32_t(speed)
+          , uint32_t(type)
+         >();
+         return output_pin<ID>{};
+      }
+
+      template <uint32_t ID, port_output_type type = port::push_pull>
+      inline auto out()
+      {
+         return out<ID, port::high_speed, type>();
+      }
    }
-
-   // External interrupt IDs (exti_id) are used to ensure there
-   // are no input ports interrupt (exti) callback clashes
-   // (see config.hpp). With STM32, there are 16 possible unique
-   // external interrupts.
-   template <std::size_t N>
-   struct exti_id {};
-
-   template <std::size_t N, port_input_type type = port_input_type::normal>
-   struct input_pin
-   {
-      static constexpr size_t    n = N;
-      static constexpr uint16_t  bit = N % 16;
-      static constexpr uint16_t  port = N / 16;
-      static constexpr uint32_t  mask = 1 << bit;
-
-      // there are only 8 ports
-      static_assert(port < 8, "Invalid port");
-
-      using self_type = input_pin;
-      using peripheral_id = io_pin_id<N>;
-      using interrupt_id = exti_id<bit>;
-
-      input_pin() = default;
-      input_pin(input_pin const&) = default;
-
-      void init()
-      {
-         // Enable GPIO peripheral clock
-    	   detail::enable_port_clock<port>();
-
-         // Configure input mode
-         LL_GPIO_SetPinMode(&gpio(), mask, LL_GPIO_MODE_INPUT);
-
-         // Configure pull-up/down resistor
-         LL_GPIO_SetPinPull(&gpio(), mask, uint32_t(type));
-      }
-
-      auto setup()
-      {
-         init();
-         return [](auto base)
-         {
-            return make_basic_config<peripheral_id>(base);
-         };
-      }
-
-      template <typename F>
-      auto setup(F task, std::size_t priority = 0)
-      {
-         init();
-         enable_interrupt(priority);
-
-         return [task](auto base)
-         {
-            auto cfg1 = make_basic_config<peripheral_id>(base);
-            return make_task_config<interrupt_id>(cfg1, task);
-         };
-      }
-
-      void enable_interrupt(std::size_t priority = 0)
-      {
-         // Connect External Line to the GPIO
-         detail::enable_exti_clock();
-         LL_SYSCFG_SetEXTISource(detail::exti_port<port>(), detail::exti_id<bit>());
-
-         // Configure NVIC to handle external interrupt
-         NVIC_SetPriority(detail::exti_irq<bit>(), priority);
-         NVIC_EnableIRQ(detail::exti_irq<bit>());
-      }
-
-      void start(port_edge edge = port::falling_edge)
-      {
-         LL_EXTI_EnableIT_0_31(detail::exti_src<bit>());
-         if (edge == port_edge::rising)
-            LL_EXTI_EnableRisingTrig_0_31(detail::exti_src<bit>());
-         else
-            LL_EXTI_EnableFallingTrig_0_31(detail::exti_src<bit>());
-      }
-
-      void stop(port_edge edge)
-      {
-         LL_EXTI_DisableIT_0_31(detail::exti_src<port>());
-         if (edge == port_edge::rising)
-            LL_EXTI_DisableRisingTrig_0_31(detail::exti_src<port>());
-         else
-            LL_EXTI_DisableFallingTrig_0_31(detail::exti_src<port>());
-      }
-
-      GPIO_TypeDef& gpio() const
-      {
-         return detail::get_port<port>();
-      }
-
-      volatile auto& ref() const
-      {
-         return gpio().IDR;
-      }
-
-      bool state() const
-      {
-         return (ref() & mask) != 0;
-      }
-
-      operator bool() const
-      {
-         return state();
-      }
-
-      bool operator!() const
-      {
-         return !state();
-      }
-   };
 }}
 
 #endif
