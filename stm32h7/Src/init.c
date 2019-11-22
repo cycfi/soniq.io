@@ -1,5 +1,5 @@
 #include "stm32h7xx_hal.h"
-#include "cmsis_os.h"
+#include <cmsis_os.h>
 #include <soniq/device.hpp>
 
 int main();
