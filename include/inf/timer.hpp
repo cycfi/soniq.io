@@ -18,7 +18,7 @@
 # include <stm32f4xx_ll_tim.h>
 #endif
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    ////////////////////////////////////////////////////////////////////////////
    // timer

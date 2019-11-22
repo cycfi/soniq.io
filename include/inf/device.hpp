@@ -28,7 +28,7 @@
 
 #if defined(__cplusplus)
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    // inline void system_init() // $$$ JDG $$$
    // {

@@ -21,7 +21,7 @@
 # include <stm32f4xx_hal.h>
 #endif
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    ////////////////////////////////////////////////////////////////////////////
    // Basic metaprogramming utils

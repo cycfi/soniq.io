@@ -14,7 +14,7 @@
 #include "stm32h7xx_hal.h"
 #include <stm32h7xx_ll_adc.h>
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    constexpr std::size_t adc_resolution = 65536;
 
@@ -333,6 +333,6 @@ namespace cycfi { namespace infinity { namespace detail
 
       stop_adc<adc_id>();
    }
-}}}
+}
 
 #endif

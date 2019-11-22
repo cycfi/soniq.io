@@ -11,7 +11,7 @@
 #include <inf/config.hpp>
 #include <cstdint>
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    ////////////////////////////////////////////////////////////////////////////
    // i2c

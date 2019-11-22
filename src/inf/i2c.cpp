@@ -13,7 +13,7 @@
 # include "stm32f4xx_ll_gpio.h"
 #endif
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    I2C_HandleTypeDef i2c_handles[3];
 
@@ -87,4 +87,4 @@ namespace cycfi { namespace infinity { namespace detail
 #endif
 
    }
-}}}
+}

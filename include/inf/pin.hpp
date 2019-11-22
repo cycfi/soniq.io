@@ -14,7 +14,7 @@
 # include <inf/detail/pin_impl_h7.hpp>
 #endif
 
-namespace cycfi::infinity
+namespace cycfi::soniq
 {
    ////////////////////////////////////////////////////////////////////////////
    // Constants

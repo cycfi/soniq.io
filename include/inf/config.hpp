@@ -9,7 +9,7 @@
 #include <type_traits>
 #include <inf/support.hpp>
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    ///////////////////////////////////////////////////////////////////////////////
    // Application configuration makes sure there are no peripheral conflicts
@@ -18,7 +18,7 @@ namespace cycfi { namespace infinity
    //
    // Example:
    //
-   //    auto config = inf::config(
+   //    auto config = snq::config(
    //       tmr = timer_task
    //    );
    //

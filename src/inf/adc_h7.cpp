@@ -14,7 +14,7 @@
 // This implementation is for the STM32H7 series.
 ///////////////////////////////////////////////////////////////////////////////
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    ADC_HandleTypeDef adc_handles[3];
    DMA_HandleTypeDef dma_handles[3];
@@ -145,7 +145,7 @@ namespace cycfi { namespace infinity { namespace detail
 
 extern "C"
 {
-   using namespace cycfi::infinity::detail;
+   using ;
 
    void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
    {

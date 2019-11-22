@@ -25,8 +25,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-namespace inf = cycfi::infinity;
-using namespace inf::port;
+namespace snq = cycfi::soniq;
+using namespace snq::port;
 
 #if defined(STM32H7)
 constexpr auto scl_pin = portb+6;
@@ -36,11 +36,11 @@ constexpr auto scl_pin = portb+10;
 constexpr auto sda_pin = portb+3;
 #endif
 
-using inf::delay_ms;
-using canvas_type = inf::mono_canvas<128, 32>;
-using i2c_type = inf::i2c_master<scl_pin, sda_pin>;
-using oled_type = inf::ssd1306<i2c_type, canvas_type>;
-using namespace inf::monochrome;
+using snq::delay_ms;
+using canvas_type = snq::mono_canvas<128, 32>;
+using i2c_type = snq::i2c_master<scl_pin, sda_pin>;
+using oled_type = snq::ssd1306<i2c_type, canvas_type>;
+using namespace snq::monochrome;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Peripherals
@@ -48,12 +48,12 @@ i2c_type i2c;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Configuration.
-auto config = inf::config(i2c.setup());
+auto config = snq::config(i2c.setup());
 
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
-   inf::system_init();
+   snq::system_init();
    oled_type cnv{i2c};
 
    while (true)

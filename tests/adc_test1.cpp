@@ -33,10 +33,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 namespace q = cycfi::q;
-namespace inf = cycfi::infinity;
+namespace snq = cycfi::soniq;
 
-using namespace inf::monochrome;
-using namespace inf::port;
+using namespace snq::monochrome;
+using namespace snq::port;
 using namespace q::literals;
 
 #if defined(STM32H7)
@@ -47,10 +47,10 @@ constexpr auto scl_pin = portb+10;
 constexpr auto sda_pin = portb+3;
 #endif
 
-using inf::delay_ms;
-using canvas_type = inf::mono_canvas<128, 32>;
-using i2c_type = inf::i2c_master<scl_pin, sda_pin>;
-using oled_type = inf::ssd1306<i2c_type, canvas_type>;
+using snq::delay_ms;
+using canvas_type = snq::mono_canvas<128, 32>;
+using i2c_type = snq::i2c_master<scl_pin, sda_pin>;
+using oled_type = snq::ssd1306<i2c_type, canvas_type>;
 
 constexpr int sampling_rate = 16000;
 
@@ -58,7 +58,7 @@ constexpr int sampling_rate = 16000;
 // Peripherals
 i2c_type i2c;
 inf::timer<2> master_clock;
-alignas(32) inf::adc<1, 1, 256> adc; // stm32h7 requires this to be 32-bits aligned
+alignas(32) snq::adc<1, 1, 256> adc; // stm32h7 requires this to be 32-bits aligned
 
 ///////////////////////////////////////////////////////////////////////////////
 // ADC conversion complete task
@@ -71,7 +71,7 @@ void conversion_complete();
 
 ///////////////////////////////////////////////////////////////////////////////
 // Configuration
-auto config = inf::config(
+auto config = snq::config(
    test.setup(),
    i2c.setup(),
    master_clock.setup(2000000, sampling_rate),
@@ -90,7 +90,7 @@ void conversion_complete()
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
-   inf::system_init();
+   snq::system_init();
 
    oled_type cnv{i2c};
    adc.start();
@@ -99,7 +99,7 @@ int main()
    while (true)
    {
       char out[sizeof(int)*8+1];
-      inf::to_string(adc_val, out);
+      snq::to_string(adc_val, out);
 
       cnv.clear();
       cnv.draw_string(out, 15, 10, font::medium);

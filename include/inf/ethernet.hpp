@@ -11,7 +11,7 @@
 #include <lwip/netif.h>
 #include <lwip/udp.h>
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    struct ip_address : ip4_addr_t
    {

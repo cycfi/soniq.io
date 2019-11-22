@@ -8,7 +8,7 @@
 
 #include <cstdint>
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    ////////////////////////////////////////////////////////////////////////////
    // This implementation is for the STM32F4 series.
@@ -165,6 +165,6 @@ namespace cycfi { namespace infinity { namespace detail
 #endif
 #endif
 
-}}}
+}
 
 #endif

@@ -27,7 +27,7 @@ struct FONT_INFO
 #include <inf/detail/medium_font.hpp>
 #include <inf/detail/small_font.hpp>
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    using namespace monochrome;
 
@@ -298,4 +298,4 @@ namespace cycfi { namespace infinity { namespace detail
       draw_bitmap(buffer, end, width, height, x, y, bm, color_);
       return x + glyph_width + 2;
    }
-}}}
+}

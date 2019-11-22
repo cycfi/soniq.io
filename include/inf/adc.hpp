@@ -23,7 +23,7 @@
 
 #include <array>
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    ////////////////////////////////////////////////////////////////////////////
    // adc

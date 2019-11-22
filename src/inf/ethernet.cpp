@@ -24,7 +24,7 @@ extern "C"
    void ethernetif_input(netif* netif);
 }
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    namespace detail
    {

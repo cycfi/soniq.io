@@ -23,7 +23,7 @@
 # include <stm32f4xx_ll_exti.h>
 #endif
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    ////////////////////////////////////////////////////////////////////////////
    // The ports: We provide template functions for getting the memory mapped
@@ -262,6 +262,6 @@ namespace cycfi { namespace infinity { namespace detail
 #endif
 #endif
 
-}}}
+}
 
 #endif

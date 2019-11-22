@@ -15,7 +15,7 @@
 #include <cstdint>
 #include <inf/pin.hpp>
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    template <std::size_t pin>
    struct scl_pin
@@ -150,7 +150,6 @@ namespace cycfi { namespace infinity { namespace detail
       HAL_I2C_Mem_Read(
          &i2c_handles[id-1], addr, mem_addr, mem_size, data, len, timeout);
    }
-
-}}}
+}
 
 #endif

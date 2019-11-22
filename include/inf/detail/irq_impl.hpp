@@ -29,7 +29,7 @@
 // Timer Interrupts
 ///////////////////////////////////////////////////////////////////////////////
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    template <std::size_t N>
    void handle_exti()
@@ -39,8 +39,8 @@ namespace cycfi { namespace infinity { namespace detail
       // If the interrupt task is not handled anyway, this will
       // be compiled away by the compiler
       if (!std::is_same<decltype(
-            ::config(identity<cycfi::infinity::exti_id<N>>{})
-         ), cycfi::infinity::irq_not_handled>::value)
+            ::config(identity<cycfi::soniq::exti_id<N>>{})
+         ), cycfi::soniq::irq_not_handled>::value)
       {
          // Manage Flags
          if (LL_EXTI_IsActiveFlag_0_31(detail::exti_src<N>()) != RESET)
@@ -49,7 +49,7 @@ namespace cycfi { namespace infinity { namespace detail
             LL_EXTI_ClearFlag_0_31(detail::exti_src<N>());
 
             // Handle exti task
-            ::config(identity<cycfi::infinity::exti_id<N>>{});
+            ::config(identity<cycfi::soniq::exti_id<N>>{});
          }
       }
    }
@@ -57,7 +57,7 @@ namespace cycfi { namespace infinity { namespace detail
    template <std::size_t N>
    void handle_timer_interrupt()
    {
-      auto& timer = cycfi::infinity::detail::get_timer<N>();
+      auto& timer = cycfi::soniq::detail::get_timer<N>();
 
       // Check whether update interrupt is pending
       if (LL_TIM_IsActiveFlag_UPDATE(&timer) == 1)
@@ -66,9 +66,9 @@ namespace cycfi { namespace infinity { namespace detail
          LL_TIM_ClearFlag_UPDATE(&timer);
       }
       // call timer_task
-      ::config(identity<cycfi::infinity::timer<N>>{});
+      ::config(identity<cycfi::soniq::timer<N>>{});
    }
-}}}
+}
 
 extern "C"
 {
@@ -76,7 +76,7 @@ extern "C"
 #define TIMER_INTERRUPT_HANDLER(N, NAME)                                       \
    void NAME()                                                                 \
    {                                                                           \
-      using cycfi::infinity::detail::handle_timer_interrupt;                   \
+      using cycfi::soniq::detail::handle_timer_interrupt;                   \
       handle_timer_interrupt<N>();                                             \
    }                                                                           \
    /***/
@@ -114,19 +114,19 @@ extern "C"
       if (LL_DMA_IsActiveFlag_TC##STREAM(DMA2) == 1)                           \
       {                                                                        \
          LL_DMA_ClearFlag_TC##STREAM(DMA2);                                    \
-         ::config(cycfi::infinity::adc_conversion_complete<ID>{});             \
+         ::config(cycfi::soniq::adc_conversion_complete<ID>{});             \
       }                                                                        \
                                                                                \
       if (LL_DMA_IsActiveFlag_HT##STREAM(DMA2) == 1)                           \
       {                                                                        \
          LL_DMA_ClearFlag_HT##STREAM(DMA2);                                    \
-         ::config(cycfi::infinity::adc_conversion_half_complete<ID>{});        \
+         ::config(cycfi::soniq::adc_conversion_half_complete<ID>{});        \
       }                                                                        \
                                                                                \
       if (LL_DMA_IsActiveFlag_TE##STREAM(DMA2) == 1)                           \
       {                                                                        \
          LL_DMA_ClearFlag_TE##STREAM(DMA2);                                    \
-         cycfi::infinity::error_handler();                                     \
+         cycfi::soniq::error_handler();                                     \
       }                                                                        \
    }                                                                           \
    /***/
@@ -141,14 +141,14 @@ extern "C"
    //       // Invalidate Data Cache to get the updated content of the SRAM on the second half of the ADC converted data buffer: 32 bytes
    //       // SCB_InvalidateDCache_by_Addr((uint32_t*) buff + (size/2), size);
 
-   //       ::config(cycfi::infinity::adc_conversion_complete<1>{});
+   //       ::config(cycfi::soniq::adc_conversion_complete<1>{});
    //    }
 
    //    if (LL_DMA_IsActiveFlag_HT0(DMA2) == 1)
    //    {
    //       LL_DMA_ClearFlag_HT0(DMA2);
 
-   //       ::config(cycfi::infinity::adc_conversion_half_complete<1>{});
+   //       ::config(cycfi::soniq::adc_conversion_half_complete<1>{});
 
    //       // Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes
    //       // SCB_InvalidateDCache_by_Addr((uint32_t*) buff, size);
@@ -158,7 +158,7 @@ extern "C"
    //    {
    //       LL_DMA_ClearFlag_TE0(DMA2);
 
-   //       cycfi::infinity::error_handler();
+   //       cycfi::soniq::error_handler();
    //    }
    // }
 
@@ -185,65 +185,65 @@ extern "C"
       if (LL_ADC_IsActiveFlag_OVR(ADC1) != 0)
       {
          LL_ADC_ClearFlag_OVR(ADC1);
-         cycfi::infinity::error_handler();
+         cycfi::soniq::error_handler();
       }
 
       if (LL_ADC_IsActiveFlag_OVR(ADC2) != 0)
       {
          LL_ADC_ClearFlag_OVR(ADC2);
-         cycfi::infinity::error_handler();
+         cycfi::soniq::error_handler();
       }
 
       if (LL_ADC_IsActiveFlag_OVR(ADC3) != 0)
       {
          LL_ADC_ClearFlag_OVR(ADC3);
-         cycfi::infinity::error_handler();
+         cycfi::soniq::error_handler();
       }
    }
 
    void EXTI0_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<0>();
+      cycfi::soniq::detail::handle_exti<0>();
    }
 
    void EXTI1_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<1>();
+      cycfi::soniq::detail::handle_exti<1>();
    }
 
    void EXTI2_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<2>();
+      cycfi::soniq::detail::handle_exti<2>();
    }
 
    void EXTI3_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<3>();
+      cycfi::soniq::detail::handle_exti<3>();
    }
 
    void EXTI4_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<4>();
+      cycfi::soniq::detail::handle_exti<4>();
    }
 
    void EXTI9_5_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<5>();
-      cycfi::infinity::detail::handle_exti<6>();
-      cycfi::infinity::detail::handle_exti<7>();
-      cycfi::infinity::detail::handle_exti<8>();
-      cycfi::infinity::detail::handle_exti<9>();
-      cycfi::infinity::detail::handle_exti<10>();
+      cycfi::soniq::detail::handle_exti<5>();
+      cycfi::soniq::detail::handle_exti<6>();
+      cycfi::soniq::detail::handle_exti<7>();
+      cycfi::soniq::detail::handle_exti<8>();
+      cycfi::soniq::detail::handle_exti<9>();
+      cycfi::soniq::detail::handle_exti<10>();
    }
 
    void EXTI15_10_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<10>();
-      cycfi::infinity::detail::handle_exti<11>();
-      cycfi::infinity::detail::handle_exti<12>();
-      cycfi::infinity::detail::handle_exti<13>();
-      cycfi::infinity::detail::handle_exti<14>();
-      cycfi::infinity::detail::handle_exti<15>();
+      cycfi::soniq::detail::handle_exti<10>();
+      cycfi::soniq::detail::handle_exti<11>();
+      cycfi::soniq::detail::handle_exti<12>();
+      cycfi::soniq::detail::handle_exti<13>();
+      cycfi::soniq::detail::handle_exti<14>();
+      cycfi::soniq::detail::handle_exti<15>();
    }
 }
 

@@ -5,13 +5,13 @@
 =============================================================================*/
 #include <inf/pin.hpp>
 
-namespace cycfi::infinity
+namespace cycfi::soniq
 {
    using exti_handler_array = std::array<std::function<void()>, 16>;
    std::array<std::function<void()>, 16> _exti_handlers;
 }
 
-namespace cycfi::infinity::detail
+namespace cycfi::soniq::detail
 {
    template <std::size_t ID>
    void handle_exti()
@@ -37,46 +37,46 @@ extern "C"
 {
    void EXTI0_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<0>();
+      cycfi::soniq::detail::handle_exti<0>();
    }
 
    void EXTI1_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<1>();
+      cycfi::soniq::detail::handle_exti<1>();
    }
 
    void EXTI2_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<2>();
+      cycfi::soniq::detail::handle_exti<2>();
    }
 
    void EXTI3_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<3>();
+      cycfi::soniq::detail::handle_exti<3>();
    }
 
    void EXTI4_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<4>();
+      cycfi::soniq::detail::handle_exti<4>();
    }
 
    void EXTI9_5_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<5>();
-      cycfi::infinity::detail::handle_exti<6>();
-      cycfi::infinity::detail::handle_exti<7>();
-      cycfi::infinity::detail::handle_exti<8>();
-      cycfi::infinity::detail::handle_exti<9>();
-      cycfi::infinity::detail::handle_exti<10>();
+      cycfi::soniq::detail::handle_exti<5>();
+      cycfi::soniq::detail::handle_exti<6>();
+      cycfi::soniq::detail::handle_exti<7>();
+      cycfi::soniq::detail::handle_exti<8>();
+      cycfi::soniq::detail::handle_exti<9>();
+      cycfi::soniq::detail::handle_exti<10>();
    }
 
    void EXTI15_10_IRQHandler(void)
    {
-      cycfi::infinity::detail::handle_exti<10>();
-      cycfi::infinity::detail::handle_exti<11>();
-      cycfi::infinity::detail::handle_exti<12>();
-      cycfi::infinity::detail::handle_exti<13>();
-      cycfi::infinity::detail::handle_exti<14>();
-      cycfi::infinity::detail::handle_exti<15>();
+      cycfi::soniq::detail::handle_exti<10>();
+      cycfi::soniq::detail::handle_exti<11>();
+      cycfi::soniq::detail::handle_exti<12>();
+      cycfi::soniq::detail::handle_exti<13>();
+      cycfi::soniq::detail::handle_exti<14>();
+      cycfi::soniq::detail::handle_exti<15>();
    }
 }

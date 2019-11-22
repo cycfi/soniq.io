@@ -13,8 +13,8 @@
 // toggle the led at a rate of 1 per second. No setup required.
 ///////////////////////////////////////////////////////////////////////////////
 
-namespace inf = cycfi::infinity;
-using namespace inf::port;
+namespace snq = cycfi::soniq;
+using namespace snq::port;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Peripherals
@@ -32,7 +32,7 @@ void timer_task()
 // Configuration
 constexpr uint32_t base_freq = 10000;
 
-auto config = inf::config(
+auto config = snq::config(
    led.setup(),
    tmr.setup(base_freq, 1, timer_task) // calls timer_task every 1Hz
 );
@@ -40,7 +40,7 @@ auto config = inf::config(
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
-   inf::system_init();
+   snq::system_init();
 
    tmr.start();
    led = on;

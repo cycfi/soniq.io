@@ -10,7 +10,7 @@
 #include <cstdint>
 #include <string>
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    ////////////////////////////////////////////////////////////////////////////
    // Simple basic types for monochrome graphics

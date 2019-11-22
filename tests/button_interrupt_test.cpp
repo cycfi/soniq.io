@@ -14,14 +14,14 @@
 // the LED after 2 seconds.
 ///////////////////////////////////////////////////////////////////////////////
 
-namespace inf = cycfi::infinity;
-using namespace inf::port;
+namespace snq = cycfi::soniq;
+using namespace snq::port;
 
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
-   auto led = out<inf::main_led>();
-   auto btn = in<inf::main_button>();
+   auto led = out<snq::main_led>();
+   auto btn = in<snq::main_button>();
 
    btn.on_rising_edge([&]{ led = on; });
 
@@ -29,7 +29,7 @@ int main()
    {
       if (led)
       {
-         inf::delay_ms(2000);
+         snq::delay_ms(2000);
          led = off;
       }
    }

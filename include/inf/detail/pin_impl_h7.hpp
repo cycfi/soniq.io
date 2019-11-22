@@ -15,7 +15,7 @@
 # include <stm32h7xx_ll_system.h>
 # include <stm32h7xx_ll_exti.h>
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    ////////////////////////////////////////////////////////////////////////////
    // The ports: We provide template functions for getting the memory mapped
@@ -230,6 +230,6 @@ namespace cycfi { namespace infinity { namespace detail
       else
          LL_EXTI_DisableFallingTrig_0_31(exti_src<port>());
    }
-}}}
+}
 
 #endif

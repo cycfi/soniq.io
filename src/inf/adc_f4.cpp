@@ -10,7 +10,7 @@
 // This implementation is for the STM32F4 series.
 ///////////////////////////////////////////////////////////////////////////////
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    auto const dma = DMA2;
 
@@ -171,4 +171,4 @@ namespace cycfi { namespace infinity { namespace detail
       // Enable interruption ADC group regular overrun
       LL_ADC_EnableIT_OVR(adc);
    }
-}}}
+}

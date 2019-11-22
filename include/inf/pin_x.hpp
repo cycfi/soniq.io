@@ -10,7 +10,7 @@
 #include <inf/config.hpp>
 #include <inf/support.hpp>
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    ////////////////////////////////////////////////////////////////////////////
    // Constants

@@ -21,7 +21,7 @@
 #include <inf/timer.hpp>
 #include <type_traits>
 
-namespace cycfi { namespace infinity { namespace detail
+namespace cycfi::soniq::detail
 {
    constexpr std::size_t adc_resolution = 4096;
 
@@ -331,7 +331,6 @@ namespace cycfi { namespace infinity { namespace detail
          LL_ADC_REG_StopConversionExtTrig(adc);
       }
    }
-
-}}}
+}
 
 #endif

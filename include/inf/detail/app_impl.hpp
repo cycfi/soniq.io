@@ -6,7 +6,7 @@
 #if !defined(CYCFI_INFINITY_APP_IMPL_HPP_JANUARY_1_2016)
 #define CYCFI_INFINITY_APP_IMPL_HPP_JANUARY_1_2016
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    ////////////////////////////////////////////////////////////////////////////
    // Generic LED indicator (used as a general indicator)

@@ -14,8 +14,8 @@
 // required.
 ///////////////////////////////////////////////////////////////////////////////
 
-namespace inf = cycfi::infinity;
-using namespace inf::port;
+namespace snq = cycfi::soniq;
+using namespace snq::port;
 
 ///////////////////////////////////////////////////////////////////////////////
 int main()
@@ -25,7 +25,7 @@ int main()
 
    while (true)
    {
-      inf::delay_ms(30);
+      snq::delay_ms(30);
       led = btn;
    }
 }

@@ -10,7 +10,7 @@
 #include <inf/canvas.hpp>
 #include <cstdint>
 
-namespace cycfi { namespace infinity
+namespace cycfi { namespace soniq
 {
    ////////////////////////////////////////////////////////////////////////////
    // ssd1306 driver

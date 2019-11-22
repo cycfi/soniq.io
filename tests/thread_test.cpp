@@ -12,8 +12,8 @@
 // the leds at a rate of 1 per second. No setup required.
 ///////////////////////////////////////////////////////////////////////////////
 
-namespace inf = cycfi::infinity;
-using namespace inf::port;
+namespace snq = cycfi::soniq;
+using namespace snq::port;
 
 ///////////////////////////////////////////////////////////////////////////////
 int main()
@@ -22,7 +22,7 @@ int main()
 
    while (true)
    {
-      inf::delay_ms(1000);
+      snq::delay_ms(1000);
       led = !led;    // toggle LED
    }
 }
