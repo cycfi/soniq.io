@@ -20,8 +20,8 @@ using namespace snq::port;
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
-   auto led = out<inf::main_led>();
-   auto btn = in<inf::main_button>();
+   auto led = out<snq::main_led>();
+   auto btn = in<snq::main_button>();
 
    while (true)
    {

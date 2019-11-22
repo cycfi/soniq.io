@@ -43,7 +43,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_INIT "-Wl,-gc-sections,--print-memory-usage -T ${LINK
 ###############################################################################
 # project
 
-PROJECT(stm32h7 C CXX ASM)
+PROJECT(soniq C CXX ASM)
 
 add_definitions(
    -D__weak=__attribute__\(\(weak\)\)
@@ -72,10 +72,10 @@ add_subdirectory(${Q_LIB_ROOT} "${CMAKE_CURRENT_BINARY_DIR}/q")
 ###############################################################################
 # sources
 
-file(GLOB_RECURSE INFINITY_SOURCES ../src/*.cpp)
+file(GLOB_RECURSE SONIQ_SOURCES ../src/*.cpp)
 file(GLOB_RECURSE SOURCES "startup/*.*" "Middlewares/*.*" "Drivers/*.*" "Src/*.*" "Inc/*.*")
 
-list(FILTER INFINITY_SOURCES EXCLUDE REGEX ".*f4.cpp")
+list(FILTER SONIQ_SOURCES EXCLUDE REGEX ".*f4.cpp")
 
 include_directories(
    ../include
@@ -104,69 +104,45 @@ include_directories(
 )
 
 ###############################################################################
-# tests
+# Tests
 
-if (DEFINED BLINKY_TEST)
-set(MAIN_FILE ../tests/blinky.cpp)
-endif()
+function(add_test name)
+   set(test_target test.soniq.${name})
 
-if (DEFINED BUTTON_TEST)
-set(MAIN_FILE ../tests/button_test.cpp)
-endif()
+   add_executable(
+      ${test_target}.elf
+      ${SONIQ_SOURCES}
+      ../tests/${name}.cpp
+      ${SOURCES}
+      ${LINKER_SCRIPT}
+   )
 
-if (DEFINED BUTTON_INTERRUPT_TEST)
-set(MAIN_FILE ../tests/button_interrupt_test.cpp)
-endif()
+   target_link_libraries(${test_target}.elf libq infra)
 
-if (DEFINED THREAD_TEST)
-set(MAIN_FILE ../tests/thread_test.cpp)
-endif()
+   set(CMAKE_EXE_LINKER_FLAGS
+      "${CMAKE_EXE_LINKER_FLAGS} -Wl,-Map=${PROJECT_BINARY_DIR}/${test_target}.map")
 
-# if (DEFINED TIMER_INTERRUPT_TEST)
-# set(MAIN_FILE ../tests/timer_interrupt.cpp)
-# endif()
+   set(HEX_FILE ${PROJECT_BINARY_DIR}/${test_target}.hex)
+   set(BIN_FILE ${PROJECT_BINARY_DIR}/${test_target}.bin)
 
-# if (DEFINED SSD1306_TEST)
-# set(MAIN_FILE ../tests/ssd1306_test.cpp)
-# endif()
+   add_custom_command(TARGET ${test_target}.elf POST_BUILD
+      COMMAND ${CMAKE_OBJCOPY} -Oihex $<TARGET_FILE:${test_target}.elf> ${HEX_FILE}
+      COMMAND ${CMAKE_OBJCOPY} -Obinary $<TARGET_FILE:${test_target}.elf> ${BIN_FILE}
+      COMMENT "Building ${HEX_FILE}
+      Building ${BIN_FILE}"
+   )
 
-# if (DEFINED ADC_TEST1)
-#   set(MAIN_FILE ../tests/adc_test1.cpp)
-# endif()
+   add_custom_target(upload_${test_target}
+      arm-none-eabi-gdb -iex "target remote tcp:127.0.0.1:3333"
+      -iex "monitor program $<TARGET_FILE:${test_target}.elf>"
+      -iex "monitor reset init"
+      -iex "disconnect" -iex "quit"
+   )
+endfunction()
 
-# if (DEFINED UDP_ECHO_TEST)
-#   set(MAIN_FILE ../tests/udp_echo.cpp)
-# endif()
+add_test(blinky)
+add_test(button_test)
+add_test(button_interrupt_test)
+add_test(thread_test)
 
-###############################################################################
-# executable
 
-link_libraries(libq infra)
-
-add_executable(
-   ${PROJECT_NAME}.elf
-   ${INFINITY_SOURCES}
-   ${MAIN_FILE}
-   ${SOURCES}
-   ${LINKER_SCRIPT}
-)
-
-set(CMAKE_EXE_LINKER_FLAGS
-    "${CMAKE_EXE_LINKER_FLAGS} -Wl,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map")
-
-set(HEX_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.hex)
-set(BIN_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.bin)
-
-add_custom_command(TARGET ${PROJECT_NAME}.elf POST_BUILD
-   COMMAND ${CMAKE_OBJCOPY} -Oihex $<TARGET_FILE:${PROJECT_NAME}.elf> ${HEX_FILE}
-   COMMAND ${CMAKE_OBJCOPY} -Obinary $<TARGET_FILE:${PROJECT_NAME}.elf> ${BIN_FILE}
-   COMMENT "Building ${HEX_FILE}
-   Building ${BIN_FILE}"
-)
-
-add_custom_target(UPLOAD
-   arm-none-eabi-gdb -iex "target remote tcp:127.0.0.1:3333"
-   -iex "monitor program $<TARGET_FILE:${PROJECT_NAME}.elf>"
-   -iex "monitor reset init"
-   -iex "disconnect" -iex "quit"
-)

@@ -18,7 +18,7 @@ using namespace snq::port;
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
-   auto led = out<inf::main_led>();
+   auto led = out<snq::main_led>();
 
    while (true)
    {
