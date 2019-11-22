@@ -1,5 +1,46 @@
 #include "stm32h7xx_hal.h"
+#include "cmsis_os.h"
 #include <inf/device.hpp>
+
+osThreadId_t defaultTaskHandle;
+void StartDefaultTask(void* argument)
+{
+   for(;;)
+   {
+      osDelay(1);
+   }
+}
+
+void InitRTOS()
+{
+   osKernelInitialize();
+
+   // Create the thread(s)
+   // definition and creation of defaultTask
+   const osThreadAttr_t defaultTask_attributes = {
+      .name = "defaultTask",
+      .priority = (osPriority_t) osPriorityNormal,
+      .stack_size = 128
+   };
+   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+
+   // Start scheduler
+   osKernelStart();
+}
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM17 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
+{
+   if (htim->Instance == TIM17)
+      HAL_IncTick();
+}
 
 void SystemClock_Config()
 {

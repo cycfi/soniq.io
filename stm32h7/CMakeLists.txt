@@ -93,6 +93,9 @@ include_directories(
    Middlewares/Third_Party/LwIP/src/include/posix
    Middlewares/Third_Party/LwIP/src/include/posix/sys
    Middlewares/Third_Party/LwIP/system/arch
+   Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2
+   Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F
+   Drivers/CMSIS/Include Middlewares/Third_Party/FreeRTOS/Source/include
    Drivers/BSP/Components/lan8742
    Drivers/STM32H7xx_HAL_Driver/Inc
    Drivers/STM32H7xx_HAL_Driver/Inc/Legacy

@@ -12,6 +12,7 @@
 
    void                 SystemClock_Config();
    HAL_StatusTypeDef    HAL_Init();
+   void                 InitRTOS();
    void                 CPU_Cache_Enable();
    void                 Error_Handler();
    void                 HAL_Delay(uint32_t Delay);
@@ -37,12 +38,10 @@ namespace cycfi { namespace infinity
          init = true;
 
          SystemClock_Config();
-
-#if defined(STM32H7)
          MPU_Config();
          CPU_Cache_Enable();
-#endif
          HAL_Init();
+         InitRTOS();
       }
    }
 
