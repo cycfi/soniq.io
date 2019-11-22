@@ -3,10 +3,10 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
-#include <inf/timer.hpp>
-#include <inf/pin.hpp>
-#include <inf/config.hpp>
-#include <inf/app.hpp>
+#include <soniq/timer.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/config.hpp>
+#include <soniq/app.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
 // Toggle led test using timers and interrupts. This test uses a timer to
@@ -49,4 +49,4 @@ int main()
 }
 
 // The actual "C" interrupt handlers are defined here:
-#include <inf/irq.hpp>
+#include <soniq/irq.hpp>

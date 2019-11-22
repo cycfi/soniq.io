@@ -3,7 +3,7 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
-#include <inf/detail/i2c_impl.hpp>
+#include <soniq/detail/i2c_impl.hpp>
 
 #if defined(STM32H7)
 # include "stm32h7xx_ll_bus.h"

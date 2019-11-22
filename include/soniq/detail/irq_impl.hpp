@@ -10,9 +10,9 @@
 // This implementation is for the STM32F4 series.
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <inf/pin.hpp>
-#include <inf/timer.hpp>
-#include <inf/adc.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/timer.hpp>
+#include <soniq/adc.hpp>
 #include <type_traits>
 
 #if defined(STM32H7)

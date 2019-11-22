@@ -6,8 +6,8 @@
 #if !defined(CYCFI_INFINITY_APP_HPP_JANUARY_1_2016)
 #define CYCFI_INFINITY_APP_HPP_JANUARY_1_2016
 
-#include <inf/device.hpp>
-#include <inf/pin.hpp>
-#include <inf/detail/app_impl.hpp>
+#include <soniq/device.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/detail/app_impl.hpp>
 
 #endif

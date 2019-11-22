@@ -6,9 +6,9 @@
 
 /*
 
-#include <inf/support.hpp>
-#include <inf/device.hpp>
-#include <inf/detail/adc_impl_h7.hpp>
+#include <soniq/support.hpp>
+#include <soniq/device.hpp>
+#include <soniq/detail/adc_impl_h7.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
 // This implementation is for the STM32H7 series.
@@ -145,7 +145,7 @@ namespace cycfi::soniq::detail
 
 extern "C"
 {
-   using ;
+   using namespace cycfi::soniq::detail;
 
    void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
    {

@@ -3,9 +3,9 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
-#include <inf/support.hpp>
-#include <inf/pin.hpp>
-#include <inf/app.hpp>
+#include <soniq/support.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/app.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
 // Simplest toggle the led test. This test uses simple delay to toggle

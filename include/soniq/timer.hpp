@@ -6,11 +6,11 @@
 #if !defined(CYCFI_INFINITY_TIMER_HPP_DECEMBER_21_2015)
 #define CYCFI_INFINITY_TIMER_HPP_DECEMBER_21_2015
 
-#include <inf/pin.hpp>
-#include <inf/support.hpp>
-#include <inf/config.hpp>
-#include <inf/detail/timer_impl.hpp>
-#include <inf/device.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/support.hpp>
+#include <soniq/config.hpp>
+#include <soniq/detail/timer_impl.hpp>
+#include <soniq/device.hpp>
 
 #if defined(STM32H7)
 # include <stm32h7xx_ll_tim.h>

@@ -1,6 +1,6 @@
 #include "stm32h7xx_hal.h"
 #include "cmsis_os.h"
-#include <inf/device.hpp>
+#include <soniq/device.hpp>
 
 int main();
 

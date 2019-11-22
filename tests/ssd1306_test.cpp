@@ -3,12 +3,12 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
-#include <inf/support.hpp>
-#include <inf/pin.hpp>
-#include <inf/app.hpp>
-#include <inf/i2c.hpp>
-#include <inf/canvas.hpp>
-#include <inf/ssd1306.hpp>
+#include <soniq/support.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/app.hpp>
+#include <soniq/i2c.hpp>
+#include <soniq/canvas.hpp>
+#include <soniq/ssd1306.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
 // OLED ssd1306 test.

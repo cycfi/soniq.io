@@ -3,9 +3,9 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
-#include <inf/support.hpp>
-#include <inf/pin.hpp>
-#include <inf/app.hpp>
+#include <soniq/support.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/app.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
 // Interrupt button test. The main button fires up an interrupt on the rising
@@ -36,4 +36,4 @@ int main()
 }
 
 // The actual "C" interrupt handlers are defined here:
-#include <inf/irq.hpp>
+#include <soniq/irq.hpp>

@@ -3,7 +3,7 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
-#include <inf/pin.hpp>
+#include <soniq/pin.hpp>
 
 namespace cycfi::soniq
 {

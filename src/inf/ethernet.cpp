@@ -3,7 +3,7 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
-#include <inf/ethernet.hpp>
+#include <soniq/ethernet.hpp>
 #include <lwip/init.h>
 
 #include "lwip/err.h"

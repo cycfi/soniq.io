@@ -6,9 +6,9 @@
 #if !defined(CYCFI_INFINITY_PIN_HPP_DECEMBER_20_2015)
 #define CYCFI_INFINITY_PIN_HPP_DECEMBER_20_2015
 
-#include <inf/detail/pin_impl.hpp>
-#include <inf/config.hpp>
-#include <inf/support.hpp>
+#include <soniq/detail/pin_impl.hpp>
+#include <soniq/config.hpp>
+#include <soniq/support.hpp>
 
 namespace cycfi { namespace soniq
 {

@@ -7,7 +7,7 @@
 #define CYCFI_INFINITY_CONFIG_HPP_SEPTEMBER_11_2019
 
 #include <type_traits>
-#include <inf/support.hpp>
+#include <soniq/support.hpp>
 
 namespace cycfi { namespace soniq
 {

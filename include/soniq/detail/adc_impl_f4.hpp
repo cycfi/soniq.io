@@ -16,9 +16,9 @@
 #include <stm32f4xx_ll_dma.h>
 #include <stm32f4xx_ll_gpio.h>
 
-#include <inf/pin.hpp>
-#include <inf/device.hpp>
-#include <inf/timer.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/device.hpp>
+#include <soniq/timer.hpp>
 #include <type_traits>
 
 namespace cycfi::soniq::detail

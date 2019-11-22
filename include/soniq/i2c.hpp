@@ -6,9 +6,9 @@
 #if !defined(CYCFI_INFINITY_I2C_HPP_AUGUST_16_2019)
 #define CYCFI_INFINITY_I2C_HPP_AUGUST_16_2019
 
-#include <inf/detail/i2c_impl.hpp>
-#include <inf/pin.hpp>
-#include <inf/config.hpp>
+#include <soniq/detail/i2c_impl.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/config.hpp>
 #include <cstdint>
 
 namespace cycfi { namespace soniq

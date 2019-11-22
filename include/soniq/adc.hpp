@@ -9,16 +9,16 @@
 /*
 
 
-#include <inf/detail/pin_impl.hpp>
-#include <inf/support.hpp>
-#include <inf/pin.hpp>
-#include <inf/config.hpp>
-#include <inf/device.hpp>
+#include <soniq/detail/pin_impl.hpp>
+#include <soniq/support.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/config.hpp>
+#include <soniq/device.hpp>
 
 #if defined(STM32H7)
-# include <inf/detail/adc_impl_h7.hpp>
+# include <soniq/detail/adc_impl_h7.hpp>
 #elif defined(STM32F4)
-# include <inf/detail/adc_impl_f4.hpp>
+# include <soniq/detail/adc_impl_f4.hpp>
 #endif
 
 #include <array>

@@ -6,8 +6,8 @@
 #if !defined(CYCFI_INFINITY_SSD_1306_HPP_AUGUST_16_2017)
 #define CYCFI_INFINITY_SSD_1306_HPP_AUGUST_16_2017
 
-#include <inf/support.hpp>
-#include <inf/canvas.hpp>
+#include <soniq/support.hpp>
+#include <soniq/canvas.hpp>
 #include <cstdint>
 
 namespace cycfi { namespace soniq

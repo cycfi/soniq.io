@@ -13,7 +13,7 @@
 #endif
 
 #include <cstdint>
-#include <inf/pin.hpp>
+#include <soniq/pin.hpp>
 
 namespace cycfi::soniq::detail
 {

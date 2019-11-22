@@ -3,10 +3,10 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
-#include <inf/support.hpp>
-#include <inf/pin.hpp>
-#include <inf/app.hpp>
-#include <inf/ethernet.hpp>
+#include <soniq/support.hpp>
+#include <soniq/pin.hpp>
+#include <soniq/app.hpp>
+#include <soniq/ethernet.hpp>
 
 namespace snq = cycfi::soniq;
 

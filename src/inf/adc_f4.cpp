@@ -3,8 +3,8 @@
 
    Distributed under the MIT License [ https://opensource.org/licenses/MIT ]
 =============================================================================*/
-#include <inf/support.hpp>
-#include <inf/detail/adc_impl_f4.hpp>
+#include <soniq/support.hpp>
+#include <soniq/detail/adc_impl_f4.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
 // This implementation is for the STM32F4 series.
