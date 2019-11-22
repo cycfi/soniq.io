@@ -2,7 +2,7 @@ SET(CMAKE_SYSTEM_NAME Generic)
 SET(CMAKE_SYSTEM_VERSION 1)
 cmake_minimum_required(VERSION 3.7)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ###############################################################################
@@ -36,7 +36,7 @@ SET(COMMON_FLAGS
    "-mcpu=cortex-m7 ${FPU_FLAGS} -mthumb -mthumb-interwork -ffunction-sections -fdata-sections \
    -g -fno-common -fmessage-length=0 -specs=nosys.specs -specs=nano.specs")
 
-SET(CMAKE_CXX_FLAGS_INIT "${COMMON_FLAGS} -std=c++14")
+SET(CMAKE_CXX_FLAGS_INIT "${COMMON_FLAGS} -std=c++17")
 SET(CMAKE_C_FLAGS_INIT "${COMMON_FLAGS} -std=gnu99")
 SET(CMAKE_EXE_LINKER_FLAGS_INIT "-Wl,-gc-sections,--print-memory-usage -T ${LINKER_SCRIPT}")
 
@@ -107,12 +107,12 @@ if (DEFINED BLINKY_TEST)
 set(MAIN_FILE ../tests/blinky.cpp)
 endif()
 
-if (DEFINED TIMER_INTERRUPT_TEST)
-set(MAIN_FILE ../tests/timer_interrupt.cpp)
-endif()
-
 if (DEFINED BUTTON_TEST)
 set(MAIN_FILE ../tests/button_test.cpp)
+endif()
+
+if (DEFINED TIMER_INTERRUPT_TEST)
+set(MAIN_FILE ../tests/timer_interrupt.cpp)
 endif()
 
 if (DEFINED BUTTON_INTERRUPT_TEST)

@@ -7,12 +7,14 @@
 #define CYCFI_INFINITY_PIN_HPP_DECEMBER_20_2015
 
 #include <inf/support.hpp>
+#include <functional>
+#include <array>
 
 #if defined(STM32H7)
 # include <inf/detail/pin_impl_h7.hpp>
 #endif
 
-namespace cycfi { namespace infinity
+namespace cycfi::infinity
 {
    ////////////////////////////////////////////////////////////////////////////
    // Constants
@@ -47,6 +49,19 @@ namespace cycfi { namespace infinity
       open_drain = LL_GPIO_OUTPUT_OPENDRAIN
    };
 
+   enum class port_input_type
+   {
+      normal = LL_GPIO_PULL_NO,
+      pull_up = LL_GPIO_PULL_UP,
+      pull_down = LL_GPIO_PULL_DOWN
+   };
+
+   enum class port_edge
+   {
+      rising,
+      falling
+   };
+
    namespace port
    {
       auto constexpr low_speed = port_output_speed::low_speed;
@@ -56,6 +71,9 @@ namespace cycfi { namespace infinity
 
       auto constexpr push_pull = port_output_type::push_pull;
       auto constexpr open_drain = port_output_type::open_drain;
+
+      auto constexpr pull_up = port_input_type::pull_up;
+      auto constexpr pull_down = port_input_type::pull_down;
    }
 
    ////////////////////////////////////////////////////////////////////////////
@@ -109,7 +127,7 @@ namespace cycfi { namespace infinity
 
    ////////////////////////////////////////////////////////////////////////////
    template <uint32_t ID>
-   struct pin_descr
+   struct pin
    {
       constexpr static uint16_t  id = ID;
       constexpr static uint16_t  bit = ID % 16;
@@ -181,8 +199,45 @@ namespace cycfi { namespace infinity
 
    ////////////////////////////////////////////////////////////////////////////
    template <uint32_t ID>
-   struct input_pin : pin_descr<ID>
+   struct input_pin
    {
+      constexpr static uint16_t  id = ID;
+      constexpr static uint16_t  bit = ID % 16;
+      constexpr static uint16_t  port = ID / 16;
+      constexpr static uint32_t  mask = 1 << bit;
+
+      using self_type = input_pin;
+
+      GPIO_TypeDef& gpio() const
+      {
+         return detail::get_port<port>();
+      }
+
+      volatile auto& ref() const
+      {
+         return gpio().IDR;
+      }
+
+      bool state() const
+      {
+         return (ref() & mask) != 0;
+      }
+
+      operator bool() const
+      {
+         return state();
+      }
+
+      bool operator!() const
+      {
+         return !state();
+      }
+
+      template <typename F>
+      void on_rising_edge(F f, uint32_t priority = 0);
+
+      template <typename F>
+      void on_falling_edge(F f, uint32_t priority = 0);
    };
 
    ////////////////////////////////////////////////////////////////////////////
@@ -193,24 +248,86 @@ namespace cycfi { namespace infinity
        , port_output_speed speed
        , port_output_type type = port::push_pull
       >
-      inline auto out()
+      inline output_pin<ID> out()
       {
-         using descr = pin_descr<ID>;
+         using descr = pin<ID>;
          detail::init_output_pin<
-            uint32_t(descr::port)
-          , uint32_t(descr::mask)
+            descr::port
+          , descr::mask
           , uint32_t(speed)
           , uint32_t(type)
          >();
-         return output_pin<ID>{};
+
+         auto pin = output_pin<ID>{};
+         pin = port::off;
+         return pin;
       }
 
       template <uint32_t ID, port_output_type type = port::push_pull>
-      inline auto out()
+      inline output_pin<ID> out()
       {
          return out<ID, port::high_speed, type>();
       }
+
+      template <
+         uint32_t ID
+       , port_input_type type = port_input_type::normal
+      >
+      inline input_pin<ID> in()
+      {
+         using descr = pin<ID>;
+         detail::init_input_pin<
+            descr::port
+          , descr::mask
+          , uint32_t(type)
+         >();
+         return input_pin<ID>{};
+      }
    }
-}}
+
+   template <uint32_t ID, typename F>
+   inline void on_edge(input_pin<ID> pin, F f, bool rising, uint32_t priority = 0)
+   {
+      extern std::array<std::function<void()>, 16> _exti_handlers;
+      constexpr auto port = input_pin<ID>::port;
+      constexpr auto bit = input_pin<ID>::bit;
+
+      // If we already have an interrupt handler installed, we do not have
+      // to initialize the exti again.
+      if (!_exti_handlers[bit])
+         detail::enable_exti<port, bit>(priority);
+
+      // Install the interrupt handler
+      detail::stop_exti<port, bit>(rising);
+      _exti_handlers[bit] = f;
+      detail::start_exti<port, bit>(rising);
+   }
+
+   template <uint32_t ID, typename F>
+   inline void on_rising_edge(input_pin<ID> pin, F f, uint32_t priority = 0)
+   {
+      on_edge(pin, f, true, priority);
+   }
+
+   template <uint32_t ID, typename F>
+   inline void on_falling_edge(input_pin<ID> pin, F f, uint32_t priority = 0)
+   {
+      on_edge(pin, f, false, priority);
+   }
+
+   template <uint32_t ID>
+   template <typename F>
+   void input_pin<ID>::on_rising_edge(F f, uint32_t priority)
+   {
+      on_edge(*this, f, true, priority);
+   }
+
+   template <uint32_t ID>
+   template <typename F>
+   void input_pin<ID>::on_falling_edge(F f, uint32_t priority)
+   {
+      on_edge(*this, f, false, priority);
+   }
+}
 
 #endif

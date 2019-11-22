@@ -19,19 +19,19 @@ namespace cycfi { namespace infinity { namespace detail
 {
    ////////////////////////////////////////////////////////////////////////////
    // The ports: We provide template functions for getting the memory mapped
-   // ports given a constant N. That way, we can use generic programming.
+   // ports given a constant ID. That way, we can use generic programming.
    //
    // This implementation is for the STM32F4 series.
    ////////////////////////////////////////////////////////////////////////////
 
-   template <std::size_t port>
+   template <uint32_t port>
    GPIO_TypeDef& get_port();
 
-   template <std::size_t port>
+   template <uint32_t port>
    void enable_port_clock();
 
-   template <std::size_t const bit>
-   constexpr std::uint32_t exti_id()
+   template <uint32_t const bit>
+   constexpr uint32_t exti_id()
    {
       switch (bit)
       {
@@ -54,8 +54,8 @@ namespace cycfi { namespace infinity { namespace detail
       }
    }
 
-   template <std::size_t const bit>
-   constexpr std::uint32_t exti_src()
+   template <uint32_t const bit>
+   constexpr uint32_t exti_src()
    {
       switch (bit)
       {
@@ -75,80 +75,10 @@ namespace cycfi { namespace infinity { namespace detail
          case 13: return LL_EXTI_LINE_13;
          case 14: return LL_EXTI_LINE_14;
          case 15: return LL_EXTI_LINE_15;
-         case 16: return LL_EXTI_LINE_16;
-         case 17: return LL_EXTI_LINE_17;
-         case 18: return LL_EXTI_LINE_18;
-         case 19: return LL_EXTI_LINE_19;
-         case 20: return LL_EXTI_LINE_20;
-         case 21: return LL_EXTI_LINE_21;
-         case 22: return LL_EXTI_LINE_22;
-         case 23: return LL_EXTI_LINE_23;
-         case 24: return LL_EXTI_LINE_24;
-         case 25: return LL_EXTI_LINE_25;
-         case 26: return LL_EXTI_LINE_26;
-         case 27: return LL_EXTI_LINE_27;
-         case 28: return LL_EXTI_LINE_28;
-         case 29: return LL_EXTI_LINE_29;
-         case 30: return LL_EXTI_LINE_30;
-         case 31: return LL_EXTI_LINE_31;
-         case 32: return LL_EXTI_LINE_32;
-         case 33: return LL_EXTI_LINE_33;
-         case 34: return LL_EXTI_LINE_34;
-         case 35: return LL_EXTI_LINE_35;
-         case 36: return LL_EXTI_LINE_36;
-         case 37: return LL_EXTI_LINE_37;
-         case 38: return LL_EXTI_LINE_38;
-         case 39: return LL_EXTI_LINE_39;
-         case 40: return LL_EXTI_LINE_40;
-         case 41: return LL_EXTI_LINE_41;
-         case 42: return LL_EXTI_LINE_42;
-         case 43: return LL_EXTI_LINE_43;
-         case 44: return LL_EXTI_LINE_44;
-      // case 45: return LL_EXTI_LINE_45;
-         case 46: return LL_EXTI_LINE_46;
-         case 47: return LL_EXTI_LINE_47;
-         case 48: return LL_EXTI_LINE_48;
-         case 49: return LL_EXTI_LINE_49;
-         case 50: return LL_EXTI_LINE_50;
-         case 51: return LL_EXTI_LINE_51;
-         case 52: return LL_EXTI_LINE_52;
-         case 53: return LL_EXTI_LINE_53;
-         case 54: return LL_EXTI_LINE_54;
-         case 55: return LL_EXTI_LINE_55;
-         case 56: return LL_EXTI_LINE_56;
-         case 57: return LL_EXTI_LINE_57;
-         case 58: return LL_EXTI_LINE_58;
-         case 59: return LL_EXTI_LINE_59;
-         case 60: return LL_EXTI_LINE_60;
-         case 61: return LL_EXTI_LINE_61;
-         case 62: return LL_EXTI_LINE_62;
-         case 63: return LL_EXTI_LINE_63;
-         case 64: return LL_EXTI_LINE_64;
-         case 65: return LL_EXTI_LINE_65;
-         case 66: return LL_EXTI_LINE_66;
-         case 67: return LL_EXTI_LINE_67;
-         case 68: return LL_EXTI_LINE_68;
-         case 69: return LL_EXTI_LINE_69;
-         case 71: return LL_EXTI_LINE_71;
-         case 72: return LL_EXTI_LINE_72;
-         case 73: return LL_EXTI_LINE_73;
-         case 74: return LL_EXTI_LINE_74;
-         case 75: return LL_EXTI_LINE_75;
-         case 76: return LL_EXTI_LINE_76;
-         case 77: return LL_EXTI_LINE_77;
-         case 78: return LL_EXTI_LINE_78;
-         case 79: return LL_EXTI_LINE_79;
-      // case 81: return LL_EXTI_LINE_81;
-         case 82: return LL_EXTI_LINE_82;
-      // case 83: return LL_EXTI_LINE_83;
-         case 84: return LL_EXTI_LINE_84;
-         case 85: return LL_EXTI_LINE_85;
-         case 86: return LL_EXTI_LINE_86;
-         case 87: return LL_EXTI_LINE_87;
       }
    }
 
-   template <std::size_t const bit>
+   template <uint32_t const bit>
    constexpr IRQn_Type exti_irq()
    {
       switch (bit)
@@ -172,8 +102,8 @@ namespace cycfi { namespace infinity { namespace detail
       }
    }
 
-   template <std::size_t port>
-   std::size_t exti_port();
+   template <uint32_t port>
+   uint32_t exti_port();
 
 # define EnableClock(x) LL_AHB4_GRP1_EnableClock(x)
 # define PERIPH_GPIO(x) LL_AHB4_GRP1_PERIPH_GPIO##x
@@ -183,21 +113,21 @@ namespace cycfi { namespace infinity { namespace detail
       LL_APB4_GRP1_EnableClock(LL_APB4_GRP1_PERIPH_SYSCFG);
    }
 
-#define INFINITY_IOPORT(N, PORT_NAME)                                          \
+#define INFINITY_IOPORT(ID, PORT_NAME)                                         \
    template <>                                                                 \
-   inline void enable_port_clock<N>()                                          \
+   inline void enable_port_clock<ID>()                                         \
    {                                                                           \
       EnableClock(PERIPH_GPIO(PORT_NAME));                                     \
    }                                                                           \
                                                                                \
    template <>                                                                 \
-   inline GPIO_TypeDef& get_port<N>()                                          \
+   inline GPIO_TypeDef& get_port<ID>()                                         \
    {                                                                           \
       return *GPIO##PORT_NAME;                                                 \
    }                                                                           \
                                                                                \
    template <>                                                                 \
-   constexpr std::size_t exti_port<N>()                                        \
+   constexpr uint32_t exti_port<ID>()                                          \
    {                                                                           \
       return LL_SYSCFG_EXTI_PORT##PORT_NAME;                                   \
    }                                                                           \
@@ -238,10 +168,10 @@ namespace cycfi { namespace infinity { namespace detail
 #endif
 
    template <uint32_t port, uint32_t mask, uint32_t speed, uint32_t type>
-   void init_output_pin()
+   inline void init_output_pin()
    {
       // Enable GPIO peripheral clock
-      detail::enable_port_clock<port>();
+      enable_port_clock<port>();
 
       // Configure output mode
       LL_GPIO_SetPinMode(&get_port<port>(), mask, LL_GPIO_MODE_OUTPUT);
@@ -256,6 +186,50 @@ namespace cycfi { namespace infinity { namespace detail
       LL_GPIO_SetPinPull(&get_port<port>(), mask, LL_GPIO_PULL_NO);
    }
 
+   template <uint32_t port, uint32_t mask, uint32_t type>
+   inline void init_input_pin()
+   {
+      // Enable GPIO peripheral clock
+      enable_port_clock<port>();
+
+      // Configure input mode
+      LL_GPIO_SetPinMode(&get_port<port>(), mask, LL_GPIO_MODE_INPUT);
+
+      // Configure pull-up/down resistor
+      LL_GPIO_SetPinPull(&get_port<port>(), mask, type);
+   }
+
+   template <uint32_t port, uint32_t bit>
+   inline void enable_exti(uint32_t priority = 0)
+   {
+      // Connect External Line to the GPIO
+      enable_exti_clock();
+      LL_SYSCFG_SetEXTISource(exti_port<port>(), exti_id<bit>());
+
+      // Configure NVIC to handle external interrupt
+      NVIC_SetPriority(exti_irq<bit>(), priority);
+      NVIC_EnableIRQ(exti_irq<bit>());
+   }
+
+   template <uint32_t port, uint32_t bit>
+   inline void start_exti(bool rising)
+   {
+      LL_EXTI_EnableIT_0_31(exti_src<bit>());
+      if (rising)
+         LL_EXTI_EnableRisingTrig_0_31(exti_src<bit>());
+      else
+         LL_EXTI_EnableFallingTrig_0_31(exti_src<bit>());
+   }
+
+   template <uint32_t port, uint32_t bit>
+   inline void stop_exti(bool rising)
+   {
+      LL_EXTI_DisableIT_0_31(exti_src<port>());
+      if (rising)
+         LL_EXTI_DisableRisingTrig_0_31(exti_src<port>());
+      else
+         LL_EXTI_DisableFallingTrig_0_31(exti_src<port>());
+   }
 }}}
 
 #endif

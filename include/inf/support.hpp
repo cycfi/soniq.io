@@ -98,6 +98,20 @@ namespace cycfi { namespace infinity
       return true;
    }
 
+   template <uint32_t delay = 200 /* ms */>
+   struct debouncer
+   {
+      debouncer()
+       : _t(millis())
+      {}
+
+      bool operator()()
+      {
+         return debounce(_t, delay);
+      }
+      uint32_t _t;
+   };
+
    ////////////////////////////////////////////////////////////////////////////
    // Quick to_string implementation.
    //

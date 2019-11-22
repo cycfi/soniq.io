@@ -6,8 +6,6 @@
 #if !defined(CYCFI_INFINITY_APP_IMPL_HPP_JANUARY_1_2016)
 #define CYCFI_INFINITY_APP_IMPL_HPP_JANUARY_1_2016
 
-#include <inf/pin.hpp>
-
 namespace cycfi { namespace infinity
 {
    ////////////////////////////////////////////////////////////////////////////
@@ -17,17 +15,16 @@ namespace cycfi { namespace infinity
 
 #if defined(NUCLEO_H743ZI)
 
-//   // NUCLEO-H743ZI
-//   using main_led_type = output_pin<port::portb + 0>;
-//   using main_button_type = input_pin<port::portc + 13>;
-//   using main_test_pin_type = output_pin<port::porta + 15>;
-//
-//   using led1_type = output_pin<port::portb + 0>;
-//   using led2_type = output_pin<port::portb + 7>;
-//   using led3_type = output_pin<port::portb + 14>;
+   // NUCLEO-H743ZI
+   constexpr auto main_led = port::portb + 0;
+   constexpr auto main_button = port::portc + 13;
+   constexpr auto main_test_pin = port::porta + 15;
+
+   constexpr auto led1 = port::portb + 0;
+   constexpr auto led2 = port::portb + 7;
+   constexpr auto led3 = port::portb + 14;
 
 #endif
-
 
 }}
 

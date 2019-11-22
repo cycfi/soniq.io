@@ -6,6 +6,9 @@
 #if !defined(CYCFI_INFINITY_ADC_HPP_DECEMBER_31_2015)
 #define CYCFI_INFINITY_ADC_HPP_DECEMBER_31_2015
 
+/*
+
+
 #include <inf/detail/pin_impl.hpp>
 #include <inf/support.hpp>
 #include <inf/pin.hpp>
@@ -208,5 +211,7 @@ namespace cycfi { namespace infinity
       buffer_type _data;
    };
 }}
+
+*/
 
 #endif

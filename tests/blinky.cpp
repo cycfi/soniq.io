@@ -14,19 +14,17 @@
 
 namespace inf = cycfi::infinity;
 using namespace inf::port;
-using inf::delay_ms;
 
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
    inf::system_init();
 
-   auto led = out<portb + 0>();
+   auto led = out<inf::main_led>();
 
-   led = off;
    while (true)
    {
-      delay_ms(1000);
+      inf::delay_ms(1000);
       led = !led;    // toggle LED
    }
 }

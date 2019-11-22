@@ -6,6 +6,6 @@
 #if !defined(CYCFI_INFINITY_IRQ_HPP_DECEMBER_22_2015)
 #define CYCFI_INFINITY_IRQ_HPP_DECEMBER_22_2015
 
-#include <inf/detail/irq_impl.hpp>
+//#include <inf/detail/irq_impl.hpp>
 
 #endif

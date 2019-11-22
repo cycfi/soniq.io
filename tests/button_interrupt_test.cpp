@@ -21,41 +21,20 @@ namespace inf = cycfi::infinity;
 using namespace inf::port;
 
 ///////////////////////////////////////////////////////////////////////////////
-// Peripherals
-inf::main_led_type led;
-inf::main_button_type btn;
-
-///////////////////////////////////////////////////////////////////////////////
-// Our button task
-void button_task()
-{
-   // We debounce the button by ignoring fast transitions
-   // (edges spaced less than 200ms)
-
-   static std::uint32_t t = 0;
-   auto now = inf::millis();
-   if (now - t > 200)
-      led = !led; // Toggle the LED
-   t = now;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// Configuration
-auto config = inf::config(
-   led.setup(),
-   btn.setup(button_task, 10)
-);
-
-///////////////////////////////////////////////////////////////////////////////
 int main()
 {
    inf::system_init();
-   led = off;
+   auto led = out<inf::main_led>();
+   auto btn = in<inf::main_button>();
+   auto debounce = inf::debouncer<>{};
 
-   if (btn)
-      btn.start(falling_edge);   // call button_task on the falling edge
-   else
-      btn.start(rising_edge);    // call button_task on the rising edge
+   btn.on_rising_edge(
+      [&]
+      {
+         if (debounce())
+            led = !led; // Toggle the LED
+      }
+   );
 
    while (true)
    {

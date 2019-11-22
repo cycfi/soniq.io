@@ -16,30 +16,18 @@
 
 namespace inf = cycfi::infinity;
 using namespace inf::port;
-using inf::delay_ms;
-
-///////////////////////////////////////////////////////////////////////////////
-// Peripherals
-inf::main_led_type led;
-inf::main_button_type btn;
-
-///////////////////////////////////////////////////////////////////////////////
-// Configuration
-auto config = inf::config(
-   led.setup(),
-   btn.setup()
-);
 
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
    inf::system_init();
-   led = off;
 
-   // toggle LED
+   auto led = out<inf::main_led>();
+   auto btn = in<inf::main_button>();
+
    while (true)
    {
-      delay_ms(30);
+      inf::delay_ms(30);
       led = btn;
    }
 }
