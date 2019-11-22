@@ -162,6 +162,11 @@ namespace cycfi::infinity
          return (ref() & mask) != 0;
       }
 
+      operator bool() const
+      {
+         return state();
+      }
+
       inverse_type operator!() const
       {
          return { *this };
