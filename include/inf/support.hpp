@@ -9,6 +9,7 @@
 #include <type_traits>
 #include <cstdint>
 #include <cstring>
+#include <cmsis_os2.h>
 
 #if defined(STM32H743xx)
 # include <system_stm32h7xx.h>
@@ -74,7 +75,7 @@ namespace cycfi { namespace infinity
 	////////////////////////////////////////////////////////////////////////////
    inline void delay_ms(uint32_t ms)
    {
-	   LL_mDelay(ms);
+      osDelay(ms);
    }
 
    ////////////////////////////////////////////////////////////////////////////

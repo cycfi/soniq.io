@@ -2,30 +2,36 @@
 #include "cmsis_os.h"
 #include <inf/device.hpp>
 
-osThreadId_t defaultTaskHandle;
-void StartDefaultTask(void* argument)
+int main();
+
+void call_main(void* argument)
 {
-   for(;;)
-   {
-      osDelay(1);
-   }
+   if (main())
+      Error_Handler();
 }
 
-void InitRTOS()
+void start()
 {
+   SystemClock_Config();
+   MPU_Config();
+   CPU_Cache_Enable();
+   HAL_Init();
+
    osKernelInitialize();
 
-   // Create the thread(s)
-   // definition and creation of defaultTask
+   osThreadId_t main_task_handle;
    const osThreadAttr_t defaultTask_attributes = {
-      .name = "defaultTask",
+      .name = "main",
       .priority = (osPriority_t) osPriorityNormal,
-      .stack_size = 128
+      .stack_size = 4096
    };
-   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+   main_task_handle = osThreadNew(call_main, NULL, &defaultTask_attributes);
 
    // Start scheduler
    osKernelStart();
+
+   // We should never get here as control is now taken by the scheduler
+   Error_Handler();
 }
 
 /**
@@ -156,6 +162,9 @@ void MPU_Config(void)
 
 void Error_Handler()
 {
+   while (1)
+   {
+   }
 }
 
 #ifdef  USE_FULL_ASSERT

@@ -23,7 +23,6 @@ using namespace inf::port;
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
-   inf::system_init();
    auto led = out<inf::main_led>();
    auto btn = in<inf::main_button>();
    auto debounce = inf::debouncer<>{};

@@ -114,25 +114,29 @@ if (DEFINED BUTTON_TEST)
 set(MAIN_FILE ../tests/button_test.cpp)
 endif()
 
-if (DEFINED TIMER_INTERRUPT_TEST)
-set(MAIN_FILE ../tests/timer_interrupt.cpp)
-endif()
-
 if (DEFINED BUTTON_INTERRUPT_TEST)
 set(MAIN_FILE ../tests/button_interrupt_test.cpp)
 endif()
 
-if (DEFINED SSD1306_TEST)
-set(MAIN_FILE ../tests/ssd1306_test.cpp)
+if (DEFINED THREAD_TEST)
+set(MAIN_FILE ../tests/thread_test.cpp)
 endif()
 
-if (DEFINED ADC_TEST1)
-  set(MAIN_FILE ../tests/adc_test1.cpp)
-endif()
+# if (DEFINED TIMER_INTERRUPT_TEST)
+# set(MAIN_FILE ../tests/timer_interrupt.cpp)
+# endif()
 
-if (DEFINED UDP_ECHO_TEST)
-  set(MAIN_FILE ../tests/udp_echo.cpp)
-endif()
+# if (DEFINED SSD1306_TEST)
+# set(MAIN_FILE ../tests/ssd1306_test.cpp)
+# endif()
+
+# if (DEFINED ADC_TEST1)
+#   set(MAIN_FILE ../tests/adc_test1.cpp)
+# endif()
+
+# if (DEFINED UDP_ECHO_TEST)
+#   set(MAIN_FILE ../tests/udp_echo.cpp)
+# endif()
 
 ###############################################################################
 # executable

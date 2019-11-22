@@ -30,20 +30,20 @@
 
 namespace cycfi { namespace infinity
 {
-   inline void system_init()
-   {
-      static bool init = false;
-      if (!init)
-      {
-         init = true;
+   // inline void system_init() // $$$ JDG $$$
+   // {
+   //    static bool init = false;
+   //    if (!init)
+   //    {
+   //       init = true;
 
-         SystemClock_Config();
-         MPU_Config();
-         CPU_Cache_Enable();
-         HAL_Init();
-         InitRTOS();
-      }
-   }
+   //       SystemClock_Config();
+   //       MPU_Config();
+   //       CPU_Cache_Enable();
+   //       HAL_Init();
+   //       InitRTOS();
+   //    }
+   // }
 
    inline void error_handler()
    {
