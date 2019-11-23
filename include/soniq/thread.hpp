@@ -69,40 +69,98 @@ namespace cycfi::soniq
       reserved           = osPriorityReserved
    };
 
+   ////////////////////////////////////////////////////////////////////////////
+   // Threads
+   ////////////////////////////////////////////////////////////////////////////
    class thread
    {
    public:
 
-      template <typename F>
-      thread(
-         F&& f
-       , char const* name = nullptr
-       , std::size_t stack_size = 512
-       , thread_priority priority = thread_priority::normal
-      )
-       : _f(std::forward<F>(f))
-      {
-         osThreadAttr_t attr;
-         memset(&attr, 0, sizeof(attr));
-         attr.name = name;
-         attr.stack_size = stack_size;
-         attr.priority = osPriority_t(priority);
-         // attr.attr_bits = osThreadJoinable;
-         _id = osThreadNew(&call, this, &attr);
-      }
+      constexpr static auto default_stack_size = 512;
 
-      void join()
-      {
-         osThreadJoin(_id);
-      }
+                        template <typename F>
+                        thread(
+                           F&& f
+                         , char const* name = nullptr
+                         , std::size_t stack_size = default_stack_size
+                         , thread_priority priority = thread_priority::normal
+                        );
+
+                        thread(thread const&) = delete;
+
+      char const*       name() const;
+      void              priority(thread_priority priority);
+      thread_priority   priority() const;
+
+      void              suspend();
+      void              resume();
+      void              terminate();
+      static void       yield();
 
    private:
 
-      static void call(void* argument);
+      void              init(
+                           char const* name
+                         , std::size_t stack_size
+                         , thread_priority priority
+                        );
+      static void       call(void* argument);
 
-      std::function<void()>   _f;
-      osThreadId_t            _id;
+      using thread_function = std::function<void()>;
+
+      thread_function   _f;
+      osThreadId_t      _id;
    };
+
+   ////////////////////////////////////////////////////////////////////////////
+   // Inlines
+   ////////////////////////////////////////////////////////////////////////////
+   template <typename F>
+   inline thread::thread(
+      F&& f
+    , char const* name
+    , std::size_t stack_size
+    , thread_priority priority
+   )
+    : _f(std::forward<F>(f))
+   {
+      init(name, stack_size, priority);
+   }
+
+   inline char const* thread::name() const
+   {
+      return osThreadGetName(_id);
+   }
+
+   inline void thread::priority(thread_priority priority)
+   {
+      osThreadSetPriority(_id, osPriority_t(priority));
+   }
+
+   inline thread_priority thread::priority() const
+   {
+      return thread_priority(osThreadGetPriority(_id));
+   }
+
+   inline void thread::yield()
+   {
+      osThreadYield();
+   }
+
+   inline void thread::suspend()
+   {
+      osThreadSuspend(_id);
+   }
+
+   inline void thread::resume()
+   {
+      osThreadResume(_id);
+   }
+
+   inline void thread::terminate()
+   {
+      osThreadTerminate(_id);
+   }
 }
 
 #endif
