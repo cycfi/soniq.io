@@ -70,11 +70,9 @@ endif()
 add_subdirectory(${Q_LIB_ROOT} "${CMAKE_CURRENT_BINARY_DIR}/q")
 
 ###############################################################################
-# sources
+# Soniq sources
 
-file(GLOB_RECURSE SONIQ_SOURCES ../src/*.cpp)
-file(GLOB_RECURSE SOURCES "startup/*.*" "Middlewares/*.*" "Drivers/*.*" "Src/*.*" "Inc/*.*")
-
+file(GLOB_RECURSE SONIQ_SOURCES ../src/*.cpp "Src/*.*" "Inc/*.*")
 list(FILTER SONIQ_SOURCES EXCLUDE REGEX ".*f4.cpp")
 
 include_directories(
@@ -104,6 +102,15 @@ include_directories(
 )
 
 ###############################################################################
+# Drivers
+
+file(GLOB_RECURSE STM32_SOURCES "startup/*.*" "Middlewares/*.*" "Drivers/*.*")
+
+add_library(stm32_drivers STATIC
+   ${STM32_SOURCES}
+)
+
+###############################################################################
 # Tests
 
 function(add_test name)
@@ -113,11 +120,10 @@ function(add_test name)
       ${test_target}.elf
       ${SONIQ_SOURCES}
       ../tests/${name}.cpp
-      ${SOURCES}
       ${LINKER_SCRIPT}
    )
 
-   target_link_libraries(${test_target}.elf libq infra)
+   target_link_libraries(${test_target}.elf libq infra stm32_drivers)
 
    set(CMAKE_EXE_LINKER_FLAGS
       "${CMAKE_EXE_LINKER_FLAGS} -Wl,-Map=${PROJECT_BINARY_DIR}/${test_target}.map")
