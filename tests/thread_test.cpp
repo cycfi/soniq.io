@@ -23,7 +23,7 @@ int main()
    auto led2 = out<snq::led2>();
    auto led3 = out<snq::led3>();
 
-   auto f1 = snq::thread(
+   auto f1 = snq::thread{
       [&]
       {
          while (true)
@@ -32,9 +32,9 @@ int main()
             led1 = !led1;
          }
       }
-   );
+   };
 
-   auto f2 = snq::thread(
+   auto f2 = snq::thread{
       [&]
       {
          while (true)
@@ -43,7 +43,7 @@ int main()
             led2 = !led2;
          }
       }
-   );
+   };
 
    while (true)
    {
