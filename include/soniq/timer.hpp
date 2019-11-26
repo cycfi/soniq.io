@@ -8,22 +8,15 @@
 
 #include <soniq/pin.hpp>
 #include <soniq/support.hpp>
-#include <soniq/config.hpp>
 #include <soniq/detail/timer_impl.hpp>
 #include <soniq/device.hpp>
 
-#if defined(STM32H7)
-# include <stm32h7xx_ll_tim.h>
-#elif defined(STM32F4)
-# include <stm32f4xx_ll_tim.h>
-#endif
-
-namespace cycfi { namespace soniq
+namespace cycfi::soniq
 {
    ////////////////////////////////////////////////////////////////////////////
    // timer
    ////////////////////////////////////////////////////////////////////////////
-   template <std::size_t id_>
+   template <uint32_t id_>
    struct timer
    {
       using self_type = timer<id_>;
@@ -34,94 +27,34 @@ namespace cycfi { namespace soniq
       timer(timer const&) = delete;
       timer& operator=(timer const&) = delete;
 
-      void init(uint32_t clock_frequency, uint32_t frequency)
+      timer(uint32_t clock_frequency, uint32_t frequency)
       {
-         // system_init(); // $$$ JDG $$$
-
-         // Enable the timer peripheral clock
-         periph_enable();
-
-         // Set the pre-scaler value
-         uint32_t timer_clock = SystemCoreClock / detail::timer_clock_div<id>();
-         LL_TIM_SetPrescaler(get_timer(),
-            __LL_TIM_CALC_PSC(timer_clock, clock_frequency));
-
-         // Set the auto-reload value to have an initial update event frequency
-         auto autoreload = __LL_TIM_CALC_ARR(
-            timer_clock, LL_TIM_GetPrescaler(get_timer()), frequency);
-
-         LL_TIM_SetAutoReload(get_timer(), autoreload);
+         detail::init_timer<id>(clock_frequency, frequency);
       }
 
       void enable_interrupt(std::size_t priority = 0)
       {
-         static_assert(detail::timer_irqn<id>() != -1,
-            "Timer has no interrupt capability.");
-
-         // Enable the update interrupt
-         LL_TIM_EnableIT_UPDATE(get_timer());
-
-         // Configure the NVIC to handle timer update interrupt
-         NVIC_SetPriority(get_irqn(), priority);
-         NVIC_EnableIRQ(get_irqn());
+         detail::enable_timer_interrupt<id>(priority);
       }
 
       void start()
       {
-         // Enable counter
-         LL_TIM_EnableCounter(get_timer());
-
-         // Force update generation
-         LL_TIM_GenerateEvent_UPDATE(get_timer());
+         detail::start_timer<id>();
       }
 
       void stop()
       {
-         LL_TIM_DisableCounter(get_timer());
-      }
-
-      auto setup(
-         uint32_t clock_frequency, uint32_t frequency,
-         std::size_t priority = 0)
-      {
-         init(clock_frequency, frequency);
-         enable_interrupt();
-         return [](auto base)
-         {
-            return make_basic_config<self_type>(base);
-         };
+         detail::start_timer<id>();
       }
 
       template <typename F>
-      auto setup(
-         uint32_t clock_frequency, uint32_t frequency,
-         F task, std::size_t priority = 0)
+      auto on_trigger(F f, std::size_t priority = 0)
       {
-         init(clock_frequency, frequency);
-         enable_interrupt();
-         return [task](auto base)
-         {
-            return make_task_config<self_type>(base, task);
-         };
-      }
-
-   private:
-
-      static constexpr TIM_TypeDef* get_timer()
-      {
-         return &detail::get_timer<id>();
-      }
-
-      static constexpr IRQn_Type get_irqn()
-      {
-         return IRQn_Type(detail::timer_irqn<id>());
-      }
-
-      static void periph_enable()
-      {
-         detail::timer_periph_enable<id>();
+         extern std::array<std::function<void()>, 7> _timer_interrupt_handlers;
+         enable_interrupt(priority);
+         _timer_interrupt_handlers[id] = f;
       }
    };
-}}
+}
 
 #endif

@@ -8,7 +8,7 @@
 namespace cycfi::soniq
 {
    using exti_handler_array = std::array<std::function<void()>, 16>;
-   std::array<std::function<void()>, 16> _exti_handlers;
+   exti_handler_array _exti_handlers;
 }
 
 namespace cycfi::soniq::detail

@@ -149,6 +149,7 @@ endfunction()
 add_test(blinky)
 add_test(button_test)
 add_test(button_interrupt_test)
+add_test(timer_interrupt)
 add_test(thread_test)
 add_test(udp_echo_test)
 

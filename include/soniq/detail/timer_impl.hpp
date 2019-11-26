@@ -7,6 +7,7 @@
 #define CYCFI_INFINITY_TIMER_IMPL_HPP_DECEMBER_21_2015
 
 #include <cstdint>
+#include <stm32h7xx_ll_tim.h>
 
 namespace cycfi::soniq::detail
 {
@@ -165,6 +166,53 @@ namespace cycfi::soniq::detail
 #endif
 #endif
 
+   template <uint32_t id>
+   void init_timer(uint32_t clock_frequency, uint32_t frequency)
+   {
+      // Enable the timer peripheral clock
+      timer_periph_enable<id>();
+
+      // Set the pre-scaler value
+      uint32_t timer_clock = SystemCoreClock / timer_clock_div<id>();
+      LL_TIM_SetPrescaler(&get_timer<id>(),
+         __LL_TIM_CALC_PSC(timer_clock, clock_frequency));
+
+      // Set the auto-reload value to have an initial update event frequency
+      auto autoreload = __LL_TIM_CALC_ARR(
+         timer_clock, LL_TIM_GetPrescaler(&get_timer<id>()), frequency);
+
+      LL_TIM_SetAutoReload(&get_timer<id>(), autoreload);
+   }
+
+   template <uint32_t id>
+   void enable_timer_interrupt(std::size_t priority)
+   {
+      static_assert(timer_irqn<id>() != -1,
+         "Timer has no interrupt capability.");
+
+      // Enable the update interrupt
+      LL_TIM_EnableIT_UPDATE(&get_timer<id>());
+
+      // Configure the NVIC to handle timer update interrupt
+      NVIC_SetPriority(IRQn_Type(detail::timer_irqn<id>()), priority);
+      NVIC_EnableIRQ(IRQn_Type(detail::timer_irqn<id>()));
+   }
+
+   template <uint32_t id>
+   void start_timer()
+   {
+      // Enable counter
+      LL_TIM_EnableCounter(&get_timer<id>());
+
+      // Force update generation
+      LL_TIM_GenerateEvent_UPDATE(&get_timer<id>());
+   }
+
+   template <uint32_t id>
+   void stop_timer()
+   {
+      LL_TIM_DisableCounter(&get_timer<id>());
+   }
 }
 
 #endif

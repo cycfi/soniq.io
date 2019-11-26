@@ -5,7 +5,6 @@
 =============================================================================*/
 #include <soniq/timer.hpp>
 #include <soniq/pin.hpp>
-#include <soniq/config.hpp>
 #include <soniq/app.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -15,38 +14,22 @@
 
 namespace snq = cycfi::soniq;
 using namespace snq::port;
-
-///////////////////////////////////////////////////////////////////////////////
-// Peripherals
-inf::main_led_type led;
-inf::timer<3> tmr;
-
-///////////////////////////////////////////////////////////////////////////////
-// Our timer task
-void timer_task()
-{
-   led = !led;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// Configuration
 constexpr uint32_t base_freq = 10000;
-
-auto config = snq::config(
-   led.setup(),
-   tmr.setup(base_freq, 1, timer_task) // calls timer_task every 1Hz
-);
 
 ///////////////////////////////////////////////////////////////////////////////
 int main()
 {
-   snq::system_init();
+   auto led = out<snq::main_led>();
+   auto tmr = snq::timer<3>{ base_freq, 1 };
+
+   tmr.on_trigger(
+      [&]
+      {
+         led = !led;
+      }
+   );
 
    tmr.start();
-   led = on;
    while (true)
       ;
 }
-
-// The actual "C" interrupt handlers are defined here:
-#include <soniq/irq.hpp>
